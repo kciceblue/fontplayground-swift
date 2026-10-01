@@ -458,3 +458,16 @@ def test_release_signs_from_its_imported_keychain() -> None:
     assert 'BUILD_NUMBER_OFFSET: "100"' in workflow
     assert workflow.count('--build-number "$((GITHUB_RUN_NUMBER + BUILD_NUMBER_OFFSET))"') == 2
     assert '--build-number "$GITHUB_RUN_NUMBER"' not in workflow
+
+
+def test_scripts_have_no_bare_bracket_checks() -> None:
+    """macOS's bash 3.2 doesn't stop for a failed `[[ ]]` under `set -e`, so a check that is a whole statement passes
+    silently. release.sh's Gatekeeper and DMG checks were like that; every check must exit by itself."""
+    bare = re.compile(r"^\s*\[\[ .* \]\]\s*$")
+    offenders = [
+        f"{path.name}:{number}"
+        for path in sorted((ROOT / "scripts").glob("*.sh"))
+        for number, line in enumerate(path.read_text().splitlines(), 1)
+        if bare.match(line)
+    ]
+    assert not offenders
