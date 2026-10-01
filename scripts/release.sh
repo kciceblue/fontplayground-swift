@@ -3,6 +3,8 @@
 set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 cd "$ROOT"
+# macOS's bash 3.2 doesn't stop for a failed [[ ]] under set -e, so every check calls fail itself.
+fail() { echo "release: $1" >&2; exit 1; }
 adhoc=0
 identity=${MACOS_DEVELOPER_ID_IDENTITY:-}
 version=''
@@ -46,7 +48,7 @@ if [[ $adhoc -eq 0 ]]; then
   scripts/notarize.sh "$APP"
   assessment=$(spctl --assess --type execute --verbose=4 "$APP" 2>&1)
   echo "$assessment"
-  [[ "$assessment" == *accepted* && "$assessment" == *'source=Notarized Developer ID'* ]]
+  [[ "$assessment" == *accepted* && "$assessment" == *'source=Notarized Developer ID'* ]] || fail 'Gatekeeper did not accept the notarized app'
 fi
 DMG="dist/FontPlayground-$version-arm64.dmg"
 scripts/make-dmg.sh "$APP" "$DMG"
@@ -55,7 +57,7 @@ if [[ $adhoc -eq 0 ]]; then
   scripts/notarize.sh "$DMG"
   assessment=$(spctl --assess --type open --context context:primary-signature --verbose=4 "$DMG" 2>&1)
   echo "$assessment"
-  [[ "$assessment" == *accepted* && "$assessment" == *'source=Notarized Developer ID'* ]]
+  [[ "$assessment" == *accepted* && "$assessment" == *'source=Notarized Developer ID'* ]] || fail 'Gatekeeper did not accept the notarized DMG'
 fi
 scratch=$(mktemp -d)
 mounted=0
@@ -71,11 +73,11 @@ else
   hdiutil attach -nobrowse -readonly -noautoopen -mountpoint "$scratch/mnt" "$DMG"
 fi
 mounted=1
-[[ -d "$scratch/mnt/Font Playground.app" && -L "$scratch/mnt/Applications" ]]
-[[ $(readlink "$scratch/mnt/Applications") == /Applications ]]
+[[ -d "$scratch/mnt/Font Playground.app" && -L "$scratch/mnt/Applications" ]] || fail 'the DMG lacks Font Playground.app or the Applications link'
+[[ $(readlink "$scratch/mnt/Applications") == /Applications ]] || fail 'the DMG Applications link does not point to /Applications'
 # Filesystem metadata is not a user-visible payload item.
 count=$(find "$scratch/mnt" -mindepth 1 -maxdepth 1 ! -name '.*' | wc -l | tr -d ' ')
-[[ "$count" -eq 2 ]]
+[[ "$count" -eq 2 ]] || fail "the DMG holds $count items instead of 2"
 "$scratch/mnt/Font Playground.app/Contents/MacOS/Font Playground" --self-test --require-embedded-engine
 diskutil eject "$scratch/mnt" || hdiutil detach "$scratch/mnt"
 mounted=0

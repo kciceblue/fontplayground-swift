@@ -95,7 +95,10 @@ that all six secrets are set and names any that are missing. A `v*.*.*` tag
 additionally checks the tag version and creates a **draft** GitHub release, using
 `docs/release/notes/<tag>.md` as its description when that file exists (GitHub's
 generated list of merged pull requests otherwise). The build number is the
-workflow's run number. Actions are pinned to full commit hashes. The temporary
+workflow's run number plus 100, above the 1.0.0 candidates (builds 1–4) built
+from the private development repository. The signing step names its temporary
+keychain (`CODESIGN_KEYCHAIN`), because a fleet job's fresh `HOME` keeps no
+keychain search list. Actions are pinned to full commit hashes. The temporary
 keychain, private-key files, and original keychain search list are cleaned up
 even after failure. A billing-blocked workflow is pending, not passing.
 

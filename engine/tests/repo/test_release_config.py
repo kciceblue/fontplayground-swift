@@ -443,3 +443,31 @@ def test_release_keychain_steps_handle_an_empty_search_list(tmp_path: Path, befo
     calls = log.read_text().splitlines()
     assert f"list-keychains -d user -s {temp}/release.keychain-db{found}" in calls
     assert calls[-1] == f"list-keychains -d user -s{found}"
+
+
+def test_release_signs_from_its_imported_keychain() -> None:
+    """The second v1.0.0 tag run imported the identity, then codesign found none by name: a fleet job's fresh HOME
+    keeps no keychain search list. The signing step names the imported keychain instead."""
+    workflow = (ROOT / ".github/workflows/release.yml").read_text()
+    imported = re.search(
+        r'^keychain="([^"]+)"$', _step_script(workflow, "Import Developer ID certificate and notary key"), re.M
+    )
+    assert imported and f'export CODESIGN_KEYCHAIN="{imported[1]}"' in _step_script(workflow, "Build notarized release")
+    assert 'keychain=(--keychain "$CODESIGN_KEYCHAIN")' in (ROOT / "scripts/codesign-retry.sh").read_text()
+    # Public build numbers stay above the private repository's 1.0.0 candidates, builds 1-4.
+    assert 'BUILD_NUMBER_OFFSET: "100"' in workflow
+    assert workflow.count('--build-number "$((GITHUB_RUN_NUMBER + BUILD_NUMBER_OFFSET))"') == 2
+    assert '--build-number "$GITHUB_RUN_NUMBER"' not in workflow
+
+
+def test_scripts_have_no_bare_bracket_checks() -> None:
+    """macOS's bash 3.2 doesn't stop for a failed `[[ ]]` under `set -e`, so a check that is a whole statement passes
+    silently. release.sh's Gatekeeper and DMG checks were like that; every check must exit by itself."""
+    bare = re.compile(r"^\s*\[\[ .* \]\]\s*$")
+    offenders = [
+        f"{path.name}:{number}"
+        for path in sorted((ROOT / "scripts").glob("*.sh"))
+        for number, line in enumerate(path.read_text().splitlines(), 1)
+        if bare.match(line)
+    ]
+    assert not offenders
