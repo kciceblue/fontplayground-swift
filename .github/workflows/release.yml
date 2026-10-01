@@ -18,6 +18,9 @@ permissions:
 env:
   UV_PYTHON: "3.12"
   SWIFT_TEST_FLAGS: --no-parallel
+  # This repository's run numbers restarted at 1, and the signed-off 1.0.0 candidates were builds 1-4 in the
+  # private development repository. Public builds start above both.
+  BUILD_NUMBER_OFFSET: "100"
 
 jobs:
   release:
@@ -103,12 +106,14 @@ jobs:
           NOTARY_ISSUER_ID: ${{ secrets.NOTARY_API_ISSUER_ID }}
         run: |
           export NOTARY_KEY_PATH="$RUNNER_TEMP/notary.p8"
+          # Sign from the imported keychain by path: the job's fresh HOME has no keychain search list.
+          export CODESIGN_KEYCHAIN="$RUNNER_TEMP/release.keychain-db"
           version=()
           if [[ "$GITHUB_EVENT_NAME" == push && "$GITHUB_REF_TYPE" == tag ]]; then version=(--version "${GITHUB_REF_NAME#v}"); fi
-          scripts/release.sh --identity "$MACOS_DEVELOPER_ID_IDENTITY" "${version[@]}" --build-number "$GITHUB_RUN_NUMBER"
+          scripts/release.sh --identity "$MACOS_DEVELOPER_ID_IDENTITY" "${version[@]}" --build-number "$((GITHUB_RUN_NUMBER + BUILD_NUMBER_OFFSET))"
       - name: Build ad-hoc dry run
         if: ${{ github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.adhoc) }}
-        run: scripts/release.sh --adhoc --build-number "$GITHUB_RUN_NUMBER"
+        run: scripts/release.sh --adhoc --build-number "$((GITHUB_RUN_NUMBER + BUILD_NUMBER_OFFSET))"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: FontPlayground-arm64
