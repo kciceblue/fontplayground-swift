@@ -407,3 +407,39 @@ else:
         assert result.returncode != 0
         assert "check-bundle: Developer ID and timestamp FAIL" in result.stdout
         assert "check-bundle: 1 problems" in result.stdout
+
+
+def _step_script(workflow: str, name: str) -> str:
+    """The `run: |` body of the workflow step called `name`, dedented."""
+    step = workflow.split(f"- name: {name}\n", 1)[1].split("\n      - ", 1)[0]
+    lines = step.split("run: |\n", 1)[1].splitlines()
+    indent = len(lines[0]) - len(lines[0].lstrip())
+    return "\n".join(line[indent:] for line in lines) + "\n"
+
+
+@pytest.mark.parametrize("before", ["", '    "/Users/ci/Library/Keychains/login.keychain-db"\n'])
+def test_release_keychain_steps_handle_an_empty_search_list(tmp_path: Path, before: str) -> None:
+    """The v1.0.0 tag run failed here: a fleet job's fresh HOME has no user keychains, and macOS's bash 3.2 calls an
+    empty "${existing[@]}" unbound under `set -u`. Both steps must restore exactly the list they found."""
+    workflow = (ROOT / ".github/workflows/release.yml").read_text()
+    fake_bin, temp, log = tmp_path / "bin", tmp_path / "runner", tmp_path / "security.log"
+    fake_bin.mkdir()
+    temp.mkdir()
+    (fake_bin / "security").write_text(
+        f'#!/bin/bash\n[[ "$*" == "list-keychains -d user" ]] && printf %s "$BEFORE"\necho "$*" >> "{log}"\n'
+    )
+    (fake_bin / "openssl").write_text("#!/bin/bash\necho not-a-real-password\n")
+    for tool in fake_bin.iterdir():
+        tool.chmod(0o755)
+    env = {"PATH": f"{fake_bin}:/usr/bin:/bin", "RUNNER_TEMP": str(temp), "BEFORE": before}
+    secrets = ["MACOS_DEVELOPER_ID_P12_BASE64", "MACOS_DEVELOPER_ID_P12_PASSWORD", "NOTARY_API_KEY_P8_BASE64"]
+    env |= dict.fromkeys(secrets, "")
+    found = " /Users/ci/Library/Keychains/login.keychain-db" if before else ""
+    for name in ("Import Developer ID certificate and notary key", "Remove release credentials"):
+        result = subprocess.run(
+            ["/bin/bash", "-e", "-c", _step_script(workflow, name)], env=env, capture_output=True, text=True
+        )
+        assert result.returncode == 0, (name, result.stderr)
+    calls = log.read_text().splitlines()
+    assert f"list-keychains -d user -s {temp}/release.keychain-db{found}" in calls
+    assert calls[-1] == f"list-keychains -d user -s{found}"

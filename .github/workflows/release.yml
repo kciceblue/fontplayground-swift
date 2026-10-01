@@ -90,7 +90,9 @@ jobs:
             line="${line#*\"}"; line="${line%\"*}"
             existing+=("$line")
           done < "$RUNNER_TEMP/keychains-before.txt"
-          security list-keychains -d user -s "$keychain" "${existing[@]}"
+          # A fleet job's fresh HOME has no user keychains. macOS's bash 3.2 calls an empty "${existing[@]}" unbound
+          # under `set -u`, so expand it only when it has items.
+          security list-keychains -d user -s "$keychain" ${existing[@]+"${existing[@]}"}
           rm -f "$RUNNER_TEMP/release.p12"
           printf '%s' "$NOTARY_API_KEY_P8_BASE64" | base64 --decode > "$RUNNER_TEMP/notary.p8"
       - name: Build notarized release
@@ -131,7 +133,7 @@ jobs:
               line="${line#*\"}"; line="${line%\"*}"
               existing+=("$line")
             done < "$RUNNER_TEMP/keychains-before.txt"
-            security list-keychains -d user -s "${existing[@]}"
+            security list-keychains -d user -s ${existing[@]+"${existing[@]}"}
           fi
           if [[ -f "$RUNNER_TEMP/release.keychain-db" ]]; then security delete-keychain "$RUNNER_TEMP/release.keychain-db"; fi
           rm -f "$RUNNER_TEMP/notary.p8" "$RUNNER_TEMP/release.p12" "$RUNNER_TEMP/keychains-before.txt"
