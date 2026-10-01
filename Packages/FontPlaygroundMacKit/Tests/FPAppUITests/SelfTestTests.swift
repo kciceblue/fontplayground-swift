@@ -195,7 +195,9 @@ struct SelfTestTests {
         let started = ContinuousClock.now
         let result = await test.run(options: .init(timeout: .milliseconds(200)), dependencies: dependencies)
         #expect(gate.entered && !gate.returned)
-        #expect(result.exitCode == 4 && started.duration(to: .now) < .seconds(2))
+        // The 200 ms timeout plus the 1.5 s cleanup grace takes about 1.7 s; the ordinary 5 s cleanup budget would
+        // take over 5.2 s. Four seconds tells them apart with room for the Mac mini's coarse timers (testing.md).
+        #expect(result.exitCode == 4 && started.duration(to: .now) < .seconds(4))
         let cleanup = try #require(try test.output.objects().first { $0["step"] as? String == "cleanup" })
         #expect(cleanup["ok"] as? Bool == false)
         #expect(cleanup["error"] as? String == "cleanup budget exceeded")
