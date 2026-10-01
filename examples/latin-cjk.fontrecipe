@@ -1,0 +1,18 @@
+{
+  "format": "fontrecipe",
+  "version": 1,
+  "materials": [
+    {"face": {"postscript_name": "HelveticaNeue", "family": "Helvetica Neue", "style": "Regular",
+              "path": "/System/Library/Fonts/HelveticaNeue.ttc", "index": 0},
+     "weight": null, "scale": null},
+    {"face": {"postscript_name": "PingFangSC-Regular", "family": "PingFang SC", "style": "Regular",
+              "path": "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/0000000000000000000000000000000000000000.asset/AssetData/PingFang.ttc",
+              "index": 3},
+     "weight": null, "scale": null}
+  ],
+  "main": 0,
+  "rules": {"han": 1, "cjk_symbols": 1},
+  "defaults": {"weight": null, "scale": 1.0},
+  "names": {"family": "Helvetica Neue PingFang SC", "style": "Regular", "family_edited": false, "style_edited": false},
+  "sample_text": "The quick brown fox jumps over the lazy dog 0123456789\n你好，世界！欢迎使用字体游乐场。"
+}

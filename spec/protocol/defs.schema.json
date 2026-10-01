@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/defs.schema.json",
+  "title": "fpengine protocol v1: shared definitions",
+  "description": "Normative. Building blocks referenced by the other protocol schemas. The .invalid host is an identifier only and is never fetched. Owner: docs/specs/helper.md (WP-201).",
+  "$defs": {
+    "protocol_version": {
+      "description": "The protocol version carried by every event. v1 is the only version.",
+      "const": 1
+    },
+    "abs_path": {
+      "description": "An absolute, standardised POSIX path as given by the discovering component (contracts.md section 2). Symlinks are not resolved and the helper never rewrites it. No '..' segments.",
+      "type": "string",
+      "minLength": 2,
+      "pattern": "^/",
+      "not": { "pattern": "(^|/)\\.\\.(/|$)" }
+    },
+    "group_id": {
+      "description": "Script group id, in the fixed GROUPS order (contracts.md section 1).",
+      "enum": [
+        "latin", "greek", "cyrillic", "armenian_georgian", "hebrew", "arabic", "indic", "southeast_asian",
+        "hangul", "kana", "han", "cjk_symbols", "symbols", "emoji", "other"
+      ]
+    },
+    "script_tag": {
+      "description": "An OpenType ScriptList tag exactly as stored in the font (4 printable ASCII characters, e.g. 'latn', 'DFLT', 'dev2').",
+      "type": "string",
+      "pattern": "^[\\x20-\\x7E]{4}$"
+    },
+    "codepoint": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1114111
+    },
+    "ranges": {
+      "description": "A code-point set as sorted, non-overlapping, non-adjacent inclusive ranges [[start, end], ...] (catalog/cache.py:_ranges). Sortedness and disjointness are checked by the protocol tests, not by this schema.",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [ { "$ref": "#/$defs/codepoint" }, { "$ref": "#/$defs/codepoint" } ],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "non_negative_int": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "outline": {
+      "enum": [ "glyf", "CFF", "CFF2", "none" ]
+    },
+    "embedding": {
+      "description": "OS/2 fsType as the original app's labels (catalog/face.py:_embedding).",
+      "enum": [ "installable", "editable", "preview-print", "restricted" ]
+    },
+    "licence_class": {
+      "description": "ADR-0012 licence class.",
+      "enum": [ "open", "apple-sla", "microsoft-product", "unknown" ]
+    },
+    "stage": {
+      "description": "Progress stage. Forge: validate, plan, prepare, merge, finish, verify, done (contracts.md section 5). Scan: scan.",
+      "enum": [ "validate", "plan", "prepare", "merge", "finish", "verify", "done", "scan" ]
+    },
+    "error_stage": {
+      "description": "The stage an error event is attributed to; null when the request itself was rejected.",
+      "anyOf": [
+        { "enum": [ "validate", "plan", "prepare", "merge", "finish", "verify", "scan" ] },
+        { "type": "null" }
+      ]
+    },
+    "error_code": {
+      "description": "Error codes of the terminal error event (contracts.md section 5).",
+      "enum": [
+        "bad_request", "validate", "stale_material", "unsupported_font", "aat_unsupported_script", "glyph_limit",
+        "prepare_failed", "merge_failed", "finish_failed", "verify_failed", "io_error", "internal"
+      ]
+    },
+    "file_error_code": {
+      "description": "Per-file scan error codes (non-terminal file_error event). not_found: the path does not exist; io_error: it exists but cannot be read (permissions, not a regular file, I/O failure); unreadable: it was read but is not a font fontTools can parse; internal: an unexpected failure while reading it.",
+      "enum": [ "not_found", "io_error", "unreadable", "internal" ]
+    }
+  }
+}

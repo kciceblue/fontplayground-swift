@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/event.schema.json",
+  "title": "fpengine event (one stdout line)",
+  "description": "Normative. Every line the helper writes to stdout is one JSON object matching this schema, UTF-8, terminated by a single '\\n'. Each run ends with exactly one terminal event (`result` or `error`) unless the process was cancelled or killed. ADR-0003, contracts.md section 5, docs/specs/helper.md.",
+  "type": "object",
+  "required": [ "protocol", "type" ],
+  "properties": {
+    "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+    "type": { "enum": [ "hello", "progress", "face", "file_error", "result", "error" ] }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "hello" } } }, "then": { "$ref": "hello.schema.json" } },
+    { "if": { "properties": { "type": { "const": "progress" } } }, "then": { "$ref": "#/$defs/progress" } },
+    { "if": { "properties": { "type": { "const": "face" } } }, "then": { "$ref": "#/$defs/face" } },
+    { "if": { "properties": { "type": { "const": "file_error" } } }, "then": { "$ref": "#/$defs/file_error" } },
+    { "if": { "properties": { "type": { "const": "result" } } }, "then": { "$ref": "#/$defs/result" } },
+    { "if": { "properties": { "type": { "const": "error" } } }, "then": { "$ref": "#/$defs/error" } }
+  ],
+  "$defs": {
+    "progress": {
+      "description": "Non-terminal. Forge: stage in validate..done, with material_index during prepare. Scan: stage 'scan' with done/total files.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "protocol", "type", "stage", "fraction" ],
+      "properties": {
+        "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+        "type": { "const": "progress" },
+        "stage": { "$ref": "defs.schema.json#/$defs/stage" },
+        "fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+        "material_index": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+        "done": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+        "total": { "$ref": "defs.schema.json#/$defs/non_negative_int" }
+      },
+      "allOf": [
+        { "if": { "properties": { "stage": { "const": "prepare" } } }, "then": { "required": [ "material_index" ] } },
+        { "if": { "properties": { "stage": { "const": "scan" } } }, "then": { "required": [ "done", "total" ] } }
+      ]
+    },
+    "face": {
+      "description": "Non-terminal, scan only: one face of a requested file.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "protocol", "type", "face" ],
+      "properties": {
+        "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+        "type": { "const": "face" },
+        "face": { "$ref": "face-record.schema.json" }
+      }
+    },
+    "file_error": {
+      "description": "Non-terminal, scan only: a requested file that could not be read. The scan goes on.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "protocol", "type", "path", "code", "message" ],
+      "properties": {
+        "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+        "type": { "const": "file_error" },
+        "path": { "$ref": "defs.schema.json#/$defs/abs_path" },
+        "code": { "$ref": "defs.schema.json#/$defs/file_error_code" },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    },
+    "scan_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "files", "faces", "file_errors", "duplicates" ],
+      "properties": {
+        "files": { "description": "Distinct paths processed.", "$ref": "defs.schema.json#/$defs/non_negative_int" },
+        "faces": { "description": "face events sent.", "$ref": "defs.schema.json#/$defs/non_negative_int" },
+        "file_errors": { "description": "file_error events sent.", "$ref": "defs.schema.json#/$defs/non_negative_int" },
+        "duplicates": { "description": "Request entries skipped because the same path came earlier.", "$ref": "defs.schema.json#/$defs/non_negative_int" }
+      }
+    },
+    "result": {
+      "description": "Terminal, success. The payload depends on the command.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "protocol", "type", "command" ],
+          "properties": {
+            "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+            "type": { "const": "result" },
+            "command": { "const": "hello" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "protocol", "type", "command", "summary" ],
+          "properties": {
+            "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+            "type": { "const": "result" },
+            "command": { "const": "scan" },
+            "summary": { "$ref": "#/$defs/scan_summary" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "protocol", "type", "command", "report" ],
+          "properties": {
+            "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+            "type": { "const": "result" },
+            "command": { "const": "forge" },
+            "report": { "$ref": "forge-report.schema.json" }
+          }
+        }
+      ]
+    },
+    "error": {
+      "description": "Terminal, failure. `message` is plain language and may be shown; `detail` (a traceback) is for logs only.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "protocol", "type", "code", "stage", "material_index", "message", "detail" ],
+      "properties": {
+        "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+        "type": { "const": "error" },
+        "code": { "$ref": "defs.schema.json#/$defs/error_code" },
+        "stage": { "$ref": "defs.schema.json#/$defs/error_stage" },
+        "material_index": { "type": [ "integer", "null" ], "minimum": 0 },
+        "message": { "type": "string", "minLength": 1 },
+        "detail": { "type": [ "string", "null" ] }
+      }
+    }
+  }
+}

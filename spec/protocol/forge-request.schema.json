@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/forge-request.schema.json",
+  "title": "ForgeRequest (stdin of `python -m fpengine forge`)",
+  "description": "Normative. contracts.md section 4. This schema checks structure only: a request that does not match it is answered with bad_request. Value ranges (weight 1..1000, scale 0.1..10, base_index and rule indexes in range, non-empty names) are checked by the engine's ForgeSpec.validate() and answered with `validate`. Unknown keys are ignored; missing optional keys take the defaults given here (reference engine/spec.py:24-31).",
+  "type": "object",
+  "required": [ "spec", "output_path" ],
+  "properties": {
+    "spec": {
+      "type": "object",
+      "required": [ "materials" ],
+      "properties": {
+        "materials": {
+          "description": "Priority order; index 0 is the highest priority.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [ "path", "index" ],
+            "properties": {
+              "path": { "$ref": "defs.schema.json#/$defs/abs_path" },
+              "index": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+              "weight": { "description": "Default null: use default_weight.", "type": [ "integer", "null" ] },
+              "scale": { "description": "Default null: use default_scale.", "type": [ "number", "null" ] },
+              "expect": {
+                "description": "What the caller scanned. When present and the file's size, mtime (|delta| > 1e-3 s) or PostScript name differ, the forge fails with stale_material.",
+                "type": "object",
+                "required": [ "postscript_name", "size", "mtime" ],
+                "properties": {
+                  "postscript_name": { "type": [ "string", "null" ] },
+                  "size": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+                  "mtime": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "base_index": { "description": "The main font. Default 0.", "type": "integer" },
+        "script_rules": {
+          "description": "Group id -> material index, or null for no rule. Default {}.",
+          "type": "object",
+          "propertyNames": { "$ref": "defs.schema.json#/$defs/group_id" },
+          "additionalProperties": { "type": [ "integer", "null" ] }
+        },
+        "default_weight": { "description": "Default null (as is).", "type": [ "integer", "null" ] },
+        "default_scale": { "description": "Default 1.0.", "type": "number" },
+        "family_name": { "description": "Default 'Forged'.", "type": "string" },
+        "style_name": { "description": "Default 'Regular'.", "type": "string" }
+      }
+    },
+    "output_path": {
+      "description": "Where the finished font goes. It is written atomically: the file appears only when the forge succeeds.",
+      "$ref": "defs.schema.json#/$defs/abs_path"
+    }
+  }
+}

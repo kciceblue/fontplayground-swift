@@ -1,0 +1,2 @@
+{"protocol":1,"type":"hello","fpengine_version":"0.1.0","python":"3.12.14","fonttools":"4.66.0","unicode_version":"18.0.0","platform":"darwin-arm64","capabilities":["hello","scan","forge","forge.expect"],"face_reader_version":4}
+{"protocol":1,"type":"result","command":"hello"}

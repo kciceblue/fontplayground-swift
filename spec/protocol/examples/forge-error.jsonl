@@ -1,0 +1,2 @@
+{"protocol":1,"type":"progress","stage":"validate","fraction":0.0}
+{"protocol":1,"type":"error","code":"stale_material","stage":"validate","material_index":1,"message":"/fonts/FixtureCJK-Regular.otf changed since it was scanned (size 81349 → 81348).","detail":null}

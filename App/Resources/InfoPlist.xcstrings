@@ -1,0 +1,135 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleName": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭"
+          }
+        }
+      }
+    },
+    "CFBundleDisplayName": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭"
+          }
+        }
+      }
+    },
+    "NSDocumentsFolderUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground reads fonts in folders you add and saves fonts where you choose."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会读取你添加的文件夹中的字体，并将字体存储到你选择的位置。"
+          }
+        }
+      }
+    },
+    "NSDesktopFolderUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground reads fonts in folders you add and saves fonts where you choose."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会读取你添加的文件夹中的字体，并将字体存储到你选择的位置。"
+          }
+        }
+      }
+    },
+    "NSDownloadsFolderUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground reads fonts in folders you add and saves fonts where you choose."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会读取你添加的文件夹中的字体，并将字体存储到你选择的位置。"
+          }
+        }
+      }
+    },
+    "NSRemovableVolumesUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground reads fonts in folders you add and saves fonts where you choose."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会读取你添加的文件夹中的字体，并将字体存储到你选择的位置。"
+          }
+        }
+      }
+    },
+    "NSNetworkVolumesUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground reads fonts in folders you add and saves fonts where you choose."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会读取你添加的文件夹中的字体，并将字体存储到你选择的位置。"
+          }
+        }
+      }
+    },
+    "FPDonateURL": {
+      "comment": "The page Font Playground › Donate… opens (decisions.md D33). Simplified Chinese goes to Afdian (爱发电).",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://buymeacoffee.com/kciceblue"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://afdian.com/a/kciceblue"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

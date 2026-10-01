@@ -1,0 +1,57 @@
+name: Bug report / 问题报告
+description: Something in Font Playground doesn't work as expected. / 字体混搭的某项功能未按预期工作。
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please don't attach font files you aren't allowed to share, such as fonts bundled with macOS or Microsoft products. Their names are enough.
+
+        请不要附上你无权分享的字体文件（例如随 macOS 或 Microsoft 产品附带的字体），写出字体名称即可。
+  - type: input
+    id: version
+    attributes:
+      label: Font Playground version / 字体混搭版本
+      description: Font Playground › About Font Playground / 字体混搭 › 关于字体混搭
+      placeholder: 1.0.0 (25)
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version / macOS 版本
+      description: Apple menu › About This Mac / 苹果菜单 › 关于本机
+      placeholder: macOS 27.0.1
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: App language / 应用语言
+      options:
+        - English
+        - 简体中文
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 重现步骤
+      description: Name the fonts in your recipe and the text you typed. / 请写出方案中的字体和你输入的文字。
+      placeholder: |
+        1. Choose Georgia as the main font.
+        2. Add PingFang SC for Chinese.
+        3. Click Install.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What you expected, and what happened / 预期结果与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Build report or screenshots / 生成报告或截图
+      description: Optional. Advanced (⌥⌘I) shows the last build's report, which you can select and copy. / 可选。“高级”（⌥⌘I）会显示上次生成的报告，可以选中并拷贝。

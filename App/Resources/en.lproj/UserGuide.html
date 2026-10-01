@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Font Playground Help</title>
+<style>
+html { color-scheme: light dark; } body { font: -apple-system-body; line-height: 1.6; max-width: 52rem; margin: auto; padding: 2rem; color: #222; background: #fff; } h1,h2 { line-height: 1.25; } h2 { margin-top: 2rem; } code { font-size: .92em; overflow-wrap: anywhere; } li { margin: .8rem 0; } @media (prefers-color-scheme: dark) { body { color: #eee; background: #1c1c1e; } }
+</style></head><body><h1>Font Playground Help</h1>
+<p>Font Playground combines fonts on your Mac into one font. Choose a main font for letters and numbers, add fonts for other languages, and see which font draws each character. Then install the result or save it as a <code>.ttf</code> file.</p>
+<section><h2>Install</h2>
+<p>Download <code>FontPlayground-&lt;version&gt;-arm64.dmg</code> from the project&#x27;s GitHub Releases page, open it, and drag Font Playground to Applications. Python and the font engine are included, so there is nothing else to install. Font Playground needs a Mac with Apple silicon and macOS 14 Sonoma or later.</p>
+<p>Releases are signed with a Developer ID and notarized by Apple. A DMG you build yourself from source is ad-hoc signed and not notarized.</p>
+</section>
+<section><h2>Using Font Playground</h2>
+<p>Everything happens in one window. The recipe on the left lists the fonts your font is made of, from top to bottom. The preview on the right draws your text exactly as the result will; click it and type.</p>
+<ol><li>Click <strong>Choose Main Font…</strong> and pick a font for letters and numbers. The main font also sets the line spacing. In the picker, search by English or native name, press ↑ or ↓ to try a font in the preview, press Return to choose it, or press Esc to go back. ⌘F also opens the picker.</li><li>When your text has characters the main font can&#x27;t draw, the recipe offers a button such as “Choose a font for Chinese…”. To add a font for another language yourself, click “Add a font for another language…”. A font added for a language draws that language, even where a font above it could. Adjust the Size and Weight of added fonts so they sit well with the main font. <strong>Colour by Font</strong> tints each character by the font that draws it. Characters no font can draw are listed under the preview, with a button to find a font for them.</li><li>Name the result and click <strong>Install</strong>. Font Playground builds the font and installs it for your user account only, in your Fonts folder (<code>~/Library/Fonts</code>). The preview then switches to the built font. After you change the recipe, click <strong>Update Installed Font</strong>. <strong>Save a Copy…</strong> saves a <code>.ttf</code> file where you choose, and <strong>Show in Finder</strong> shows the result in Finder. Font Playground never installs over a font that&#x27;s already on your Mac, and it asks before replacing a font it installed earlier.</li><li>To use fonts that aren&#x27;t installed, choose <strong>Add Font Folder…</strong>. After you add or remove fonts, choose <strong>Rescan Fonts</strong>. <strong>Start Over</strong> clears the recipe after asking you. In <strong>Settings…</strong> (⌘,), Appearance sets Light, Dark or System, and Language switches the app between English and 简体中文 (Simplified Chinese). Font Playground offers to reopen to apply the new language.</li></ol>
+<p><strong>Show Advanced</strong> (⌥⌘I) opens a panel where you can see and change which font draws each script, choose which font sets the line spacing, set the default weight and size, and read the last build&#x27;s report. You can cancel a build while it runs. Pressing Return in the name field doesn&#x27;t start a build.</p>
+</section>
+<section><h2>What the result contains</h2>
+<ul><li>One glyph for each character, taken from the font that draws it, plus the extra glyphs its OpenType features need. Unused glyphs and hinting are removed.</li><li>Ligatures, kerning and marks, kept within each source font where possible. Legacy kerning is converted to OpenType positioning.</li><li>New names, and the main font&#x27;s vertical metrics, unless you choose another line-spacing source in Advanced.</li><li>The copyright, trademark and licence notices of the source fonts it uses.</li><li>The most restrictive embedding permission of its source fonts.</li></ul>
+<p>The build report lists licence restrictions, processing warnings, and notes on fonts bundled with macOS or Microsoft products. Apple-only ligatures, kerning and tracking can&#x27;t be carried over. The report says when this happens, and the built-font preview shows the final result.</p>
+</section>
+<section><h2>Font licences</h2>
+<p>Font Playground doesn&#x27;t include, sell or distribute any fonts. It uses only fonts already on your Mac or in folders you add, and it never uploads them.</p>
+<p>A forged font is a modified copy of its source fonts, and it stays under their licences. Some licences allow use on your own computer only, and some don&#x27;t allow modified copies at all. Check each source font&#x27;s licence before you forge, and again before you share, sell or embed the result. Fonts bundled with macOS or a Microsoft product are licensed for use on your own Mac only, so never share a font forged from them. Some licences, such as the SIL Open Font License, can also forbid giving a modified font the original&#x27;s name.</p>
+<p>The report shows what Font Playground can read from each font: its embedding permission, its licence notes, and whether it came with macOS or a Microsoft product. That information can be incomplete or wrong, and it isn&#x27;t legal advice. If you&#x27;re unsure what a licence allows, ask the font&#x27;s vendor.</p>
+<p>Font Playground is an independent project. It isn&#x27;t affiliated with, endorsed or sponsored by Apple, Microsoft or any font vendor, and font names are trademarks of their owners. Font Playground is provided “as is”, without warranty of any kind, and nothing in it is legal advice.</p>
+</section>
+<section><h2>Coming from the Windows version</h2>
+<p>Before you first open Font Playground, copy only <code>forge_last.json</code> from the earlier app to <code>~/Library/Application Support/FontPlayground/forge_last.json</code>. Don&#x27;t copy its settings or catalog. Font Playground imports the recipe once, names any missing fonts, and offers Mac replacements for you to choose from. The migration note in the project&#x27;s repository has the full table of equivalent fonts.</p>
+</section>
+<section><h2>Not in this version</h2>
+<p>Font Playground can&#x27;t build a whole family in one run, edit glyphs, kern across fonts, or keep colour emoji. It also drops per-language variants of characters shared by Chinese, Japanese and Korean (the <code>locl</code> feature), so merged fonts stay within the glyph limit.</p>
+<p>Font Playground detects Apple AAT shaping but can&#x27;t merge it. A font that relies on AAT for a complex script isn&#x27;t offered for that script; choose one of the OpenType fonts the picker offers instead. Missing and unsupported characters are always counted and shown.</p>
+</section>
+<section><h2>Privacy</h2>
+<p>Font Playground works only on your Mac. It collects no data and makes no network requests of its own. Donate… opens a web page in your browser, and Get More Fonts… opens Font Book, which can download fonts if you ask it to.</p>
+<p>Font Playground keeps your last recipe and the list of fonts it installed in <code>~/Library/Application Support/io.github.kciceblue.fontplayground/</code>, and your preferences in macOS&#x27;s settings storage. Font scans, temporary build files and recent build outputs are in <code>~/Library/Caches/io.github.kciceblue.fontplayground/</code>. Install writes to <code>~/Library/Fonts</code>, and Save a Copy… writes only where you choose.</p>
+</section>
+<section><h2>Uninstall</h2>
+<p>Fonts you installed stay available to other apps after you remove Font Playground. To remove the current one first, choose File › Uninstall Font, which moves it to the Trash. You can also remove any font in Font Book at any time.</p>
+<p>Then drag Font Playground from Applications to the Trash. To remove its data too, delete the two folders listed under Privacy and run <code>defaults delete io.github.kciceblue.fontplayground</code> in Terminal.</p>
+</section>
+</body></html>

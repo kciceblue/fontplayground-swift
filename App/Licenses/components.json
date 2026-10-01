@@ -1,0 +1,116 @@
+[
+  {
+    "name": "python-build-standalone (build scripts)",
+    "license": "MPL-2.0",
+    "files": [
+      "python-build-standalone/LICENSE.python-build-standalone.txt"
+    ]
+  },
+  {
+    "name": "OpenSSL",
+    "license": "Apache-2.0",
+    "files": [
+      "python-build-standalone/LICENSE.openssl-3.txt"
+    ],
+    "detect": {
+      "python": "import ssl; print(ssl.OPENSSL_VERSION.removeprefix('OpenSSL ').split()[0])"
+    }
+  },
+  {
+    "name": "SQLite",
+    "license": "blessing",
+    "files": [
+      "python-build-standalone/LICENSE.sqlite.txt"
+    ],
+    "detect": {
+      "python": "import sqlite3; print(sqlite3.sqlite_version)"
+    }
+  },
+  {
+    "name": "mpdecimal (libmpdec)",
+    "license": "BSD-2-Clause",
+    "files": [
+      "python-build-standalone/LICENSE.mpdecimal.txt"
+    ],
+    "detect": {
+      "python": "import decimal; print(decimal.__libmpdec_version__)"
+    }
+  },
+  {
+    "name": "Expat",
+    "license": "MIT",
+    "files": [
+      "python-build-standalone/LICENSE.expat.txt"
+    ],
+    "detect": {
+      "python": "import pyexpat; print('.'.join(map(str, pyexpat.version_info)))"
+    }
+  },
+  {
+    "name": "XZ Utils (liblzma)",
+    "license": "0BSD",
+    "files": [
+      "python-build-standalone/LICENSE.liblzma.txt"
+    ],
+    "detect": {
+      "bytes": "Unrecognized error from liblzma"
+    }
+  },
+  {
+    "name": "bzip2",
+    "license": "bzip2-1.0.6",
+    "files": [
+      "python-build-standalone/LICENSE.bzip2.txt"
+    ],
+    "detect": {
+      "bytes": "bzip2/libbzip2"
+    }
+  },
+  {
+    "name": "libffi",
+    "license": "MIT",
+    "files": [
+      "python-build-standalone/LICENSE.libffi.txt"
+    ],
+    "detect": {
+      "bytes": "ffi_prep_cif failed"
+    }
+  },
+  {
+    "name": "libuuid (util-linux)",
+    "license": "BSD-3-Clause",
+    "files": [
+      "python-build-standalone/LICENSE.libuuid.txt"
+    ],
+    "detect": {
+      "bytes": "/var/lib/libuuid/clock.txt"
+    }
+  },
+  {
+    "name": "HACL*",
+    "license": "MIT",
+    "files": [
+      "python-build-standalone/HACL-LICENSE.txt"
+    ],
+    "detect": {
+      "bytes": "Modules/_hacl/"
+    }
+  },
+  {
+    "name": "Unicode Character Database (in unicodedata2)",
+    "license": "Unicode-3.0",
+    "files": [
+      "unicode/Unicode-LICENSE.txt"
+    ],
+    "detect": {
+      "python": "import unicodedata2; print(unicodedata2.unidata_version)"
+    }
+  },
+  {
+    "name": "otf2ttf snippet (cff_to_glyf)",
+    "license": "MIT",
+    "files": [
+      "fpengine/otf2ttf-NOTICE.txt"
+    ]
+  }
+]

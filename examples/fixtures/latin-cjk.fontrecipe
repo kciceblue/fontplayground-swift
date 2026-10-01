@@ -1,0 +1,15 @@
+{
+  "format": "fontrecipe",
+  "version": 1,
+  "materials": [
+    {"face": {"postscript_name": "FixtureSans-Regular", "family": "Fixture Sans", "style": "Regular",
+              "path": "/fixtures/FixtureSans-Regular.ttf", "index": 0}, "weight": null, "scale": null},
+    {"face": {"postscript_name": "FixtureCJK-Regular", "family": "Fixture CJK", "style": "Regular",
+              "path": "/fixtures/FixtureCJK-Regular.otf", "index": 0}, "weight": null, "scale": null}
+  ],
+  "main": 0,
+  "rules": {"han": 1, "kana": 1, "cjk_symbols": 1},
+  "defaults": {"weight": null, "scale": 1.0},
+  "names": {"family": "Fixture Sans CJK", "style": "Regular", "family_edited": true, "style_edited": false},
+  "sample_text": "Hello 你好 こんにちは"
+}

@@ -1,0 +1,14 @@
+{
+  "format": "fontrecipe", "version": 1,
+  "materials": [
+    {"face": {"postscript_name": "Georgia", "family": "Georgia", "style": "Regular",
+              "path": "/System/Library/Fonts/Supplemental/Georgia.ttf", "index": 0}, "weight": null, "scale": null},
+    {"face": {"postscript_name": "Menlo-Regular", "family": "Menlo", "style": "Regular",
+              "path": "/System/Library/Fonts/Menlo.ttc", "index": 0}, "weight": null, "scale": null}
+  ],
+  "main": 0,
+  "rules": {"symbols": 1},
+  "defaults": {"weight": null, "scale": 1.0},
+  "names": {"family": "FP Self Test", "style": "Regular", "family_edited": true, "style_edited": true},
+  "sample_text": "Hamburgefonstiv 0123 ─│┌┐"
+}

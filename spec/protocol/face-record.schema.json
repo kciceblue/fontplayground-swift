@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/face-record.schema.json",
+  "title": "FaceRecord",
+  "description": "Normative. One face of a font file, as streamed by `fpengine scan` in the `face` event: fpengine.records.face_record (WP-106) with `path` replaced by the request string. contracts.md section 3 plus `unshaped`. The helper emits exactly these keys, in this order. Readers ignore keys they do not know.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "path", "index", "size", "mtime", "family", "style", "full_name", "postscript_name", "local_names", "outline",
+    "is_collection", "is_variable", "axes", "weight_class", "italic", "upem", "glyph_count", "coverage",
+    "group_counts", "embedding", "fs_type", "has_color", "supported", "unsupported_reason", "hidden",
+    "suspicious_coverage", "ot_scripts", "aat", "shapes_groups", "licence", "has_os2", "is_forged", "font_revision", "unshaped"
+  ],
+  "properties": {
+    "path": {
+      "description": "The file path exactly as given in the scan request.",
+      "$ref": "defs.schema.json#/$defs/abs_path"
+    },
+    "index": {
+      "description": "Face index inside a .ttc/.otc; 0 for single-font files.",
+      "$ref": "defs.schema.json#/$defs/non_negative_int"
+    },
+    "size": {
+      "description": "File size in bytes (os.stat st_size at scan time).",
+      "$ref": "defs.schema.json#/$defs/non_negative_int"
+    },
+    "mtime": {
+      "description": "os.stat st_mtime at scan time, seconds since the Unix epoch, as a float. Compare with other clocks using a tolerance of 1e-3 s.",
+      "type": "number"
+    },
+    "family": { "type": "string", "minLength": 1 },
+    "style": { "type": "string", "minLength": 1 },
+    "full_name": { "type": "string", "minLength": 1 },
+    "postscript_name": {
+      "description": "Name ID 6, or null when the face has none.",
+      "type": [ "string", "null" ]
+    },
+    "local_names": {
+      "description": "Native family names, most useful first (catalog/face.py:_local_names ranking after WP-108).",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "outline": { "$ref": "defs.schema.json#/$defs/outline" },
+    "is_collection": { "type": "boolean" },
+    "is_variable": { "type": "boolean" },
+    "axes": {
+      "description": "fvar axes in font order; empty for static faces.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "tag", "min", "default", "max" ],
+        "properties": {
+          "tag": { "type": "string", "pattern": "^[\\x20-\\x7E]{4}$" },
+          "min": { "type": "number" },
+          "default": { "type": "number" },
+          "max": { "type": "number" }
+        }
+      }
+    },
+    "weight_class": {
+      "description": "OS/2 usWeightClass. When there is no OS/2 table: 700 if head.macStyle bit 0 (bold) is set, else 400 (engine-correctness.md WP-103).",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "italic": { "type": "boolean" },
+    "upem": { "type": "integer", "minimum": 16, "maximum": 16384 },
+    "glyph_count": { "type": "integer", "minimum": 0, "maximum": 65535 },
+    "coverage": {
+      "description": "The code points of the face's best cmap (WP-101 semantics).",
+      "$ref": "defs.schema.json#/$defs/ranges"
+    },
+    "group_counts": {
+      "description": "Characters per script group; only non-empty groups, keys in GROUPS order. Counts plannable coverage once WP-107 lands (engine-metadata.md S4).",
+      "type": "object",
+      "propertyNames": { "$ref": "defs.schema.json#/$defs/group_id" },
+      "additionalProperties": { "type": "integer", "minimum": 1 }
+    },
+    "embedding": { "$ref": "defs.schema.json#/$defs/embedding" },
+    "fs_type": {
+      "description": "Raw OS/2 fsType; null when there is no OS/2 table.",
+      "type": [ "integer", "null" ],
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "has_color": { "type": "boolean" },
+    "supported": { "type": "boolean" },
+    "unsupported_reason": {
+      "description": "Plain-language reason when supported is false; null otherwise.",
+      "type": [ "string", "null" ]
+    },
+    "hidden": {
+      "description": "Family or PostScript name starts with '.' (ENGINE-10, CATALOG-2).",
+      "type": "boolean"
+    },
+    "suspicious_coverage": {
+      "description": "The cmap maps far more code points than there are glyphs (e.g. .LastResort); never suggested.",
+      "type": "boolean"
+    },
+    "ot_scripts": {
+      "description": "OpenType ScriptList tags, each list sorted and unique.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "gsub", "gpos" ],
+      "properties": {
+        "gsub": { "type": "array", "items": { "$ref": "defs.schema.json#/$defs/script_tag" }, "uniqueItems": true },
+        "gpos": { "type": "array", "items": { "$ref": "defs.schema.json#/$defs/script_tag" }, "uniqueItems": true }
+      }
+    },
+    "aat": {
+      "description": "Apple Advanced Typography tables present (ADR-0008).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "morx", "kerx", "kern_v1", "trak" ],
+      "properties": {
+        "morx": { "type": "boolean" },
+        "kerx": { "type": "boolean" },
+        "kern_v1": { "type": "boolean" },
+        "trak": { "type": "boolean" }
+      }
+    },
+    "shapes_groups": {
+      "description": "Complex script groups this face can shape (ADR-0008 rule, WP-107), in GROUPS order.",
+      "type": "array",
+      "items": { "$ref": "defs.schema.json#/$defs/group_id" },
+      "uniqueItems": true
+    },
+    "licence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "class", "vendor_id", "notice" ],
+      "properties": {
+        "class": { "$ref": "defs.schema.json#/$defs/licence_class" },
+        "vendor_id": { "type": [ "string", "null" ] },
+        "notice": { "type": [ "string", "null" ], "maxLength": 300 }
+      }
+    },
+    "has_os2": { "type": "boolean" },
+    "is_forged": {
+      "description": "Name ID 0 starts with the forged-font marker 'Forged with Font Playground' (contracts.md section 6).",
+      "type": "boolean"
+    },
+    "font_revision": {
+      "description": "head.fontRevision formatted with '%.3f'.",
+      "type": "string",
+      "pattern": "^-?[0-9]+\\.[0-9]{3}$"
+    },
+    "unshaped": {
+      "description": "Code points the face maps but cannot shape correctly (engine-metadata.md WP-107; empty before it). Plannable coverage = coverage minus unshaped. Proposed contracts.md section 3 addition.",
+      "$ref": "defs.schema.json#/$defs/ranges"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+name: Feature request / 功能建议
+description: Suggest an improvement to Font Playground. / 为字体混搭提出改进建议。
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to do? / 你想做什么？
+      description: Describe the task and the fonts and languages involved. / 请描述你的任务，以及涉及的字体和语言。
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help? / 怎样的改进会有帮助？
+    validations:
+      required: true

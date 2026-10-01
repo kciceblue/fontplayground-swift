@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>字体混搭帮助</title>
+<style>
+html { color-scheme: light dark; } body { font: -apple-system-body; line-height: 1.7; max-width: 52rem; margin: auto; padding: 2rem; color: #222; background: #fff; } h1,h2 { line-height: 1.25; } h2 { margin-top: 2rem; } code { font-size: .92em; overflow-wrap: anywhere; } li { margin: .8rem 0; } @media (prefers-color-scheme: dark) { body { color: #eee; background: #1c1c1e; } }
+</style></head><body><h1>字体混搭帮助</h1>
+<p>字体混搭可以把你 Mac 上的多个字体合成为一个字体。为字母和数字选择一个主字体，为其他语言添加字体，并查看每个字符由哪个字体绘制，然后安装结果，或将它存储为 <code>.ttf</code> 文件。</p>
+<section><h2>安装</h2>
+<p>从项目的 GitHub Releases 页面下载 <code>FontPlayground-&lt;version&gt;-arm64.dmg</code>，打开它，然后将字体混搭拖到“应用程序”文件夹。Python 和字体引擎已包含在内，无需另外安装。字体混搭需要搭载 Apple 芯片、运行 macOS 14 Sonoma 或更高版本的 Mac。</p>
+<p>发布版本使用 Developer ID 签名，并经过 Apple 公证。你自己从源代码构建的 DMG 使用临时签名，未经公证。</p>
+</section>
+<section><h2>使用字体混搭</h2>
+<p>所有操作都在一个窗口中完成。左侧的方案从上到下列出组成你的字体的各个字体。右侧的预览会按最终结果的样子绘制你的文字；点按预览即可输入。</p>
+<ol><li>点按<strong>选择主字体…</strong>，为字母和数字选取一个字体。主字体也决定行距。在字体选择器中，可以按英文名称或本地名称搜索，按 ↑ 或 ↓ 在预览中试用字体，按 Return 键选用，或按 Esc 键返回。按 ⌘F 也可以打开字体选择器。</li><li>如果你的文字中有主字体无法绘制的字符，方案中会出现“为中文选择字体…”之类的按钮。要自行为其他语言添加字体，请点按“为其他语言添加字体…”。为某种语言添加的字体会负责绘制这种语言，即使上面的字体也能绘制。调整所添加字体的“大小”和“字重”，让它们与主字体搭配协调。<strong>按字体着色</strong>会按绘制每个字符的字体为字符着色。没有字体能绘制的字符会列在预览下方，并附有为它们查找字体的按钮。</li><li>为结果命名，然后点按<strong>安装</strong>。字体混搭会生成字体，并只为你的用户账户安装到你的字体文件夹（<code>~/Library/Fonts</code>）中。之后预览会切换为已生成的字体。更改方案后，点按<strong>更新已安装的字体</strong>。<strong>存储副本…</strong>会将 <code>.ttf</code> 文件存储到你选择的位置，<strong>在访达中显示</strong>会在访达中显示结果文件。字体混搭绝不会覆盖你的 Mac 上已有的字体；要替换它之前安装的字体时，会先征求你的同意。</li><li>要使用未安装的字体，请选取<strong>添加字体文件夹…</strong>。添加或移除字体后，请选取<strong>重新扫描字体</strong>。<strong>重新开始</strong>会在询问你之后清除方案。在<strong>设置…</strong>（⌘,）中，“外观”可以设为浅色、深色或跟随系统，“语言”可以在 English 和简体中文之间切换应用语言。字体混搭会提示你重新打开应用以使用新语言。</li></ol>
+<p><strong>显示高级选项</strong>（⌥⌘I）会打开一个面板，你可以在其中查看和更改每种文字由哪个字体绘制，选择决定行距的字体，设置默认字重和大小，以及阅读上次生成的报告。生成过程中可以随时取消。在名称栏中按 Return 键不会开始生成。报告中有些说明来自字体引擎，会以英文显示。</p>
+</section>
+<section><h2>结果包含什么</h2>
+<ul><li>每个字符对应一个字形，取自绘制它的字体，外加它的 OpenType 功能所需的额外字形。未使用的字形和微调（hinting）信息会被移除。</li><li>连字、字距调整和附加符号，会尽可能在各源字体内部保留。旧式字距调整会转换为 OpenType 定位。</li><li>全新的名称，以及主字体的垂直度量，除非你在“高级”中选择了其他行距来源。</li><li>所用源字体的版权、商标和许可声明。</li><li>各源字体中最严格的嵌入权限。</li></ul>
+<p>生成报告会列出许可限制、处理警告，以及关于 macOS 或 Microsoft 产品附带字体的说明。Apple 专有的连字、字距调整和字距（tracking）无法带入。出现这种情况时，报告会加以说明；已生成字体的预览会显示最终结果。</p>
+</section>
+<section><h2>字体许可</h2>
+<p>字体混搭不包含、不销售也不分发任何字体。它只使用你的 Mac 上已有的字体和你添加的文件夹中的字体，并且从不上传它们。</p>
+<p>合成的字体是源字体的修改版本，仍受源字体许可的约束。有些许可只允许在你自己的电脑上使用，有些则完全不允许修改。合成之前，请检查每个源字体的许可；分享、销售或嵌入结果之前，请再检查一次。随 macOS 或 Microsoft 产品附带的字体仅许可在你自己的 Mac 上使用，因此切勿分享由它们合成的字体。有些许可（例如 SIL Open Font License）还可能禁止修改后的字体沿用原字体的名称。</p>
+<p>报告会显示字体混搭能从每个字体中读取的信息：嵌入权限、许可说明，以及它是否随 macOS 或 Microsoft 产品附带。这些信息可能不完整或有误，也不构成法律建议。如果不确定许可允许什么，请咨询字体的供应商。</p>
+<p>字体混搭是一个独立项目，与 Apple、Microsoft 或任何字体供应商均无关联，也未获得它们的认可或赞助；字体名称是其各自所有者的商标。字体混搭按“原样”提供，不附带任何形式的担保，其中的任何内容都不构成法律建议。</p>
+</section>
+<section><h2>从 Windows 版迁移</h2>
+<p>首次打开字体混搭之前，只需将旧版应用的 <code>forge_last.json</code> 拷贝到 <code>~/Library/Application Support/FontPlayground/forge_last.json</code>。不要拷贝它的设置或目录缓存。字体混搭会导入一次方案，列出缺失的字体，并提供 Mac 上的替代字体供你选择。项目仓库中的迁移说明有完整的字体对照表。</p>
+</section>
+<section><h2>此版本不包含的功能</h2>
+<p>字体混搭不能一次生成整个字族、编辑字形、跨字体调整字距，也不能保留彩色表情符号。它还会去掉中日韩共用字符的按语言变体（<code>locl</code> 功能），使合并后的字体不超出字形上限。</p>
+<p>字体混搭能检测 Apple AAT 排版，但无法合并它。如果某个字体依赖 AAT 来排版某种复杂文字，字体选择器不会为这种文字提供它；请改选字体选择器提供的 OpenType 字体。缺失和不受支持的字符都会被统计并显示。</p>
+</section>
+<section><h2>隐私</h2>
+<p>字体混搭只在你的 Mac 上工作。它不收集任何数据，自身也不发出任何网络请求。“赞助…”会在浏览器中打开一个网页；“获取更多字体…”会打开字体册，如果你在字体册中选择下载，它可能会下载字体。</p>
+<p>应用将你上次的方案和它安装过的字体列表存储在 <code>~/Library/Application Support/io.github.kciceblue.fontplayground/</code>，偏好设置存储在 macOS 的设置存储中。字体扫描结果、临时生成文件和最近的生成结果位于 <code>~/Library/Caches/io.github.kciceblue.fontplayground/</code>。“安装”会写入 <code>~/Library/Fonts</code>，“存储副本…”只会写入你选择的位置。</p>
+</section>
+<section><h2>卸载</h2>
+<p>移除字体混搭后，你安装的字体仍可供其他应用使用。如果要先移除当前字体，请选取“文件” › “卸载字体”，它会被移到废纸篓。你也可以随时在字体册中移除任何字体。</p>
+<p>然后将字体混搭从“应用程序”文件夹拖到废纸篓。如果还要移除它的数据，请删除“隐私”一节中列出的两个文件夹，并在“终端”中运行 <code>defaults delete io.github.kciceblue.fontplayground</code>。</p>
+</section>
+</body></html>

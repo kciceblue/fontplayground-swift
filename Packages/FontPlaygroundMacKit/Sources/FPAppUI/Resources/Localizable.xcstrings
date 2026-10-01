@@ -1,0 +1,6626 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "Font Playground": {
+      "comment": "shell.windowTitle",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭"
+          }
+        }
+      }
+    },
+    "About Font Playground": {
+      "comment": "shell.about",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About Font Playground"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于字体混搭"
+          }
+        }
+      }
+    },
+    "Donate…": {
+      "comment": "shell.donate",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Donate…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "赞助…"
+          }
+        }
+      }
+    },
+    "Support Font Playground": {
+      "comment": "shell.donate.title",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support Font Playground"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持字体混搭"
+          }
+        }
+      }
+    },
+    "Font Playground is free. If you find it useful, you can buy me a coffee to support its development. You won't see this message again, but Font Playground › Donate… is always there.": {
+      "comment": "shell.donate.message",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground is free. If you find it useful, you can buy me a coffee to support its development. You won't see this message again, but Font Playground › Donate… is always there."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭是免费的。如果它对你有用，可以请我喝杯咖啡，支持它的开发。这条消息不会再出现，但随时可以在“字体混搭” › “赞助…”中找到。"
+          }
+        }
+      }
+    },
+    "Buy Me a Coffee": {
+      "comment": "shell.donate.confirm",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buy Me a Coffee"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请我喝杯咖啡"
+          }
+        }
+      }
+    },
+    "No Thanks": {
+      "comment": "shell.donate.decline",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Thanks"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不用了"
+          }
+        }
+      }
+    },
+    "Start Over": {
+      "comment": "shell.startOver",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Over"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新开始"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "comment": "shell.cancel",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        }
+      }
+    },
+    "Add Font Folder…": {
+      "comment": "shell.addFontFolder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Font Folder…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加字体文件夹…"
+          }
+        }
+      }
+    },
+    "Rescan Fonts": {
+      "comment": "shell.rescan",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rescan Fonts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新扫描字体"
+          }
+        }
+      }
+    },
+    "Save a Copy…": {
+      "comment": "shell.saveCopy",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save a Copy…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存储副本…"
+          }
+        }
+      }
+    },
+    "Install": {
+      "comment": "shell.install",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Install"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安装"
+          }
+        }
+      }
+    },
+    "Show in Finder": {
+      "comment": "shell.showInFinder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show in Finder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在访达中显示"
+          }
+        }
+      }
+    },
+    "Open in Font Book": {
+      "comment": "shell.openInFontBook",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open in Font Book"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在字体册中打开"
+          }
+        }
+      }
+    },
+    "Uninstall Font": {
+      "comment": "shell.uninstall",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uninstall Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载字体"
+          }
+        }
+      }
+    },
+    "Find Font…": {
+      "comment": "shell.findFont",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find Font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查找字体…"
+          }
+        }
+      }
+    },
+    "Colour by Font": {
+      "comment": "shell.colourByFont",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colour by Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按字体着色"
+          }
+        }
+      }
+    },
+    "Bigger": {
+      "comment": "shell.bigger",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bigger"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "放大"
+          }
+        }
+      }
+    },
+    "Smaller": {
+      "comment": "shell.smaller",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Smaller"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "缩小"
+          }
+        }
+      }
+    },
+    "Actual Size": {
+      "comment": "shell.actualSize",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actual Size"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际大小"
+          }
+        }
+      }
+    },
+    "Custom Text": {
+      "comment": "preview.customText",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Text"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定文本"
+          }
+        }
+      }
+    },
+    "Sample Text": {
+      "comment": "shell.sampleText",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sample Text"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "示例文本"
+          }
+        }
+      }
+    },
+    "Show Sidebar": {
+      "comment": "shell.showSidebar",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Sidebar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示边栏"
+          }
+        }
+      }
+    },
+    "Choose Main Font…": {
+      "comment": "shell.chooseMain",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose Main Font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择主字体…"
+          }
+        }
+      }
+    },
+    "Change Main Font…": {
+      "comment": "shell.changeMain",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Main Font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更换主字体…"
+          }
+        }
+      }
+    },
+    "Add Font For": {
+      "comment": "shell.addFontFor",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Font For"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加字体用于"
+          }
+        }
+      }
+    },
+    "Any Language…": {
+      "comment": "shell.anyLanguage",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Any Language…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任意语言…"
+          }
+        }
+      }
+    },
+    "Show Advanced": {
+      "comment": "shell.showAdvanced",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Advanced"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示高级选项"
+          }
+        }
+      }
+    },
+    "Hide Advanced": {
+      "comment": "shell.hideAdvanced",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hide Advanced"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏高级选项"
+          }
+        }
+      }
+    },
+    "Font Playground Help": {
+      "comment": "shell.help",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground Help"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭帮助"
+          }
+        }
+      }
+    },
+    "Font": {
+      "comment": "shell.fontMenu",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体"
+          }
+        }
+      }
+    },
+    "Your font is still being built. Quit anyway?": {
+      "comment": "shell.quitTitle",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your font is still being built. Quit anyway?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体仍在生成中。仍要退出吗？"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "comment": "shell.quit",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退出"
+          }
+        }
+      }
+    },
+    "Keep Building": {
+      "comment": "shell.keepBuilding",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep Building"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续生成"
+          }
+        }
+      }
+    },
+    "Start over?": {
+      "comment": "shell.startOverTitle",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start over?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要重新开始吗？"
+          }
+        }
+      }
+    },
+    "This clears your fonts and names. Your sample text stays, and fonts you saved or installed are not affected.": {
+      "comment": "shell.startOverMessage",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This clears your fonts and names. Your sample text stays, and fonts you saved or installed are not affected."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这会清除你的字体和名称。你的示例文本会保留，已存储或已安装的字体不受影响。"
+          }
+        }
+      }
+    },
+    " The build in progress will stop.": {
+      "comment": "shell.startOverBuilding",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " The build in progress will stop."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在进行的生成将会停止。"
+          }
+        }
+      }
+    },
+    "Add Folder": {
+      "comment": "shell.addFolder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Folder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加文件夹"
+          }
+        }
+      }
+    },
+    "Choose folders that contain fonts. The fonts don't need to be installed.": {
+      "comment": "shell.folderMessage",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose folders that contain fonts. The fonts don't need to be installed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择包含字体的文件夹。这些字体无需安装。"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "comment": "shell.appearance",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appearance"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外观"
+          }
+        }
+      }
+    },
+    "System": {
+      "comment": "shell.system",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随系统"
+          }
+        }
+      }
+    },
+    "Light": {
+      "comment": "shell.light",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "浅色"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "comment": "shell.dark",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色"
+          }
+        }
+      }
+    },
+    "Font folders": {
+      "comment": "shell.fontFolders",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font folders"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体文件夹"
+          }
+        }
+      }
+    },
+    "Remove Folder": {
+      "comment": "shell.removeFolder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Folder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除文件夹"
+          }
+        }
+      }
+    },
+    "Fonts in these folders show up in Font Playground without being installed.": {
+      "comment": "shell.folderFooter",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonts in these folders show up in Font Playground without being installed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这些文件夹中的字体无需安装即可显示在字体混搭中。"
+          }
+        }
+      }
+    },
+    "Show Settings Folder in Finder": {
+      "comment": "shell.showSettingsFolder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Settings Folder in Finder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在访达中显示设置文件夹"
+          }
+        }
+      }
+    },
+    "Get More Fonts…": {
+      "comment": "shell.getMoreFonts",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get More Fonts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取更多字体…"
+          }
+        }
+      }
+    },
+    "Font Book can download more fonts that come with macOS.": {
+      "comment": "shell.fontBookFooter",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Book can download more fonts that come with macOS."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体册可以下载 macOS 附带的更多字体。"
+          }
+        }
+      }
+    },
+    "Dismiss": {
+      "comment": "shell.dismiss",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dismiss"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        }
+      }
+    },
+    "Done": {
+      "comment": "shell.done",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "comment": "shell.copy",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拷贝"
+          }
+        }
+      }
+    },
+    "Build Report": {
+      "comment": "shell.reportTitle",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build Report"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "生成报告"
+          }
+        }
+      }
+    },
+    "To use a font file, add the folder it's in with File › Add Font Folder…, or install it with Font Book.": {
+      "comment": "shell.fileDropped",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To use a font file, add the folder it's in with File › Add Font Folder…, or install it with Font Book."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要使用字体文件，请通过“文件” › “添加字体文件夹…”添加它所在的文件夹，或用字体册安装它。"
+          }
+        }
+      }
+    },
+    "Imported your last recipe and settings from the earlier version of Font Playground.": {
+      "comment": "shell.imported",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imported your last recipe and settings from the earlier version of Font Playground."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已从旧版字体混搭导入你上次的方案和设置。"
+          }
+        }
+      }
+    },
+    "Font Playground found settings from an earlier version but couldn't read them.": {
+      "comment": "shell.importFailed",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground found settings from an earlier version but couldn't read them."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭找到了旧版本的设置，但无法读取。"
+          }
+        }
+      }
+    },
+    "Font Playground doesn't include or sell any fonts. Fonts you forge keep their sources' licences; Font Playground tells you what it knows about them, but it is up to you to respect them.": {
+      "comment": "shell.licenceNote",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground doesn't include or sell any fonts. Fonts you forge keep their sources' licences; Font Playground tells you what it knows about them, but it is up to you to respect them."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭不包含也不销售任何字体。你合成的字体仍受各源字体许可的约束；字体混搭会告诉你它所知道的信息，但遵守这些许可是你的责任。"
+          }
+        }
+      }
+    },
+    "Acknowledgements": {
+      "comment": "shell.acknowledgements",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acknowledgements"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "致谢"
+          }
+        }
+      }
+    },
+    "its files are missing from the app": {
+      "comment": "shell.engineMissing",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "its files are missing from the app"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用中缺少它的文件"
+          }
+        }
+      }
+    },
+    "it couldn't be started": {
+      "comment": "shell.engineLaunchFailed",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "it couldn't be started"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它无法启动"
+          }
+        }
+      }
+    },
+    "it didn't answer in time": {
+      "comment": "shell.engineTimedOut",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "it didn't answer in time"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它没有及时响应"
+          }
+        }
+      }
+    },
+    "it stopped unexpectedly": {
+      "comment": "shell.engineStopped",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "it stopped unexpectedly"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它意外停止了"
+          }
+        }
+      }
+    },
+    "Licence:": {
+      "comment": "shell.licence",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licence:"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "许可："
+          }
+        }
+      }
+    },
+    "Warnings:": {
+      "comment": "shell.warnings",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warnings:"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "警告："
+          }
+        }
+      }
+    },
+    "As is": {
+      "comment": "shell.asIs",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As is"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保持原样"
+          }
+        }
+      }
+    },
+    "Regular": {
+      "comment": "shell.regular",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regular"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regular"
+          }
+        }
+      }
+    },
+    "Medium": {
+      "comment": "shell.medium",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medium"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medium"
+          }
+        }
+      }
+    },
+    "Semibold": {
+      "comment": "shell.semibold",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semibold"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semibold"
+          }
+        }
+      }
+    },
+    "Bold": {
+      "comment": "shell.bold",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bold"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bold"
+          }
+        }
+      }
+    },
+    "Heavy": {
+      "comment": "shell.heavy",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heavy"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heavy"
+          }
+        }
+      }
+    },
+    "%@ isn't on this Mac. Use %@ instead?": {
+      "comment": "shell.suggestion",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ isn't on this Mac. Use %@ instead?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台 Mac 上没有 %@。改用 %@ 吗？"
+          }
+        }
+      }
+    },
+    "“%@” is no longer available. It stays in your font, marked as missing, until you replace or remove it.": {
+      "comment": "shell.unavailableOne",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” is no longer available. It stays in your font, marked as missing, until you replace or remove it."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@”已不可用。在你替换或移除它之前，它会标记为缺失并留在你的字体中。"
+          }
+        }
+      }
+    },
+    "%lld fonts are no longer available: %@. They stay in your font, marked as missing, until you replace or remove them.": {
+      "comment": "shell.unavailableMany",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld fonts are no longer available: %@. They stay in your font, marked as missing, until you replace or remove them."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 个字体已不可用：%@。在你替换或移除它们之前，它们会标记为缺失并留在你的字体中。"
+          }
+        }
+      }
+    },
+    "Your last recipe couldn't be read, so Font Playground started with an empty one. The file was kept as “%@”.": {
+      "comment": "shell.damaged",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your last recipe couldn't be read, so Font Playground started with an empty one. The file was kept as “%@”."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法读取你上次的方案，因此字体混搭以空白方案启动。原文件已保留为“%@”。"
+          }
+        }
+      }
+    },
+    "Font Playground can't start its font engine, so it can't list or build fonts: %@": {
+      "comment": "shell.engineUnavailable",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground can't start its font engine, so it can't list or build fonts: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭无法启动字体引擎，因此无法列出或生成字体：%@"
+          }
+        }
+      }
+    },
+    "Some saved font folders were ignored because they aren't valid on this Mac: %@.": {
+      "comment": "shell.badFolders",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some saved font folders were ignored because they aren't valid on this Mac: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一些已存储的字体文件夹在这台 Mac 上无效，已被忽略：%@。"
+          }
+        }
+      }
+    },
+    "Font Playground couldn't save your recipe: %@": {
+      "comment": "shell.autosaveFailed",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground couldn't save your recipe: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭无法存储你的方案：%@"
+          }
+        }
+      }
+    },
+    "Use %@": {
+      "comment": "shell.useReplacement",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用 %@"
+          }
+        }
+      }
+    },
+    "it's a different version (protocol %lld, expected %lld)": {
+      "comment": "shell.engineIncompatible",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "it's a different version (protocol %lld, expected %lld)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它的版本不同（协议 %lld，应为 %lld）"
+          }
+        }
+      }
+    },
+    "Font engine: fpengine %@, fontTools %@, Python %@": {
+      "comment": "shell.engineVersion",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font engine: fpengine %@, fontTools %@, Python %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体引擎：fpengine %@、fontTools %@、Python %@"
+          }
+        }
+      }
+    },
+    "Font: %@": {
+      "comment": "shell.reportFont",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体：%@"
+          }
+        }
+      }
+    },
+    " (PostScript name %@)": {
+      "comment": "shell.reportPostscript",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " (PostScript name %@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "（PostScript 名称：%@）"
+          }
+        }
+      }
+    },
+    "Characters: %lld   Glyphs: %lld": {
+      "comment": "shell.reportCounts",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Characters: %lld   Glyphs: %lld"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字符：%lld   字形：%lld"
+          }
+        }
+      }
+    },
+    "Built in %@ s": {
+      "comment": "shell.reportDuration",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Built in %@ s"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "生成用时 %@ 秒"
+          }
+        }
+      }
+    },
+    "%@: %lld characters  [%@]": {
+      "comment": "shell.reportMaterial",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld characters  [%@]"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：%lld 个字符  [%@]"
+          }
+        }
+      }
+    },
+    "    warning: %@": {
+      "comment": "shell.reportWarning",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "    warning: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "    警告：%@"
+          }
+        }
+      }
+    },
+    "Some saved entries couldn't be used: %@.": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some saved entries couldn't be used: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一些已存储的条目无法使用：%@。"
+          }
+        }
+      }
+    },
+    "1 duplicate font entry": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 duplicate font entry"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个重复的字体条目"
+          }
+        }
+      }
+    },
+    "%lld duplicate font entries": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld duplicate font entries"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 个重复的字体条目"
+          }
+        }
+      }
+    },
+    "1 invalid font entry": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 invalid font entry"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个无效的字体条目"
+          }
+        }
+      }
+    },
+    "%lld invalid font entries": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld invalid font entries"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 个无效的字体条目"
+          }
+        }
+      }
+    },
+    "1 font rule": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 font rule"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 条字体规则"
+          }
+        }
+      }
+    },
+    "%lld font rules": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld font rules"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 条字体规则"
+          }
+        }
+      }
+    },
+    "1 setting": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 setting"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 项设置"
+          }
+        }
+      }
+    },
+    "%lld settings": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld settings"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 项设置"
+          }
+        }
+      }
+    },
+    "the saved line-spacing font": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the saved line-spacing font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已存储的行距字体"
+          }
+        }
+      }
+    },
+    "the saved output path “%@”": {
+      "comment": "shell.restore",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the saved output path “%@”"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已存储的输出路径“%@”"
+          }
+        }
+      }
+    },
+    "%": {
+      "comment": "recipe.size.unit",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%"
+          }
+        }
+      }
+    },
+    "%@ (%@)": {
+      "comment": "recipe.weight.choice",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (%@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (%@)"
+          }
+        }
+      }
+    },
+    "%@ can't shape %@ in your font: its %@ shaping is Apple-only.": {
+      "comment": "recipe.shapingProblem",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ can't shape %@ in your font: its %@ shaping is Apple-only."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 在你的字体中无法正确排版%@：它的%@排版规则仅限 Apple。"
+          }
+        }
+      }
+    },
+    "%@: %@ %@": {
+      "comment": "recipe.card.accessibility",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@ %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：%@ %@"
+          }
+        }
+      }
+    },
+    "Add a font for another language…": {
+      "comment": "recipe.add",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a font for another language…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为其他语言添加字体…"
+          }
+        }
+      }
+    },
+    "Advanced…": {
+      "comment": "recipe.advanced",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高级…"
+          }
+        }
+      }
+    },
+    "Another style of the same family": {
+      "comment": "recipe.style.help",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Another style of the same family"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同一字族的其他样式"
+          }
+        }
+      }
+    },
+    "Any language…": {
+      "comment": "recipe.anyLanguage",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Any language…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任意语言…"
+          }
+        }
+      }
+    },
+    "Apple-only ligatures and alternates in this font won't carry over.": {
+      "comment": "recipe.appleOnly",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple-only ligatures and alternates in this font won't carry over."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这个字体中 Apple 专有的连字和替代字形不会被保留。"
+          }
+        }
+      }
+    },
+    "Change…": {
+      "comment": "recipe.change",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更换…"
+          }
+        }
+      }
+    },
+    "Chinese, Japanese, Korean… They fill in whatever the main font can't draw.": {
+      "comment": "recipe.other.description",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinese, Japanese, Korean… They fill in whatever the main font can't draw."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中文、日文、韩文… 它们会补足主字体无法绘制的字符。"
+          }
+        }
+      }
+    },
+    "Choose a font for %@…": {
+      "comment": "recipe.chooseLanguage",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a font for %@…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为%@选择字体…"
+          }
+        }
+      }
+    },
+    "Choose main font…": {
+      "comment": "recipe.main.choose",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose main font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择主字体…"
+          }
+        }
+      }
+    },
+    "Colour %@ in Colour by Font": {
+      "comment": "recipe.dot.accessibility",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colour %@ in Colour by Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“按字体着色”中的颜色 %@"
+          }
+        }
+      }
+    },
+    "Combine installed fonts into one font that every app can use.": {
+      "comment": "recipe.subtitle",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combine installed fonts into one font that every app can use."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把已安装的字体合并成一个所有应用都能使用的字体。"
+          }
+        }
+      }
+    },
+    "Draw this font's characters larger or smaller (100 % keeps them as they are)": {
+      "comment": "recipe.size.help",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draw this font's characters larger or smaller (100 % keeps them as they are)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把这个字体的字符放大或缩小（100 % 表示保持原样）"
+          }
+        }
+      }
+    },
+    "Fonts for other languages": {
+      "comment": "recipe.other.title",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonts for other languages"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他语言的字体"
+          }
+        }
+      }
+    },
+    "Its licence restricts embedding — fine for your own use; check before sharing the result.": {
+      "comment": "recipe.licence",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Its licence restricts embedding — fine for your own use; check before sharing the result."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它的许可限制嵌入 — 自己使用没问题；分享结果前请先查看许可。"
+          }
+        }
+      }
+    },
+    "MAIN FONT": {
+      "comment": "recipe.main.role",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MAIN FONT"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主字体"
+          }
+        }
+      }
+    },
+    "Main font": {
+      "comment": "recipe.main.title",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Main font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主字体"
+          }
+        }
+      }
+    },
+    "Make Main Font": {
+      "comment": "recipe.makeMain",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Make Main Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设为主字体"
+          }
+        }
+      }
+    },
+    "Make this font bolder or lighter (“As is” keeps it unchanged)": {
+      "comment": "recipe.weight.help",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Make this font bolder or lighter (“As is” keeps it unchanged)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让这个字体更粗或更细（“保持原样”表示不作更改）"
+          }
+        }
+      }
+    },
+    "More actions for %@": {
+      "comment": "recipe.actions.accessibility",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "More actions for %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 的更多操作"
+          }
+        }
+      }
+    },
+    "Move Down": {
+      "comment": "recipe.moveDown",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Move Down"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下移"
+          }
+        }
+      }
+    },
+    "Move Up": {
+      "comment": "recipe.moveUp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Move Up"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上移"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "comment": "recipe.remove",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除"
+          }
+        }
+      }
+    },
+    "Sets the line spacing.": {
+      "comment": "recipe.lineSpacing",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sets the line spacing."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "决定行距。"
+          }
+        }
+      }
+    },
+    "Size": {
+      "comment": "recipe.size",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Size"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大小"
+          }
+        }
+      }
+    },
+    "Size of %@, percent": {
+      "comment": "recipe.size.accessibility",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Size of %@, percent"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 的大小，百分比"
+          }
+        }
+      }
+    },
+    "Style": {
+      "comment": "recipe.style",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Style"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式"
+          }
+        }
+      }
+    },
+    "The font you like for letters and numbers. It also sets the line spacing.": {
+      "comment": "recipe.main.description",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The font you like for letters and numbers. It also sets the line spacing."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你喜欢用于字母和数字的字体。它也决定行距。"
+          }
+        }
+      }
+    },
+    "Undo": {
+      "comment": "recipe.weight.undo",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Undo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销"
+          }
+        }
+      }
+    },
+    "Use another font in its place": {
+      "comment": "recipe.change.help",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use another font in its place"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用另一个字体替代它"
+          }
+        }
+      }
+    },
+    "Weight": {
+      "comment": "recipe.weight",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字重"
+          }
+        }
+      }
+    },
+    "Weight of %@": {
+      "comment": "recipe.weight.accessibility",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weight of %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 的字重"
+          }
+        }
+      }
+    },
+    "Your font": {
+      "comment": "recipe.title",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体"
+          }
+        }
+      }
+    },
+    "Your text has %@ characters that %@ can't draw.": {
+      "comment": "recipe.prompt",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your text has %@ characters that %@ can't draw."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的文本中有 %2$@ 无法绘制的%1$@字符。"
+          }
+        }
+      }
+    },
+    "who draws what, line spacing": {
+      "comment": "recipe.advanced.hint",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "who draws what, line spacing"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字分工、行距"
+          }
+        }
+      }
+    },
+    "Missing font — replace or remove it.": {
+      "comment": "recipe.missingFont",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missing font — replace or remove it."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体缺失 — 请替换或移除它。"
+          }
+        }
+      }
+    },
+    "%@ duplicates": {
+      "comment": "picker.duplicate.many",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ duplicates"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 个重复项"
+          }
+        }
+      }
+    },
+    "%@ files couldn't be read": {
+      "comment": "picker.error.many",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ files couldn't be read"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 个文件无法读取"
+          }
+        }
+      }
+    },
+    "%@ fonts": {
+      "comment": "picker.count.many",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ fonts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 个字体"
+          }
+        }
+      }
+    },
+    "%@ hidden system fonts": {
+      "comment": "picker.hidden.many",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ hidden system fonts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 个隐藏的系统字体"
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "comment": "picker.count.errors",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %@"
+          }
+        }
+      }
+    },
+    "1 duplicate": {
+      "comment": "picker.duplicate.one",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 duplicate"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个重复项"
+          }
+        }
+      }
+    },
+    "1 file couldn't be read": {
+      "comment": "picker.error.one",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 file couldn't be read"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个文件无法读取"
+          }
+        }
+      }
+    },
+    "1 font": {
+      "comment": "picker.count.one",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个字体"
+          }
+        }
+      }
+    },
+    "1 hidden system font": {
+      "comment": "picker.hidden.one",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 hidden system font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 个隐藏的系统字体"
+          }
+        }
+      }
+    },
+    "All %@ fonts · %@": {
+      "comment": "picker.section.language",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All %@ fonts · %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有%@字体 · %@"
+          }
+        }
+      }
+    },
+    "All fonts · %@": {
+      "comment": "picker.section.any",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All fonts · %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有字体 · %@"
+          }
+        }
+      }
+    },
+    "Back": {
+      "comment": "picker.back",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回"
+          }
+        }
+      }
+    },
+    "Can't shape %@ · %@": {
+      "comment": "picker.unshapable.section",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Can't shape %@ · %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法正确排版%@ · %@"
+          }
+        }
+      }
+    },
+    "Choose a font": {
+      "comment": "picker.title.any",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择字体"
+          }
+        }
+      }
+    },
+    "Choose a font for %@": {
+      "comment": "picker.title.language",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a font for %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为%@选择字体"
+          }
+        }
+      }
+    },
+    "Choose your main font": {
+      "comment": "picker.title.main",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose your main font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择你的主字体"
+          }
+        }
+      }
+    },
+    "Fonts": {
+      "comment": "picker.table.label",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体"
+          }
+        }
+      }
+    },
+    "Latin": {
+      "comment": "picker.section.latin",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Latin"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拉丁字母"
+          }
+        }
+      }
+    },
+    "Looking for fonts…": {
+      "comment": "picker.scan.start",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Looking for fonts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在查找字体…"
+          }
+        }
+      }
+    },
+    "No fonts match “%@”.": {
+      "comment": "picker.no.match",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No fonts match “%@”."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有与“%@”匹配的字体。"
+          }
+        }
+      }
+    },
+    "Replace %@": {
+      "comment": "picker.title.replace",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replace %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "替换 %@"
+          }
+        }
+      }
+    },
+    "Sample: %@": {
+      "comment": "picker.sample.help",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sample: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "示例：%@"
+          }
+        }
+      }
+    },
+    "Show fonts for": {
+      "comment": "picker.language.label",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show fonts for"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "适用语言"
+          }
+        }
+      }
+    },
+    "Suggested for your text": {
+      "comment": "picker.suggested",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggested for your text"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "适合你的文本的建议"
+          }
+        }
+      }
+    },
+    "Trying %@": {
+      "comment": "picker.trial.any",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trying %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在试用 %@"
+          }
+        }
+      }
+    },
+    "Use": {
+      "comment": "picker.use.empty",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用"
+          }
+        }
+      }
+    },
+    "in your font": {
+      "comment": "picker.in.recipe",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in your font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已在你的字体中"
+          }
+        }
+      }
+    },
+    "unavailable: %@": {
+      "comment": "picker.unavailable.label",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "unavailable: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用：%@"
+          }
+        }
+      }
+    },
+    "%@ and %lld more": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ and %lld more"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@以及另外 %lld 个"
+          }
+        }
+      }
+    },
+    "%@ aren't in any of your fonts, so they would show as boxes.": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ aren't in any of your fonts, so they would show as boxes."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体都不包含%@，因此它们会显示为方框。"
+          }
+        }
+      }
+    },
+    "%@ isn't in any of your fonts, so it would show as a box.": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ isn't in any of your fonts, so it would show as a box."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体都不包含%@，因此它会显示为方框。"
+          }
+        }
+      }
+    },
+    "%lld points": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld points"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 磅"
+          }
+        }
+      }
+    },
+    "%lld pt": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pt"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 磅"
+          }
+        }
+      }
+    },
+    "Add a font for %@…": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a font for %@…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为%@添加字体…"
+          }
+        }
+      }
+    },
+    "Built font": {
+      "comment": "preview.builtBadge",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Built font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已生成的字体"
+          }
+        }
+      }
+    },
+    "Click and type to try your own text": {
+      "comment": "preview.hint",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Click and type to try your own text"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按并输入，试用你自己的文字"
+          }
+        }
+      }
+    },
+    "Draw each font's characters in that font's colour": {
+      "comment": "preview.colourHelp",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draw each font's characters in that font's colour"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用每个字体的颜色绘制它的字符"
+          }
+        }
+      }
+    },
+    "Find a font…": {
+      "comment": "preview.findFont",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find a font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查找字体…"
+          }
+        }
+      }
+    },
+    "Preview": {
+      "comment": "preview.title",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preview"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预览"
+          }
+        }
+      }
+    },
+    "Preview size": {
+      "comment": "preview.sizeAccessibilityLabel",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preview size"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预览大小"
+          }
+        }
+      }
+    },
+    "Preview text": {
+      "comment": "preview.editorAccessibilityLabel",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preview text"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预览文本"
+          }
+        }
+      }
+    },
+    "Replace the text with a sample (⌘Z brings yours back)": {
+      "comment": "preview.sampleHelp",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replace the text with a sample (⌘Z brings yours back)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用示例替换文本（按 ⌘Z 可恢复你的文本）"
+          }
+        }
+      }
+    },
+    "Showing %@, the font that was just built. Change your font to go back to the preview of the mix.": {
+      "comment": "preview.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Showing %@, the font that was just built. Change your font to go back to the preview of the mix."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在显示刚生成的字体 %@。更改你的字体即可回到混搭预览。"
+          }
+        }
+      }
+    },
+    "Showing the built font": {
+      "comment": "preview.builtBadgeAccessibilityLabel",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Showing the built font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在显示已生成的字体"
+          }
+        }
+      }
+    },
+    "Type something to see it in your font": {
+      "comment": "preview.placeholder",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Type something to see it in your font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入一些文字，看看它在你的字体中的样子"
+          }
+        }
+      }
+    },
+    "Type to try your own text. Each character is drawn by the font that will draw it in your font.": {
+      "comment": "preview.editorHelp",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Type to try your own text. Each character is drawn by the font that will draw it in your font."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入文字来试用。每个字符都由它在你的字体中所用的那个字体绘制。"
+          }
+        }
+      }
+    },
+    "Starting…": {
+      "comment": "build.starting",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starting…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在启动…"
+          }
+        }
+      }
+    },
+    "Checking your fonts…": {
+      "comment": "build.validate",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checking your fonts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查你的字体…"
+          }
+        }
+      }
+    },
+    "Deciding which font supplies each character…": {
+      "comment": "build.plan",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deciding which font supplies each character…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在决定每个字符由哪个字体提供…"
+          }
+        }
+      }
+    },
+    "Preparing the fonts…": {
+      "comment": "build.prepareAny",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparing the fonts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在准备字体…"
+          }
+        }
+      }
+    },
+    "Combining the fonts…": {
+      "comment": "build.merge",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combining the fonts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在合并字体…"
+          }
+        }
+      }
+    },
+    "Finishing the font…": {
+      "comment": "build.finish",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finishing the font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在完成字体…"
+          }
+        }
+      }
+    },
+    "Checking the result…": {
+      "comment": "build.verify",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checking the result…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查结果…"
+          }
+        }
+      }
+    },
+    "Done.": {
+      "comment": "build.done",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成。"
+          }
+        }
+      }
+    },
+    "Stopping…": {
+      "comment": "build.stopping",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopping…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在停止…"
+          }
+        }
+      }
+    },
+    "Installing your font…": {
+      "comment": "build.installingStatus",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installing your font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在安装你的字体…"
+          }
+        }
+      }
+    },
+    "Saving your font…": {
+      "comment": "build.savingStatus",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saving your font…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在存储你的字体…"
+          }
+        }
+      }
+    },
+    "Font Playground can't find its font engine. Reinstall the app.": {
+      "comment": "build.engineMissing",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground can't find its font engine. Reinstall the app."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭找不到它的字体引擎。请重新安装应用。"
+          }
+        }
+      }
+    },
+    "Choose it in any app's font list — apps that were already open may need to be reopened.": {
+      "comment": "build.installedDetail",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose it in any app's font list — apps that were already open may need to be reopened."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可在任意应用的字体列表中选择它 — 已经打开的应用可能需要重新打开。"
+          }
+        }
+      }
+    },
+    "Cancelled.": {
+      "comment": "build.cancelled",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelled."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已取消。"
+          }
+        }
+      }
+    },
+    "Installs in your Fonts folder — only for you, no password needed.": {
+      "comment": "build.idle",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installs in your Fonts folder — only for you, no password needed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安装到你的字体文件夹 — 仅供你使用，无需密码。"
+          }
+        }
+      }
+    },
+    "Installing…": {
+      "comment": "build.installing",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installing…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在安装…"
+          }
+        }
+      }
+    },
+    "Saving…": {
+      "comment": "build.saving",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saving…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在存储…"
+          }
+        }
+      }
+    },
+    "Building…": {
+      "comment": "build.building",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Building…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在生成…"
+          }
+        }
+      }
+    },
+    "Update Installed Font": {
+      "comment": "build.update",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update Installed Font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新已安装的字体"
+          }
+        }
+      }
+    },
+    "Installed": {
+      "comment": "build.installed",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已安装"
+          }
+        }
+      }
+    },
+    "Uninstall": {
+      "comment": "build.uninstall",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uninstall"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载"
+          }
+        }
+      }
+    },
+    "Details": {
+      "comment": "build.details",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Details"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "详细信息"
+          }
+        }
+      }
+    },
+    "Name": {
+      "comment": "build.name",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "名称"
+          }
+        }
+      }
+    },
+    "Name your font": {
+      "comment": "build.namePlaceholder",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name your font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为你的字体命名"
+          }
+        }
+      }
+    },
+    "A style name can't start with a dot.": {
+      "comment": "build.styleLeadingDot",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A style name can't start with a dot."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式名称不能以点开头。"
+          }
+        }
+      }
+    },
+    "Use a font name of at most 63 characters.": {
+      "comment": "build.nameTooLong",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use a font name of at most 63 characters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体名称最多 63 个字符。"
+          }
+        }
+      }
+    },
+    "Use a style name of at most 63 characters.": {
+      "comment": "build.styleTooLong",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use a style name of at most 63 characters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式名称最多 63 个字符。"
+          }
+        }
+      }
+    },
+    "Change Name": {
+      "comment": "build.changeName",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更改名称"
+          }
+        }
+      }
+    },
+    "Install Anyway": {
+      "comment": "build.installAnyway",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Install Anyway"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仍然安装"
+          }
+        }
+      }
+    },
+    "Replace": {
+      "comment": "build.replace",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replace"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "替换"
+          }
+        }
+      }
+    },
+    "The new font takes its place.": {
+      "comment": "build.replaceInfo",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The new font takes its place."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新字体会取代它。"
+          }
+        }
+      }
+    },
+    "If that font is downloaded later, apps may confuse it with yours.": {
+      "comment": "build.downloadableInfo",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If that font is downloaded later, apps may confuse it with yours."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果以后下载了那个字体，应用可能会把它和你的字体混淆。"
+          }
+        }
+      }
+    },
+    "Names that start with “.” are hidden by macOS — choose another name.": {
+      "comment": "build.hiddenName",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Names that start with “.” are hidden by macOS — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 会隐藏以“.”开头的名称 — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "the font engine stopped unexpectedly.": {
+      "comment": "build.engineStopped",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the font engine stopped unexpectedly."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体引擎意外停止。"
+          }
+        }
+      }
+    },
+    "the font engine took too long.": {
+      "comment": "build.timedOut",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the font engine took too long."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体引擎用时过长。"
+          }
+        }
+      }
+    },
+    "A font changed since Font Playground last read it. Choose File › Rescan Fonts, then try again.": {
+      "comment": "build.staleUnknown",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A font changed since Font Playground last read it. Choose File › Rescan Fonts, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有字体在字体混搭上次读取后已更改。请选取“文件” › “重新扫描字体”，然后重试。"
+          }
+        }
+      }
+    },
+    "Removed from your fonts — it's in the Trash.": {
+      "comment": "build.removed",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Removed from your fonts — it's in the Trash."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已从你的字体中移除 — 它在废纸篓中。"
+          }
+        }
+      }
+    },
+    "That font was no longer installed.": {
+      "comment": "build.notInstalled",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That font was no longer installed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "那个字体已不再安装。"
+          }
+        }
+      }
+    },
+    "That file is no longer there.": {
+      "comment": "build.fileGone",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That file is no longer there."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "那个文件已不存在。"
+          }
+        }
+      }
+    },
+    "Building a font": {
+      "comment": "build.activity",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Building a font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在生成字体"
+          }
+        }
+      }
+    },
+    "Bundled with macOS: licensed for use on this Mac only; do not distribute the forged font.": {
+      "comment": "build.appleSLA",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundled with macOS: licensed for use on this Mac only; do not distribute the forged font."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "随 macOS 附带：仅授权在这台 Mac 上使用；请勿分发合成的字体。"
+          }
+        }
+      }
+    },
+    "Supplied with a Microsoft product: licensed for use with that product only; do not distribute the forged font.": {
+      "comment": "build.microsoft",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supplied with a Microsoft product: licensed for use with that product only; do not distribute the forged font."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "随 Microsoft 产品提供：仅授权与该产品一起使用；请勿分发合成的字体。"
+          }
+        }
+      }
+    },
+    "Licence unknown: check the source font's licence before you share the forged font.": {
+      "comment": "build.unknownLicence",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licence unknown: check the source font's licence before you share the forged font."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "许可未知：分享合成的字体前，请先查看源字体的许可。"
+          }
+        }
+      }
+    },
+    "Preparing %@…": {
+      "comment": "build.prepare",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparing %@…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在准备 %@…"
+          }
+        }
+      }
+    },
+    "Building your font — %@": {
+      "comment": "build.buildingStatus",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Building your font — %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在生成你的字体 — %@"
+          }
+        }
+      }
+    },
+    "Installed as “%@”.": {
+      "comment": "build.installedStatus",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installed as “%@”."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已安装为“%@”。"
+          }
+        }
+      }
+    },
+    "Saved to %@": {
+      "comment": "build.savedStatus",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved to %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已存储到 %@"
+          }
+        }
+      }
+    },
+    "Couldn't build the font: %@": {
+      "comment": "build.buildError",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't build the font: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法生成字体：%@"
+          }
+        }
+      }
+    },
+    "Couldn't install the font: %@": {
+      "comment": "build.installError",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't install the font: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法安装字体：%@"
+          }
+        }
+      }
+    },
+    "Couldn't save the font: %@": {
+      "comment": "build.saveError",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't save the font: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法存储字体：%@"
+          }
+        }
+      }
+    },
+    "Couldn't remove the font: %@": {
+      "comment": "build.removeError",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't remove the font: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法移除字体：%@"
+          }
+        }
+      }
+    },
+    "“%@” changed since Font Playground last read it. Choose File › Rescan Fonts, then try again.": {
+      "comment": "build.staleMaterial",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” changed since Font Playground last read it. Choose File › Rescan Fonts, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@”在字体混搭上次读取后已更改。请选取“文件” › “重新扫描字体”，然后重试。"
+          }
+        }
+      }
+    },
+    "macOS already has a font called “%@” — choose another name.": {
+      "comment": "build.systemConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS already has a font called “%@” — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 已有名为“%@”的字体 — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "A font called “%@” is already installed for everyone on this Mac — choose another name.": {
+      "comment": "build.localConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A font called “%@” is already installed for everyone on this Mac — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台 Mac 上已为所有用户安装了名为“%@”的字体 — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "You already have a font called “%@” installed — choose another name.": {
+      "comment": "build.userConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You already have a font called “%@” installed — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你已经安装了名为“%@”的字体 — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "Another installed font already uses the internal name “%@” — choose another name.": {
+      "comment": "build.postscriptConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Another installed font already uses the internal name “%@” — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "另一个已安装的字体已使用内部名称“%@” — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "Your font “%@” already uses the internal name “%@” — choose another name.": {
+      "comment": "build.ownPostscriptConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your font “%@” already uses the internal name “%@” — choose another name."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体“%@”已使用内部名称“%@” — 请换一个名称。"
+          }
+        }
+      }
+    },
+    "macOS can download a font called “%@”. Install yours under this name anyway?": {
+      "comment": "build.downloadableConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS can download a font called “%@”. Install yours under this name anyway?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 可以下载名为“%@”的字体。仍要以这个名称安装你的字体吗？"
+          }
+        }
+      }
+    },
+    "Replace the “%@” you installed earlier?": {
+      "comment": "build.replaceConflict",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replace the “%@” you installed earlier?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要替换你之前安装的“%@”吗？"
+          }
+        }
+      }
+    },
+    "Installed “%@”, but couldn't remove “%@”: %@": {
+      "comment": "build.replaceError",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installed “%@”, but couldn't remove “%@”: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已安装“%@”，但无法移除“%@”：%@"
+          }
+        }
+      }
+    },
+    "Notes (%@)": {
+      "comment": "build.notes",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes (%@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "备注（%@）"
+          }
+        }
+      }
+    },
+    "The font is installed, but Font Playground couldn't refresh its font list: %@": {
+      "comment": "build.installedCatalogWarning",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The font is installed, but Font Playground couldn't refresh its font list: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体已安装，但字体混搭无法刷新字体列表：%@"
+          }
+        }
+      }
+    },
+    "nobody": {
+      "comment": "advanced.nobody",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nobody"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无"
+          }
+        }
+      }
+    },
+    "—": {
+      "comment": "advanced.noCount",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
+          }
+        }
+      }
+    },
+    "Auto → %@": {
+      "comment": "advanced.auto",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto → %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动 → %@"
+          }
+        }
+      }
+    },
+    "%@ — can't shape %@": {
+      "comment": "advanced.cantShape",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — can't shape %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — 无法正确排版%@"
+          }
+        }
+      }
+    },
+    "Who draws what": {
+      "comment": "advanced.who",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Who draws what"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字分工"
+          }
+        }
+      }
+    },
+    "Which font draws this script. Auto picks the highest font in your list that draws it well.": {
+      "comment": "advanced.drawnByHelp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Which font draws this script. Auto picks the highest font in your list that draws it well."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "由哪个字体绘制这种文字。“自动”会选择列表中能很好地绘制它的最靠前的字体。"
+          }
+        }
+      }
+    },
+    "Show all %lld scripts": {
+      "comment": "advanced.showAll",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show all %lld scripts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示全部 %lld 种文字"
+          }
+        }
+      }
+    },
+    "Also list the scripts none of your fonts draws": {
+      "comment": "advanced.showAllHelp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Also list the scripts none of your fonts draws"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同时列出你的字体都无法绘制的文字"
+          }
+        }
+      }
+    },
+    "Line spacing": {
+      "comment": "advanced.lineSpacingSection",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Line spacing"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行距"
+          }
+        }
+      }
+    },
+    "Line spacing from": {
+      "comment": "advanced.lineSpacing",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Line spacing from"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行距取自"
+          }
+        }
+      }
+    },
+    "Which font's line spacing your font uses (the main font's unless you choose)": {
+      "comment": "advanced.lineSpacingHelp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Which font's line spacing your font uses (the main font's unless you choose)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体使用哪个字体的行距（除非另行选择，否则使用主字体的行距）"
+          }
+        }
+      }
+    },
+    "Defaults": {
+      "comment": "advanced.defaults",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Defaults"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认值"
+          }
+        }
+      }
+    },
+    "Default boldness": {
+      "comment": "advanced.defaultBoldness",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default boldness"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认粗细"
+          }
+        }
+      }
+    },
+    "Default size": {
+      "comment": "advanced.defaultSize",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default size"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认大小"
+          }
+        }
+      }
+    },
+    "%lld %%": {
+      "comment": "advanced.percent",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld %%"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%%"
+          }
+        }
+      }
+    },
+    "For fonts without their own setting.": {
+      "comment": "advanced.defaultsNote",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For fonts without their own setting."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用于没有单独设置的字体。"
+          }
+        }
+      }
+    },
+    "Boldness of every font that has no Weight of its own": {
+      "comment": "advanced.defaultBoldnessHelp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boldness of every font that has no Weight of its own"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有未单独设置“字重”的字体的粗细"
+          }
+        }
+      }
+    },
+    "Size of every font that has no Size of its own": {
+      "comment": "advanced.defaultSizeHelp",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Size of every font that has no Size of its own"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有未单独设置“大小”的字体的大小"
+          }
+        }
+      }
+    },
+    "Last build": {
+      "comment": "advanced.lastBuild",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last build"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上次生成"
+          }
+        }
+      }
+    },
+    "No build yet.": {
+      "comment": "advanced.noBuild",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No build yet."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未生成。"
+          }
+        }
+      }
+    },
+    "Greek": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Greek"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "希腊文"
+          }
+        }
+      }
+    },
+    "Cyrillic": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cyrillic"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "西里尔文"
+          }
+        }
+      }
+    },
+    "Armenian & Georgian": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armenian & Georgian"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "亚美尼亚文和格鲁吉亚文"
+          }
+        }
+      }
+    },
+    "Hebrew": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hebrew"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "希伯来文"
+          }
+        }
+      }
+    },
+    "Arabic": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arabic"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阿拉伯文"
+          }
+        }
+      }
+    },
+    "Indic": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indic"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "印度系文字"
+          }
+        }
+      }
+    },
+    "Thai, Lao, Khmer, Myanmar": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thai, Lao, Khmer, Myanmar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "泰文、老挝文、高棉文、缅甸文"
+          }
+        }
+      }
+    },
+    "Hangul": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hangul"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "韩文字母"
+          }
+        }
+      }
+    },
+    "Kana": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kana"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "假名"
+          }
+        }
+      }
+    },
+    "Han": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Han"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "汉字"
+          }
+        }
+      }
+    },
+    "CJK symbols & fullwidth": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CJK symbols & fullwidth"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中日韩符号和全角字符"
+          }
+        }
+      }
+    },
+    "Punctuation & symbols": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Punctuation & symbols"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标点和符号"
+          }
+        }
+      }
+    },
+    "Emoji & pictographs": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emoji & pictographs"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表情符号和图形"
+          }
+        }
+      }
+    },
+    "Everything else": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything else"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他所有字符"
+          }
+        }
+      }
+    },
+    "Letters (Latin)": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letters (Latin)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "西文字母（拉丁）"
+          }
+        }
+      }
+    },
+    "Chinese (Simplified)": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinese (Simplified)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中文（简体）"
+          }
+        }
+      }
+    },
+    "Chinese (Traditional)": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinese (Traditional)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中文（繁体）"
+          }
+        }
+      }
+    },
+    "Japanese": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Japanese"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日文"
+          }
+        }
+      }
+    },
+    "Korean": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Korean"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "韩文"
+          }
+        }
+      }
+    },
+    "Hindi & Indic": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi & Indic"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "印地文和印度系文字"
+          }
+        }
+      }
+    },
+    "Symbols & emoji": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Symbols & emoji"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "符号和表情符号"
+          }
+        }
+      }
+    },
+    "Any language": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Any language"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任意语言"
+          }
+        }
+      }
+    },
+    "Letters": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "西文字母"
+          }
+        }
+      }
+    },
+    "Chinese": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinese"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中文"
+          }
+        }
+      }
+    },
+    "Thai & SE Asian": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thai & SE Asian"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "泰文和东南亚文字"
+          }
+        }
+      }
+    },
+    "letters, numbers and punctuation": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "letters, numbers and punctuation"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字母、数字和标点"
+          }
+        }
+      }
+    },
+    "Chinese characters": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinese characters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "汉字"
+          }
+        }
+      }
+    },
+    "Japanese kana": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Japanese kana"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日文假名"
+          }
+        }
+      }
+    },
+    "Korean Hangul": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Korean Hangul"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "韩文字母"
+          }
+        }
+      }
+    },
+    "CJK punctuation": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CJK punctuation"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中日韩标点"
+          }
+        }
+      }
+    },
+    "symbols": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "symbols"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "符号"
+          }
+        }
+      }
+    },
+    "emoji": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "emoji"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表情符号"
+          }
+        }
+      }
+    },
+    "Indic scripts": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indic scripts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "印度系文字"
+          }
+        }
+      }
+    },
+    "Thai and Southeast Asian scripts": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thai and Southeast Asian scripts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "泰文和东南亚文字"
+          }
+        }
+      }
+    },
+    "other characters": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "other characters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他字符"
+          }
+        }
+      }
+    },
+    "Mixed (English, Chinese, Japanese)": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mixed (English, Chinese, Japanese)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "混合（英文、中文、日文）"
+          }
+        }
+      }
+    },
+    "English": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "English"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英文"
+          }
+        }
+      }
+    },
+    "All languages": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All languages"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有语言"
+          }
+        }
+      }
+    },
+    "Draws nothing — the fonts above already cover everything it has.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draws nothing — the fonts above already cover everything it has."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "什么也不绘制 — 上面的字体已涵盖它的全部字符。"
+          }
+        }
+      }
+    },
+    " and ": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " and "
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "和"
+          }
+        }
+      }
+    },
+    "Draws %@.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draws %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "绘制%@。"
+          }
+        }
+      }
+    },
+    "more": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "more"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他"
+          }
+        }
+      }
+    },
+    "Draws %@, plus %@.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draws %@, plus %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "绘制%@，以及%@。"
+          }
+        }
+      }
+    },
+    "ADDS NOTHING": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ADDS NOTHING"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有新增"
+          }
+        }
+      }
+    },
+    "FILLS IN THE REST": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FILLS IN THE REST"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "补足其余"
+          }
+        }
+      }
+    },
+    " & ": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " & "
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "和"
+          }
+        }
+      }
+    },
+    "FOR %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FOR %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用于%@"
+          }
+        }
+      }
+    },
+    "%@ and %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ and %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@和%@"
+          }
+        }
+      }
+    },
+    "Add at least one font.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add at least one font."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请至少添加一个字体。"
+          }
+        }
+      }
+    },
+    "%@: this font is not on this Mac": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: this font is not on this Mac"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：这台 Mac 上没有这个字体"
+          }
+        }
+      }
+    },
+    "%@: the font file is no longer there": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: the font file is no longer there"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：字体文件已不存在"
+          }
+        }
+      }
+    },
+    "Base material is out of range.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Base material is out of range."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主字体序号超出范围。"
+          }
+        }
+      }
+    },
+    "%@: %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：%@"
+          }
+        }
+      }
+    },
+    "Family name is empty.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family name is empty."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字族名称为空。"
+          }
+        }
+      }
+    },
+    "Style name is empty.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Style name is empty."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式名称为空。"
+          }
+        }
+      }
+    },
+    "Family name can't start with “.”: macOS hides fonts whose names start with a dot.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family name can't start with “.”: macOS hides fonts whose names start with a dot."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字族名称不能以“.”开头：macOS 会隐藏名称以点开头的字体。"
+          }
+        }
+      }
+    },
+    "Family name contains a control character.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family name contains a control character."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字族名称包含控制字符。"
+          }
+        }
+      }
+    },
+    "Style name contains a control character.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Style name contains a control character."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式名称包含控制字符。"
+          }
+        }
+      }
+    },
+    "Rule for %@ points to a missing material.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rule for %@ points to a missing material."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@”的规则指向了不存在的字体。"
+          }
+        }
+      }
+    },
+    "%@: scale %@ must be between 0.1 and 10.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: scale %@ must be between 0.1 and 10."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：缩放比例 %@ 必须介于 0.1 和 10 之间。"
+          }
+        }
+      }
+    },
+    "%@: scale %@%% is too large for a %@-unit base (maximum %@%%).": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: scale %@%% is too large for a %@-unit base (maximum %@%%)."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：缩放比例 %@%% 对于 %@ 单位的基准来说太大（最大 %@%%）。"
+          }
+        }
+      }
+    },
+    "%@: weight %@ must be between 1 and 1000.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: weight %@ must be between 1 and 1000."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：字重 %@ 必须介于 1 和 1000 之间。"
+          }
+        }
+      }
+    },
+    "%@ can't draw %@ in the forged font: it shapes it with Apple-only rules (AAT) that can't be carried over. Choose another font for %@.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ can't draw %@ in the forged font: it shapes it with Apple-only rules (AAT) that can't be carried over. Choose another font for %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 无法在合成的字体中绘制%@：它使用无法带入的 Apple 专有规则（AAT）排版这种文字。请为%@选择另一个字体。"
+          }
+        }
+      }
+    },
+    "%@ can't draw %@ in the forged font: it has no OpenType shaping rules for it. Choose another font for %@.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ can't draw %@ in the forged font: it has no OpenType shaping rules for it. Choose another font for %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 无法在合成的字体中绘制%@：它没有针对这种文字的 OpenType 排版规则。请为%@选择另一个字体。"
+          }
+        }
+      }
+    },
+    "These fonts come close to the 65,535-glyph limit; if forging fails, remove a font or use a smaller build.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "These fonts come close to the 65,535-glyph limit; if forging fails, remove a font or use a smaller build."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这些字体接近 65,535 个字形的上限；如果合成失败，请移除一个字体或使用更小的版本。"
+          }
+        }
+      }
+    },
+    "Together these fonts need about %@ glyphs; a font can hold 65,535. Remove a font or use a smaller (regional) build.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Together these fonts need about %@ glyphs; a font can hold 65,535. Remove a font or use a smaller (regional) build."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这些字体合计约需要 %@ 个字形，而一个字体最多只能容纳 65,535 个。请移除一个字体，或使用更小的（地区）版本。"
+          }
+        }
+      }
+    },
+    "%@ font could not be found: %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ font could not be found: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到 %@ 个字体：%@"
+          }
+        }
+      }
+    },
+    "%@ fonts could not be found: %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ fonts could not be found: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到 %@ 个字体：%@"
+          }
+        }
+      }
+    },
+    "Using %@ instead of making %@ lighter.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Using %@ instead of making %@ lighter."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "改用 %@，而不是把 %@ 变细。"
+          }
+        }
+      }
+    },
+    "Using %@ instead of making %@ bolder.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Using %@ instead of making %@ bolder."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "改用 %@，而不是把 %@ 加粗。"
+          }
+        }
+      }
+    },
+    "Made bolder synthetically (+%@)": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Made bolder synthetically (+%@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已通过合成加粗（+%@）"
+          }
+        }
+      }
+    },
+    "Can't be made lighter; weight left as is": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Can't be made lighter; weight left as is"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法变细；字重保持原样"
+          }
+        }
+      }
+    },
+    "Font Playground has no access to “%@”.": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground has no access to “%@”."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭无法访问“%@”。"
+          }
+        }
+      }
+    },
+    "The font folder is missing: %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The font folder is missing: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体文件夹不存在：%@"
+          }
+        }
+      }
+    },
+    "%@: duplicate %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: duplicate %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：重复的 %@"
+          }
+        }
+      }
+    },
+    "Disabled font could not be located: %@": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disabled font could not be located: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到已停用的字体：%@"
+          }
+        }
+      }
+    },
+    "Search fonts": {
+      "comment": "picker.search.label",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search fonts"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索字体"
+          }
+        }
+      }
+    },
+    "Only fonts that draw it well": {
+      "comment": "picker.filter.note",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only fonts that draw it well"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅显示能很好地绘制它的字体"
+          }
+        }
+      }
+    },
+    "Search 1 font — English or native name": {
+      "comment": "picker.search.one",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search 1 font — English or native name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索 1 个字体 — 英文名称或本地名称"
+          }
+        }
+      }
+    },
+    "Search %@ fonts — English or native name": {
+      "comment": "picker.search.many",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search %@ fonts — English or native name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索 %@ 个字体 — 英文名称或本地名称"
+          }
+        }
+      }
+    },
+    "Show fonts that can't shape %@ (%@)": {
+      "comment": "picker.unshapable.toggle",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show fonts that can't shape %@ (%@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示无法正确排版%@的字体（%@）"
+          }
+        }
+      }
+    },
+    "Can't shape %@: its shaping is Apple-only": {
+      "comment": "picker.unshapable.reason",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Can't shape %@: its shaping is Apple-only"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法正确排版%@：它的排版规则仅限 Apple"
+          }
+        }
+      }
+    },
+    "Looking for fonts… %@ / %@": {
+      "comment": "picker.scan.progress",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Looking for fonts… %@ / %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在查找字体… %@ / %@"
+          }
+        }
+      }
+    },
+    "None of your fonts draw %@ well.": {
+      "comment": "picker.no.language",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None of your fonts draw %@ well."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的字体都无法很好地绘制%@。"
+          }
+        }
+      }
+    },
+    "%@ and %@ aren't listed.": {
+      "comment": "picker.hidden.help",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ and %@ aren't listed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未列出%@和%@。"
+          }
+        }
+      }
+    },
+    "Trying %@ as your main font": {
+      "comment": "picker.trial.main",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trying %@ as your main font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在试用 %@ 作为主字体"
+          }
+        }
+      }
+    },
+    "Trying %@ instead of %@": {
+      "comment": "picker.trial.replace",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trying %@ instead of %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在试用 %@ 替代 %@"
+          }
+        }
+      }
+    },
+    "Trying %@ for %@": {
+      "comment": "picker.trial.language",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trying %@ for %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在为%2$@试用 %1$@"
+          }
+        }
+      }
+    },
+    "%@ — ↑ ↓ try the next font, Return uses it.": {
+      "comment": "picker.trial.hint",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — ↑ ↓ try the next font, Return uses it."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — 按 ↑ ↓ 试用下一个字体，按 Return 键使用它。"
+          }
+        }
+      }
+    },
+    "Font name": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体名称"
+          }
+        }
+      }
+    },
+    "Style name": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Style name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "样式名称"
+          }
+        }
+      }
+    },
+    "Building your font": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Building your font"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在生成你的字体"
+          }
+        }
+      }
+    },
+    "%@ percent": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ percent"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "百分之 %@"
+          }
+        }
+      }
+    },
+    "Add Font Folder": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Font Folder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加字体文件夹"
+          }
+        }
+      }
+    },
+    "Remove Selected Folder": {
+      "comment": "model.text",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Selected Folder"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除所选文件夹"
+          }
+        }
+      }
+    },
+    "weight.light": {
+      "comment": "shell.weightLight",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
+          }
+        }
+      }
+    },
+    ", ": {
+      "comment": "model.listSeparator",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "、"
+          }
+        }
+      }
+    },
+    "Language": {
+      "comment": "shell.language",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "语言"
+          }
+        }
+      }
+    },
+    "Font Playground uses a new language after it reopens.": {
+      "comment": "shell.languageFooter",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Font Playground uses a new language after it reopens."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字体混搭会在重新打开后使用新的语言。"
+          }
+        }
+      }
+    },
+    "Reopen Font Playground in %@?": {
+      "comment": "shell.reopenTitle",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reopen Font Playground in %@?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要以“%@”重新打开字体混搭吗？"
+          }
+        }
+      }
+    },
+    "Your recipe is saved first.": {
+      "comment": "shell.reopenMessage",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your recipe is saved first."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的方案会先被存储。"
+          }
+        }
+      }
+    },
+    "Quit and Reopen": {
+      "comment": "shell.quitAndReopen",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit and Reopen"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退出并重新打开"
+          }
+        }
+      }
+    },
+    "Later": {
+      "comment": "shell.later",
+      "extractionState": "manual",
+      "generatesSymbol": false,
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Later"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "稍后"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

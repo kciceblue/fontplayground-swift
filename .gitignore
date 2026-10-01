@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+# Swift / Xcode
+.build/
+.swiftpm/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+# Build products
+build/
+dist/
+*.app/
+*.dmg
+*.zip
+# Local
+.env
+*.log
+.idea/
+.vscode/
+.claude/

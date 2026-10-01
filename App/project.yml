@@ -1,0 +1,67 @@
+name: FontPlayground
+options:
+  bundleIdPrefix: io.github.kciceblue
+  deploymentTarget:
+    macOS: "14.0"
+  developmentLanguage: en
+  fileTypes:
+    icon:
+      file: true
+      buildPhase: resources
+configFiles:
+  Debug: Version.xcconfig
+  Release: Version.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    ARCHS: arm64
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+packages:
+  FontPlaygroundMacKit:
+    path: ../Packages/FontPlaygroundMacKit
+targets:
+  FontPlayground:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+      - path: Resources
+    dependencies:
+      - package: FontPlaygroundMacKit
+        product: FPAppUI
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        PRODUCT_NAME: "Font Playground"
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.kciceblue.fontplayground
+        INFOPLIST_FILE: Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+        DEVELOPMENT_TEAM: ""
+        ENABLE_HARDENED_RUNTIME: YES
+        # TOOLING-1: avoid Xcode's ad-hoc debug dylib failing library validation after re-signing.
+        ENABLE_DEBUG_DYLIB: NO
+    postBuildScripts:
+      - name: Embed fpengine helper runtime
+        shell: /bin/bash
+        script: '"${SRCROOT}/../scripts/embed-helper.sh"'
+        basedOnDependencyAnalysis: false
+      - name: Collect licences
+        shell: /bin/bash
+        script: '"${SRCROOT}/../scripts/collect-licenses.sh"'
+        basedOnDependencyAnalysis: false
+schemes:
+  FontPlayground:
+    build:
+      targets:
+        FontPlayground: all
+    run:
+      config: Debug
+      environmentVariables:
+        FP_ENGINE_PYTHON: "$(PROJECT_DIR)/../engine/.venv/bin/python"
+    archive:
+      config: Release

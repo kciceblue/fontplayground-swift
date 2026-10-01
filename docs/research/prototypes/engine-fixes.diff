@@ -1,0 +1,87 @@
+diff -ru -x __pycache__ --label a/engine --label b/engine a/engine/prepare.py b/engine/prepare.py
+--- a/engine
++++ b/engine
+@@ -59,14 +59,52 @@
+ 
+ 
+ def kept_features(font: TTFont) -> list[str]:
+-    """Every OpenType feature the font has, minus DROPPED_FEATURES (so the closure stays small)."""
++    """Every OpenType feature the font has, minus DROPPED_FEATURES and features that reuse their lookups."""
+     tags: set[str] = set()
++    dropped_lookups: set[tuple[str, int]] = set()
+     for table in ("GSUB", "GPOS"):
+         if table in font and font[table].table.FeatureList:
+-            tags |= {r.FeatureTag for r in font[table].table.FeatureList.FeatureRecord}
+-    return sorted(tags - DROPPED_FEATURES)
++            for r in font[table].table.FeatureList.FeatureRecord:
++                tags.add(r.FeatureTag)
++                if r.FeatureTag in DROPPED_FEATURES:
++                    dropped_lookups |= {(table, i) for i in r.Feature.LookupListIndex}
++    aliases: set[str] = set()
++    for table in ("GSUB", "GPOS"):
++        if table in font and font[table].table.FeatureList:
++            for r in font[table].table.FeatureList.FeatureRecord:
++                if {(table, i) for i in r.Feature.LookupListIndex} & dropped_lookups:
++                    aliases.add(r.FeatureTag)   # e.g. PingFang's cv08/cv09 point at its locl lookups
++    return sorted(tags - DROPPED_FEATURES - aliases - {"aalt"})
+ 
+ 
++def normalize_cmap(font: TTFont) -> None:
++    """Rebuild cmap as Windows (3,1) format 4 [+ (3,10) format 12], keeping any format 14.
++
++    fontTools.merge only reads (3,1)/(0,3)/(0,4)/(0,6) format 4 and (3,10)/(0,4)/(0,6) format 12; many Apple
++    fonts (Helvetica Neue, Didot, Cochin, Zapfino...) only have (0,1) or (0,0) Unicode subtables and would lose
++    every character in the merge.
++    """
++    from fontTools.ttLib.tables._c_m_a_p import CmapSubtable
++    best = font.getBestCmap() or {}
++    uvs = [t for t in font["cmap"].tables if t.format == 14]
++    table = newTable("cmap")
++    table.tableVersion = 0
++    table.tables = []
++    bmp = CmapSubtable.newSubtable(4)
++    bmp.platformID, bmp.platEncID, bmp.language = 3, 1, 0
++    bmp.cmap = {cp: g for cp, g in best.items() if cp <= 0xFFFF}
++    table.tables.append(bmp)
++    if any(cp > 0xFFFF for cp in best):
++        full = CmapSubtable.newSubtable(12)
++        full.platformID, full.platEncID, full.language = 3, 10, 0
++        full.cmap = dict(best)
++        table.tables.append(full)
++    for t in uvs:
++        t.platformID, t.platEncID = 0, 5
++        table.tables.append(t)
++    font["cmap"] = table
++
++
+ def subset_font(font: TTFont, codepoints) -> None:
+     options = subset_options()
+     options.layout_features = kept_features(font)
+@@ -157,6 +195,7 @@
+             warnings.append("GPOS dropped: the font's variable positioning data is broken, "
+                             "so kerning and mark positioning are lost")
+     subset_font(font, codepoints)
++    normalize_cmap(font)
+     kern_to_gpos(font)  # legacy 'kern' would be dropped by the merger; GPOS survives
+     if face.outline == "CFF":
+         cff_to_glyf(font)
+diff -ru -x __pycache__ --label a/engine --label b/engine a/engine/synth_bold.py b/engine/synth_bold.py
+--- a/engine
++++ b/engine
+@@ -33,7 +33,15 @@
+         stroked = pathops.Path(path)
+         stroked.stroke(w, pathops.LineCap.ROUND_CAP, pathops.LineJoin.ROUND_JOIN, 4.0)
+         stroked.convertConicsToQuads()
+-        result = pathops.op(path, stroked, pathops.PathOp.UNION)
++        try:
++            result = pathops.op(path, stroked, pathops.PathOp.UNION)
++        except pathops.PathOpsError:
++            try:  # retry on a cleaned-up outline before giving up on this glyph
++                clean = pathops.Path(path)
++                clean.simplify()
++                result = pathops.op(clean, stroked, pathops.PathOp.UNION)
++            except pathops.PathOpsError:
++                continue  # keep the regular outline for this glyph rather than failing the whole forge
+         result.convertConicsToQuads()
+         result = result.transform(translateX=w / 2)  # keep the left side bearing
+         pen = TTGlyphPen(None)

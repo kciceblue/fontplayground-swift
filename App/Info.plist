@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Font Playground</string>
+	<key>CFBundleDisplayName</key>
+	<string>Font Playground</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.graphics-design</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+	</array>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright (c) 2026 kciceblue</string>
+	<key>FPHelpURL</key>
+	<string></string>
+	<key>FPDonateURL</key>
+	<string>https://buymeacoffee.com/kciceblue</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Font Playground reads fonts in folders you add and saves fonts where you choose.</string>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>Font Playground reads fonts in folders you add and saves fonts where you choose.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>Font Playground reads fonts in folders you add and saves fonts where you choose.</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>Font Playground reads fonts in folders you add and saves fonts where you choose.</string>
+	<key>NSNetworkVolumesUsageDescription</key>
+	<string>Font Playground reads fonts in folders you add and saves fonts where you choose.</string>
+</dict>
+</plist>

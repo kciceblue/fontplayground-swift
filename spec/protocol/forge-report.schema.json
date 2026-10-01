@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/forge-report.schema.json",
+  "title": "ForgeReport",
+  "description": "Normative. The payload (`report`) of the forge command's `result` event (contracts.md section 4). Extends reference engine/spec.py:ForgeReport. The helper emits exactly these keys.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "output_path", "family_name", "style_name", "postscript_name", "full_name", "total_codepoints", "total_glyphs",
+    "fs_type", "materials", "issues", "licence_notes", "warnings", "duration_s"
+  ],
+  "properties": {
+    "output_path": {
+      "description": "The request's output_path; the file is complete and in place when this event is sent.",
+      "$ref": "defs.schema.json#/$defs/abs_path"
+    },
+    "family_name": { "description": "Name ID 16, else 1, as written in the output.", "type": "string", "minLength": 1 },
+    "style_name": { "description": "Name ID 17, else 2, as written in the output.", "type": "string", "minLength": 1 },
+    "postscript_name": {
+      "description": "Name ID 6 as written in the output (contracts.md section 6).",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9-]{1,63}$"
+    },
+    "full_name": { "description": "Name ID 4 as written in the output.", "type": "string", "minLength": 1 },
+    "total_codepoints": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+    "total_glyphs": { "type": "integer", "minimum": 1, "maximum": 65535 },
+    "fs_type": {
+      "description": "OS/2 fsType as written in the output (WP-110).",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "materials": {
+      "description": "One entry per request material, in request order.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "name", "path", "index", "codepoints", "groups", "warnings" ],
+        "properties": {
+          "name": { "description": "Display name '<family> <style>'.", "type": "string", "minLength": 1 },
+          "path": { "$ref": "defs.schema.json#/$defs/abs_path" },
+          "index": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+          "codepoints": { "description": "Characters this material contributes.", "$ref": "defs.schema.json#/$defs/non_negative_int" },
+          "groups": {
+            "description": "Script groups it contributes, in GROUPS order.",
+            "type": "array",
+            "items": { "$ref": "defs.schema.json#/$defs/group_id" },
+            "uniqueItems": true
+          },
+          "warnings": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "issues": {
+      "description": "Machine-readable warnings. `code` values are defined by the producing WP (engine-correctness.md, engine-metadata.md).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "code", "severity", "material_index", "group", "message" ],
+        "properties": {
+          "code": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "severity": { "enum": [ "warning", "error" ] },
+          "material_index": { "type": [ "integer", "null" ], "minimum": 0 },
+          "group": { "anyOf": [ { "$ref": "defs.schema.json#/$defs/group_id" }, { "type": "null" } ] },
+          "message": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "licence_notes": {
+      "description": "One note per licence class that needs one (ADR-0012), with the materials it applies to.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "class", "material_indexes", "text" ],
+        "properties": {
+          "class": { "$ref": "defs.schema.json#/$defs/licence_class" },
+          "material_indexes": {
+            "type": "array",
+            "items": { "$ref": "defs.schema.json#/$defs/non_negative_int" },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "warnings": {
+      "description": "Human-readable lines, same as the original report ('<material name>: <note>').",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "duration_s": {
+      "description": "Wall time from reading the request to building this report, rounded to 3 decimals.",
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

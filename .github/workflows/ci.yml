@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+env:
+  UV_PYTHON: "3.12"
+
+jobs:
+  macos:
+    env:
+      SWIFT_TEST_FLAGS: --no-parallel
+    name: macOS
+    if: ${{ success() && !cancelled() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    timeout-minutes: 60
+    runs-on: [self-hosted, macOS, ARM64, kcice-ci, kcice-build]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify installed macOS toolchain
+        run: scripts/check-macos-toolchain.sh
+      - name: Read pinned tool versions
+        run: grep -E '^[A-Z_]+=' scripts/tool-versions.env >> "$GITHUB_ENV"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+          cache-dependency-glob: engine/uv.lock
+      - run: make setup
+      # Setup is the only step that may use the network (AGENTS.md rule 6).
+      - run: make lint
+        env:
+          UV_OFFLINE: "1"
+      - run: make test
+        env:
+          UV_OFFLINE: "1"
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: build/cache/pbs
+          key: pbs-${{ hashFiles('scripts/python-runtime.pin') }}
+      - run: make helper-runtime
+      - run: make app
+      - run: scripts/check-sdk.sh "build/DerivedData/Build/Products/Debug/Font Playground.app/Contents/MacOS/Font Playground"
+      - run: scripts/check-bundle.sh "build/DerivedData/Build/Products/Debug/Font Playground.app"
+      - run: make self-test
+      - run: scripts/tests/test_crit_1_check_sdk.sh
+      - run: scripts/tests/test_release_codesign_retry.sh

@@ -1,0 +1,36 @@
+[build-system]
+# Match scripts/tool-versions.env so uv uses its bundled backend offline.
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[project]
+name = "fpengine"
+version = "1.0.0"
+description = "Font Playground engine: read font faces, plan and forge merged fonts with fontTools"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+  "fonttools[unicode]>=4.65",
+  "skia-pathops>=0.9",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "jsonschema>=4.23", # WP-201 protocol tests.
+  "ruff>=0.12",
+  "pyobjc-framework-CoreText>=11; sys_platform == 'darwin'", # WP-111 real-font suite.
+]
+
+[tool.uv]
+required-version = ">=0.12,<0.13"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+  "macos: needs macOS (skipped elsewhere)",
+  "apple_fonts: needs real Apple system fonts and FP_APPLE_FONTS=1",
+  "slow: takes over 10 s",
+]

@@ -1,0 +1,8 @@
+# python-build-standalone release used for the embedded helper (ADR-0004).
+# Verified against the latest release and its published SHA256SUMS on 2026-09-29.
+# Update all five values together.
+PBS_RELEASE=20260924
+PBS_PYTHON=3.12.14
+PBS_TRIPLE=aarch64-apple-darwin
+PBS_FLAVOR=install_only_stripped
+PBS_SHA256=c2edb321cd32ec2b170df208db0446dccc4398db602ca27cf2079098fb1f7d9d

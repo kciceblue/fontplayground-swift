@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/scan-request.schema.json",
+  "title": "scan request (stdin of `python -m fpengine scan`)",
+  "description": "Normative. The font files to read. Files are processed in this order; a path repeated verbatim is processed once and counted in the result's `duplicates`. Unknown keys are ignored. A request that does not match this schema is answered with error code bad_request.",
+  "type": "object",
+  "required": [ "files" ],
+  "properties": {
+    "files": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": { "$ref": "defs.schema.json#/$defs/abs_path" }
+    }
+  }
+}

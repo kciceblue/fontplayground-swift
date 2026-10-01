@@ -1,0 +1,9 @@
+{"protocol":1,"type":"progress","stage":"validate","fraction":0.0}
+{"protocol":1,"type":"progress","stage":"plan","fraction":0.0}
+{"protocol":1,"type":"progress","stage":"prepare","fraction":0.05,"material_index":0}
+{"protocol":1,"type":"progress","stage":"prepare","fraction":0.35,"material_index":1}
+{"protocol":1,"type":"progress","stage":"merge","fraction":0.7}
+{"protocol":1,"type":"progress","stage":"finish","fraction":0.85}
+{"protocol":1,"type":"progress","stage":"verify","fraction":0.95}
+{"protocol":1,"type":"progress","stage":"done","fraction":1.0}
+{"protocol":1,"type":"result","command":"forge","report":{"output_path":"/builds/Forged.ttf","family_name":"Fixture Forged","style_name":"Regular","postscript_name":"FixtureForgedFPd7bbac39-Regular","full_name":"Fixture Forged Regular","total_codepoints":3650,"total_glyphs":3651,"fs_type":0,"materials":[{"name":"Fixture Sans Regular","path":"/fonts/FixtureSans-Regular.ttf","index":0,"codepoints":240,"groups":["latin","greek"],"warnings":[]},{"name":"Fixture CJK Regular","path":"/fonts/FixtureCJK-Regular.otf","index":0,"codepoints":3410,"groups":["kana","han","cjk_symbols"],"warnings":[]}],"issues":[],"licence_notes":[],"warnings":[],"duration_s":1.234}}

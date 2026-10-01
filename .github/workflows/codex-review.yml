@@ -1,0 +1,53 @@
+# Managed by kciceblue/github-ci. Local reviews use the Mac mini subscription.
+name: Local Codex review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number to review
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: local-codex-review-${{ github.event.pull_request.number || inputs.pr }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    name: Codex review (Mac mini)
+    if: ${{ success() && !cancelled() && (github.event_name == 'workflow_dispatch' || (!github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository)) }}
+    runs-on: [self-hosted, macOS, ARM64, kcice-ci, codex-review]
+    timeout-minutes: 30
+    steps:
+      - name: Resolve the current PR commits
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr }}
+        run: python3 "${CI_CODEX_REVIEW:?Mac runner review helper is missing}" resolve
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ steps.pr.outputs.head }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Review with the Mac mini's Codex subscription
+        env:
+          REVIEW_BASE: ${{ steps.pr.outputs.base }}
+        run: python3 "${CI_CODEX_REVIEW:?Mac runner review helper is missing}" review
+      - name: Update the PR review summary
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          REVIEW_HEAD: ${{ steps.pr.outputs.head }}
+          REVIEW_BASE: ${{ steps.pr.outputs.base }}
+        run: python3 "${CI_CODEX_REVIEW:?Mac runner review helper is missing}" publish
+      - name: Remove temporary review output
+        if: always()
+        run: rm -f "$RUNNER_TEMP/codex-review.md"

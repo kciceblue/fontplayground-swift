@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/hello.schema.json",
+  "title": "hello event",
+  "description": "Normative. The first line written by `python -m fpengine hello`; a `result` event follows. `protocol` is both the envelope field and the protocol version the helper speaks: a client refuses a helper whose value differs from the version it supports.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "protocol", "type", "fpengine_version", "python", "fonttools", "unicode_version", "platform", "capabilities", "face_reader_version" ],
+  "properties": {
+    "protocol": { "$ref": "defs.schema.json#/$defs/protocol_version" },
+    "type": { "const": "hello" },
+    "fpengine_version": {
+      "description": "importlib.metadata.version('fpengine'), a PEP 440 version.",
+      "type": "string",
+      "minLength": 1
+    },
+    "python": {
+      "description": "platform.python_version(), e.g. '3.12.14'.",
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+"
+    },
+    "fonttools": { "description": "fontTools.version.", "type": "string", "minLength": 1 },
+    "unicode_version": {
+      "description": "Unicode version of the character database fontTools.unicodedata uses (unicodedata2.unidata_version when installed, else unicodedata.unidata_version).",
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "platform": {
+      "description": "'<sys.platform>-<platform.machine()>', e.g. 'darwin-arm64', 'linux-x86_64'.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+-[A-Za-z0-9_]+$"
+    },
+    "face_reader_version": {
+      "description": "fpengine.face.READER_VERSION (engine-metadata.md S3): changes whenever scanning the same bytes can give a different FaceRecord. Catalog caches key on it (WP-401).",
+      "type": "integer",
+      "minimum": 1
+    },
+    "capabilities": {
+      "description": "Feature ids this helper supports. v1 helpers send at least hello, scan, forge and forge.expect.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+      "uniqueItems": true,
+      "allOf": [
+        { "contains": { "const": "scan" } },
+        { "contains": { "const": "forge" } }
+      ]
+    }
+  }
+}

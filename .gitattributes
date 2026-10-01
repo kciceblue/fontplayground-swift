@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.png binary
+*.icns binary
+*.car binary
+*.ttf binary
+*.otf binary
+*.ttc binary
+*.otc binary
+*.dmg binary

@@ -1,0 +1,38 @@
+MIT License
+
+Copyright (c) 2026 kciceblue
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Font licences
+
+Font Playground doesn't include, sell or distribute any fonts. A forged font is a modified copy of its source fonts and stays under their licences. Check each source font's licence before you forge, and again before you share, sell or embed the result. Fonts bundled with macOS or a Microsoft product are licensed for use on your own Mac only: never share a font forged from them. What Font Playground reports about a font's licence can be incomplete or wrong, and it isn't legal advice.
+
+Disclaimer
+
+Font Playground is an independent project. It isn't affiliated with, endorsed or sponsored by Apple, Microsoft or any font vendor. Font names are trademarks of their owners and are used only to identify those fonts. You choose which fonts to forge and what to do with the result, and you are responsible for respecting their licences. The MIT License above disclaims all warranties and liability.
+
+Bundled components
+
+Python runtime: CPython 3.12 (PSF License) built by python-build-standalone (MPL-2.0 build scripts).
+fontTools (MIT); skia-pathops and Skia (BSD-3-Clause).
+unicodedata2 (Apache-2.0) with Unicode data (Unicode License v3).
+OpenSSL, SQLite, mpdecimal, Expat, XZ Utils, bzip2, libffi, libuuid and HACL* (see below).
+
+cff_to_glyf is adapted from fontTools Snippets/otf2ttf.py, Copyright (c) 2017 Just van Rossum, MIT License.

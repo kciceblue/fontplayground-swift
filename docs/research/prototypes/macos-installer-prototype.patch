@@ -1,0 +1,580 @@
+diff -ruN -x __pycache__ -x *.egg-info -x .pytest_cache -x .git a/fontplayground/ui/app.py b/fontplayground/ui/app.py
+--- a/fontplayground/ui/app.py	2026-09-29 18:07:21
++++ b/fontplayground/ui/app.py	2026-09-29 18:31:19
+@@ -86,7 +86,7 @@
+ 
+ 
+ class MainWindow(QMainWindow):
+-    def __init__(self, font_dirs: list[Path], config_dir: Path, parent=None, installer=install) -> None:
++    def __init__(self, font_dirs: list[Path], config_dir: Path, parent=None, installer=None) -> None:
+         super().__init__(parent)
+         self.setWindowTitle("Font Playground")
+         self.font_dirs = [Path(d) for d in font_dirs]
+@@ -114,7 +114,7 @@
+         self.setStyleSheet(theme.render(APP_STYLE))
+ 
+         self.model = ForgeModel(self)
+-        self.controller = BuildController(self.model, installer, self)
++        self.controller = BuildController(self.model, installer if installer is not None else install.default_installer(), self)
+         self.menu = self._build_menu()
+         self.recipe = RecipePanel(self.model, theme=theme)
+         self.picker = FontPicker(theme=theme)
+diff -ruN -x __pycache__ -x *.egg-info -x .pytest_cache -x .git a/fontplayground/ui/build.py b/fontplayground/ui/build.py
+--- a/fontplayground/ui/build.py	2026-09-29 18:07:21
++++ b/fontplayground/ui/build.py	2026-09-29 18:31:19
+@@ -13,11 +13,13 @@
+ 
+ import os
+ import shutil
++import sys
+ from enum import Enum
+ from pathlib import Path
+ 
+ from PySide6.QtCore import QObject, Signal
+ 
++from fontplayground.engine.merge import postscript_name
+ from fontplayground.ui import install, smart
+ from fontplayground.ui import model as model_module
+ from fontplayground.ui.model import ForgeModel
+@@ -35,7 +37,9 @@
+ REPLACE_FAILED_TEXT = "Installed “{name}”, but couldn't remove “{previous}”: {error}"
+ REMOVED_TEXT = "Removed from your fonts."
+ NOT_INSTALLED_TEXT = "That font was no longer installed."
++SYSTEM_HAS_TEXT = "{os} already has a font called “{name}” — choose another name."
+ WINDOWS_HAS_TEXT = "Windows already has a font called “{name}” — choose another name."
++INTERNAL_NAME_TEXT = "Another installed font already uses the internal name “{name}” — choose another name."
+ YOU_HAVE_TEXT = "You already have a font called “{name}” installed — choose another name."
+ REPLACE_TEXT = "Replace the “{name}” you installed earlier?"
+ 
+@@ -63,10 +67,12 @@
+ 
+ 
+ def _is_under(path, folder) -> bool:
+-    """True when `path` lies inside `folder` (case-insensitive on Windows, like the file system)."""
++    """True when `path` lies inside `folder` (case-insensitive on Windows and macOS, like their file systems)."""
+     try:
+-        p = os.path.normcase(os.path.abspath(path))
+-        f = os.path.normcase(os.path.abspath(folder))
++        p = os.path.normcase(os.path.realpath(path))
++        f = os.path.normcase(os.path.realpath(folder))
++        if sys.platform == "darwin":
++            p, f = p.casefold(), f.casefold()
+         return os.path.commonpath([p, f]) == f
+     except ValueError:  # different drives
+         return False
+@@ -84,7 +90,13 @@
+         super().__init__(parent)
+         self.model = model
+         self.installer = installer
+-        self.windows_fonts_dir = Path(windows_fonts_dir) if windows_fonts_dir is not None else system_fonts_dir()
++        if windows_fonts_dir is not None:
++            self.system_dirs = [Path(windows_fonts_dir)]
++        else:
++            try:
++                self.system_dirs = [Path(d) for d in installer.system_font_dirs()]
++            except Exception:
++                self.system_dirs = [system_fonts_dir()]
+         self._clear()
+         model.progress.connect(self._on_progress)
+         model.busyChanged.connect(self._on_busy_changed)
+@@ -161,13 +173,16 @@
+             names = {n.strip().casefold() for n in (face.family, *face.local_names)}   # apps match native names too
+             if family.casefold() not in names or not os.path.isfile(face.path):
+                 continue
+-            if _is_under(face.path, self.windows_fonts_dir):
+-                return "block", WINDOWS_HAS_TEXT.format(name=family)
++            if any(_is_under(face.path, d) for d in self.system_dirs):
++                return "block", self._system_has(family)
+             if user_dir is not None and _is_under(face.path, user_dir):
+                 if not self.installer.is_forged(face.path):
+                     return "block", YOU_HAVE_TEXT.format(name=family)
+                 # a forged font of another style is another file under another name: nothing is replaced
+                 replace = replace or face.style.strip().casefold() == m.style.strip().casefold()
++        verdict, replace = self._system_wide_conflict(family, replace)
++        if verdict is not None:
++            return verdict
+         try:
+             registered = self.installer.installed_path(full)
+         except (install.InstallNotSupported, OSError):
+@@ -177,6 +192,33 @@
+                 return "block", YOU_HAVE_TEXT.format(name=full)
+             replace = True
+         return ("replace", REPLACE_TEXT.format(name=full)) if replace else NO_CONFLICT
++
++    def _system_has(self, name: str) -> str:
++        return SYSTEM_HAS_TEXT.format(os=getattr(self.installer, "os_name", "Windows"), name=name)
++
++    def _system_wide_conflict(self, family: str, replace: bool):
++        """What the installer knows beyond the scanned catalog (macOS: every font CoreText has registered or offers
++        for download, by English or native family name, and by PostScript name)."""
++        m = self.model
++        find_family = getattr(self.installer, "find_family", None)
++        find_postscript = getattr(self.installer, "find_postscript", None)
++        try:
++            existing = find_family(family) if find_family else []
++            same_ps = find_postscript(postscript_name(m.family, m.style)) if find_postscript else []
++        except Exception:   # a lookup that fails must not block the user; the catalog check still ran
++            return None, replace
++        for f in existing:
++            if f.domain in ("system", "local", "downloadable"):
++                return ("block", self._system_has(family)), replace
++            if f.path is None or not os.path.isfile(f.path):
++                continue
++            if f.domain != "user" or not self.installer.is_forged(f.path):
++                return ("block", YOU_HAVE_TEXT.format(name=family)), replace
++            replace = replace or f.style.strip().casefold() == m.style.strip().casefold()
++        for f in same_ps:
++            if f.path is not None and os.path.isfile(f.path) and not (f.domain == "user" and self.installer.is_forged(f.path)):
++                return ("block", INTERNAL_NAME_TEXT.format(name=postscript_name(m.family, m.style))), replace
++        return None, replace
+ 
+     # ----- actions -----
+     def install(self) -> None:
+diff -ruN -x __pycache__ -x *.egg-info -x .pytest_cache -x .git a/fontplayground/ui/install.py b/fontplayground/ui/install.py
+--- a/fontplayground/ui/install.py	2026-09-29 18:07:21
++++ b/fontplayground/ui/install.py	2026-09-29 18:31:19
+@@ -29,8 +29,23 @@
+     """Installing fonts for the current user is only implemented on Windows."""
+ 
+ 
++os_name = "Windows"
++
++
+ def is_supported() -> bool:
+     return sys.platform.startswith("win")
++
++
++def default_installer():
++    """The installer for this platform: this module on Windows, a MacInstaller on macOS."""
++    if sys.platform == "darwin":
++        from fontplayground.ui.install_macos import MacInstaller
++        return MacInstaller()
++    return sys.modules[__name__]
++
++
++def system_font_dirs() -> list[Path]:
++    return [Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts"]
+ 
+ 
+ def user_fonts_dir() -> Path:
+diff -ruN -x __pycache__ -x *.egg-info -x .pytest_cache -x .git a/fontplayground/ui/install_macos.py b/fontplayground/ui/install_macos.py
+--- a/fontplayground/ui/install_macos.py	1970-01-01 08:00:00
++++ b/fontplayground/ui/install_macos.py	2026-09-29 18:35:05
+@@ -0,0 +1,261 @@
++"""Per-user font install on macOS, no admin rights needed (PROTOTYPE from the macOS gap analysis).
++
++Installing = put the file into ~/Library/Fonts, the folder Font Book's "Current User" install uses. fontd watches it,
++activates the font for every app and posts kCTFontManagerRegisteredFontsChangedNotification (the macOS counterpart of
++WM_FONTCHANGE: nothing to broadcast by hand). Uninstalling moves the file to the Trash, as Font Book's Remove does.
++
++"Installed by us" = a file in the user font folder whose name ID 4 is the full name (installed_path) and whose name
++ID 0 carries FORGED_NOTICE (is_forged) - the same two facts the Windows registry value + is_forged give.
++
++CoreText (pyobjc-framework-CoreText) is used for questions about fonts the file scan cannot see: Apple fonts in
++/System/Library/AssetsV2 (PingFang...), fonts activated by font managers, fonts offered for download, native
++(localised) family names and PostScript names. `scope` exists for tests: kCTFontManagerScopeProcess makes an
++install visible to this process only, without fontd. Nothing here needs Qt.
++"""
++from __future__ import annotations
++
++import os
++import sys
++import uuid
++from dataclasses import dataclass
++from pathlib import Path
++
++from fontplayground.ui.install import InstallNotSupported, full_name_of, is_forged  # shared, platform-neutral helpers
++
++FONT_SUFFIXES = (".ttf", ".otf", ".ttc", ".otc")
++MAX_RENAMES = 99
++# Apple-owned font locations: the system fonts, the fonts macOS downloads on demand (AssetsV2, e.g. PingFang) and the
++# reserved UI fonts. /Library/Fonts is the machine-wide folder (an admin or an installer put fonts there).
++APPLE_PREFIXES = ("/System/Library/", "/Library/Apple/")
++LOCAL_FONTS = "/Library/Fonts/"
++
++# CoreText error codes (CTFontManagerErrors.h)
++ALREADY_REGISTERED, NOT_REGISTERED = 105, 201
++
++
++@dataclass(frozen=True)
++class ExistingFont:
++    """A face some part of the system already knows by a name."""
++    path: Path | None          # None: offered for download by Apple, not on disk yet
++    family: str
++    style: str
++    postscript: str
++    domain: str                # "system" | "local" | "user" | "other" | "downloadable"
++
++
++class MacInstaller:
++    os_name = "macOS"
++
++    def __init__(self, fonts_dir: str | Path | None = None, scope: int | None = None, use_trash: bool = True,
++                 staging_dir: str | Path | None = None) -> None:
++        self.fonts_dir = Path(fonts_dir) if fonts_dir is not None else Path.home() / "Library" / "Fonts"
++        self.staging_dir = Path(staging_dir) if staging_dir is not None else (
++            Path.home() / "Library" / "Caches" / "FontPlayground" if fonts_dir is None else None)
++        self.scope = scope            # None: let fontd activate ~/Library/Fonts; tests pass kCTFontManagerScopeProcess
++        self.use_trash = use_trash
++
++    # ----- the interface BuildController uses -----
++    def is_supported(self) -> bool:
++        return sys.platform == "darwin"
++
++    def user_fonts_dir(self) -> Path:
++        return self.fonts_dir
++
++    def system_font_dirs(self) -> list[Path]:
++        """Folders whose fonts belong to macOS or to every user of this Mac (a name there is never replaced)."""
++        return [Path("/System/Library/Fonts"), Path("/System/Library/AssetsV2"),
++                Path("/System/Library/PrivateFrameworks/FontServices.framework"), Path("/Library/Fonts")]
++
++    def is_forged(self, path) -> bool:
++        return is_forged(path)
++
++    def installed_path(self, full_name: str) -> Path | None:
++        """The file in the user font folder whose full name is `full_name` (case-insensitive), or None."""
++        self._require_mac()
++        wanted = full_name.strip().casefold()
++        try:
++            entries = sorted(self.fonts_dir.iterdir())
++        except FileNotFoundError:
++            return None
++        for p in entries:
++            if p.name.startswith(".") or p.suffix.lower() not in FONT_SUFFIXES or not p.is_file():
++                continue
++            try:
++                names = full_name_of(p)
++            except Exception:  # an unreadable file in the folder is not ours to judge
++                continue
++            if wanted in (n.strip().casefold() for n in names.split(" & ")):
++                return p
++        return None
++
++    def install_font_for_user(self, path, full_name: str | None = None) -> Path:
++        """Put the font into the user font folder and return where it now lives.
++
++        An earlier copy under the same full name is replaced (removed, even when it had another file name, so two
++        files never share one PostScript name). A different font already using the file name is left alone: the new
++        file gets '<stem>-<n><suffix>'. The copy is written in a staging folder and renamed into place, so fontd never
++        sees a half-written font and apps that have the old file mapped keep reading a consistent file.
++        """
++        self._require_mac()
++        src = Path(path)
++        if not src.is_file():
++            raise FileNotFoundError(f"Font file not found: {src}")
++        full_name = full_name or full_name_of(src)
++        self.fonts_dir.mkdir(parents=True, exist_ok=True)
++        previous = self.installed_path(full_name)
++        if previous is not None and _same_file(src, previous):
++            return previous                         # installing from the font folder itself
++        dest = self._free_dest(src, previous)
++        # Write the whole file OUTSIDE the watched folder first (fontd must never see a half-written font), then
++        # rename it into place: same volume, so the rename is atomic and apps that mapped an older file keep it.
++        staging = self.staging_dir if self.staging_dir is not None else self.fonts_dir.parent / ".fontplayground-staging"
++        staging.mkdir(parents=True, exist_ok=True)
++        tmp = staging / f"{uuid.uuid4().hex[:8]}-{dest.name}"
++        try:
++            with open(src, "rb") as r, open(tmp, "wb") as w:
++                while chunk := r.read(1 << 20):
++                    w.write(chunk)
++                w.flush()
++                os.fsync(w.fileno())
++            if previous is not None and not _same_file(previous, dest):
++                self._remove(previous, to_trash=False)   # never two files with one PostScript name
++            os.replace(tmp, dest)                        # EXDEV (another volume) surfaces as OSError: install fails
++        finally:
++            tmp.unlink(missing_ok=True)
++        if self.scope is not None:
++            _register([dest], self.scope)
++        return dest
++
++    def uninstall_font_for_user(self, full_name: str) -> bool:
++        """Undo install_font_for_user for the font with this full name. False when it was not installed."""
++        self._require_mac()
++        installed = self.installed_path(full_name)
++        if installed is None:
++            return False
++        self._remove(installed, to_trash=self.use_trash)   # like Font Book's Remove: recoverable from the Trash
++        return True
++
++    # ----- what conflict() needs beyond the catalog -----
++    def find_family(self, family: str) -> list[ExistingFont]:
++        """Every face the system knows under this family name - English or native, any case - wherever it lives,
++        plus Apple fonts offered for download that have it."""
++        import CoreText
++
++        found = _match({CoreText.kCTFontFamilyNameAttribute: family}, CoreText.kCTFontFamilyNameAttribute)
++        found += [f for f in _match({CoreText.kCTFontFamilyNameAttribute: family,
++                                     CoreText.kCTFontDownloadableAttribute: True},
++                                    CoreText.kCTFontDownloadableAttribute)
++                  if f.family.casefold() == family.strip().casefold()]
++        return [self._classify(f) for f in found]
++
++    def find_postscript(self, postscript: str) -> list[ExistingFont]:
++        """Faces registered under this PostScript name (the name documents and most Mac apps store)."""
++        import CoreText
++
++        return [self._classify(f) for f in _match({CoreText.kCTFontNameAttribute: postscript},
++                                                  CoreText.kCTFontNameAttribute)
++                if f.postscript.casefold() == postscript.casefold()]
++
++    # ----- internals -----
++    def _require_mac(self) -> None:
++        if not self.is_supported():
++            raise InstallNotSupported("Installing fonts this way is only supported on macOS.")
++
++    def _classify(self, f: ExistingFont) -> ExistingFont:
++        if f.domain == "downloadable" or f.path is None:
++            return f
++        p = os.path.realpath(f.path)
++        user = os.path.realpath(self.fonts_dir) + os.sep
++        if p.casefold().startswith(user.casefold()):
++            domain = "user"
++        elif p.startswith(APPLE_PREFIXES):
++            domain = "system"
++        elif p.startswith(LOCAL_FONTS):
++            domain = "local"
++        else:
++            domain = "other"       # activated by a font manager (Adobe Fonts, RightFont...) or another app
++        return ExistingFont(f.path, f.family, f.style, f.postscript, domain)
++
++    def _free_dest(self, src: Path, previous: Path | None) -> Path:
++        candidates = [self.fonts_dir / src.name] + [self.fonts_dir / f"{src.stem}-{n}{src.suffix}"
++                                                    for n in range(1, MAX_RENAMES + 1)]
++        for dest in candidates:
++            if not dest.exists() or (previous is not None and _same_file(dest, previous)):
++                return dest
++        raise OSError(f"No free file name for {src.name} in {self.fonts_dir}")
++
++    def _remove(self, path: Path, to_trash: bool) -> None:
++        if self.scope is not None:
++            _unregister([path], self.scope)
++        if to_trash:
++            _trash(path)
++        else:
++            path.unlink(missing_ok=True)
++
++
++# ----- CoreText / Foundation via pyobjc -----
++def _url(path):
++    from Foundation import NSURL
++
++    return NSURL.fileURLWithPath_(str(path))
++
++
++def _match(attributes: dict, mandatory) -> list[ExistingFont]:
++    import CoreText
++
++    desc = CoreText.CTFontDescriptorCreateWithAttributes(attributes)
++    out = []
++    for d in CoreText.CTFontDescriptorCreateMatchingFontDescriptors(desc, {mandatory}) or []:
++        url = CoreText.CTFontDescriptorCopyAttribute(d, CoreText.kCTFontURLAttribute)
++        downloadable = bool(CoreText.CTFontDescriptorCopyAttribute(d, CoreText.kCTFontDownloadableAttribute)) \
++            and url is None
++        out.append(ExistingFont(
++            path=Path(url.path()) if url is not None else None,
++            family=str(CoreText.CTFontDescriptorCopyAttribute(d, CoreText.kCTFontFamilyNameAttribute) or ""),
++            style=str(CoreText.CTFontDescriptorCopyAttribute(d, CoreText.kCTFontStyleNameAttribute) or ""),
++            postscript=str(CoreText.CTFontDescriptorCopyAttribute(d, CoreText.kCTFontNameAttribute) or ""),
++            domain="downloadable" if downloadable else ""))
++    return out
++
++
++def _ct_errors(call, paths, *args) -> list:
++    errors: list = []
++
++    def handler(errs, done):
++        errors.extend(errs)
++        return True
++    call([_url(p) for p in paths], *args, handler)
++    return errors
++
++
++def _register(paths, scope: int) -> None:
++    import CoreText
++
++    errs = [e for e in _ct_errors(CoreText.CTFontManagerRegisterFontURLs, paths, scope, True)
++            if int(e.code()) != ALREADY_REGISTERED]
++    if errs:
++        raise OSError(str(errs[0].localizedDescription()))
++
++
++def _unregister(paths, scope: int) -> None:
++    import CoreText
++
++    errs = [e for e in _ct_errors(CoreText.CTFontManagerUnregisterFontURLs, paths, scope)
++            if int(e.code()) != NOT_REGISTERED]
++    if errs:
++        raise OSError(str(errs[0].localizedDescription()))
++
++
++def _trash(path: Path) -> None:
++    from Foundation import NSFileManager
++
++    ok, _url_out, error = NSFileManager.defaultManager().trashItemAtURL_resultingItemURL_error_(_url(path), None, None)
++    if not ok:
++        raise OSError(str(error.localizedDescription()) if error is not None else f"Could not move {path} to the Trash")
++
++
++def _same_file(a: Path, b: Path) -> bool:
++    try:
++        return os.path.samefile(a, b)
++    except OSError:
++        return False
+diff -ruN -x __pycache__ -x *.egg-info -x .pytest_cache -x .git a/tests/test_install_macos.py b/tests/test_install_macos.py
+--- a/tests/test_install_macos.py	1970-01-01 08:00:00
++++ b/tests/test_install_macos.py	2026-09-29 18:35:05
+@@ -0,0 +1,152 @@
++"""MacInstaller prototype. Runs on macOS only; every install goes into tmp_path with kCTFontManagerScopeProcess, so
++fontd, ~/Library/Fonts and the Trash are never touched."""
++import shutil
++import sys
++
++import pytest
++from fontTools.ttLib import TTFont
++
++from fontplayground.engine.merge import set_names
++from fontplayground.engine.spec import ForgeReport
++from fontplayground.ui import build as build_module
++from fontplayground.ui import model as model_module
++from fontplayground.ui import workers
++from fontplayground.ui.build import BuildController, BuildState
++from fontplayground.ui.model import ForgeModel
++from tests.fixtures import build_font, cps
++
++pytestmark = pytest.mark.skipif(sys.platform != "darwin", reason="CoreText is macOS only")
++
++CoreText = pytest.importorskip("CoreText")
++from fontplayground.ui.install_macos import MacInstaller  # noqa: E402
++
++
++def forged(path, family, style="Regular", chars="abc"):
++    p = build_font(path, family, style, cps(chars))
++    f = TTFont(str(p))
++    set_names(f, family, style, ["Fixture A Regular"])
++    f.save(str(p))
++    f.close()
++    return p
++
++
++def families():
++    return set(CoreText.CTFontManagerCopyAvailableFontFamilyNames())
++
++
++@pytest.fixture
++def mac(tmp_path):
++    inst = MacInstaller(tmp_path / "Fonts", scope=CoreText.kCTFontManagerScopeProcess, use_trash=False)
++    yield inst
++    for p in (tmp_path / "Fonts").glob("*.ttf"):   # leave nothing registered in this process
++        inst._remove(p, to_trash=False)
++
++
++def test_install_update_uninstall_round_trip(mac, tmp_path):
++    src = forged(tmp_path / "Mac Probe-Regular.ttf", "Mac Probe", chars="abc")
++    dest = mac.install_font_for_user(src, "Mac Probe Regular")
++    assert dest == tmp_path / "Fonts" / "Mac Probe-Regular.ttf" and dest.read_bytes() == src.read_bytes()
++    assert "Mac Probe" in families()
++    assert mac.installed_path("mac probe regular") == dest and mac.is_forged(dest)
++    assert [f.domain for f in mac.find_family("Mac Probe")] == ["user"]
++    assert not list((tmp_path / ".fontplayground-staging").iterdir())
++
++    newer = forged(tmp_path / "Mac Probe-Regular.ttf", "Mac Probe", chars="abcdef")   # Update, same name
++    assert mac.install_font_for_user(newer, "Mac Probe Regular") == dest and dest.read_bytes() == newer.read_bytes()
++    assert sorted(p.name for p in (tmp_path / "Fonts").iterdir()) == ["Mac Probe-Regular.ttf"]
++
++    assert mac.uninstall_font_for_user("Mac Probe Regular") is True
++    assert not dest.exists() and "Mac Probe" not in families()
++    assert mac.uninstall_font_for_user("Mac Probe Regular") is False
++    assert mac.installed_path("Mac Probe Regular") is None
++
++
++def test_an_earlier_copy_under_another_file_name_is_replaced_not_duplicated(mac, tmp_path):
++    fonts = tmp_path / "Fonts"
++    fonts.mkdir()
++    old = forged(fonts / "renamed-by-user.ttf", "Mac Dup", chars="ab")
++    src = forged(tmp_path / "Mac Dup-Regular.ttf", "Mac Dup", chars="abcd")
++    dest = mac.install_font_for_user(src, "Mac Dup Regular")
++    assert dest.name == "Mac Dup-Regular.ttf" and not old.exists()
++    assert [f.path.name for f in mac.find_postscript("MacDup-Regular")] == ["Mac Dup-Regular.ttf"]
++
++
++def test_another_font_holding_the_file_name_is_left_alone(mac, tmp_path):
++    fonts = tmp_path / "Fonts"
++    fonts.mkdir()
++    theirs = build_font(fonts / "Mac Other-Regular.ttf", "Somebody Else", "Regular", cps("ab"))
++    src = forged(tmp_path / "Mac Other-Regular.ttf", "Mac Other", chars="ab")
++    dest = mac.install_font_for_user(src, "Mac Other Regular")
++    assert dest.name == "Mac Other-Regular-1.ttf" and theirs.exists()
++
++
++def test_system_wide_lookups_see_what_the_catalog_cannot(mac):
++    assert {f.domain for f in mac.find_family("Helvetica")} == {"system"}
++    pingfang = mac.find_family("苹方-简")                       # native name, file lives in AssetsV2
++    assert pingfang and {f.domain for f in pingfang} == {"system"}
++    assert "AssetsV2" in str(pingfang[0].path) or "FontServices" in str(pingfang[0].path)
++    assert {f.domain for f in mac.find_postscript("Helvetica-Bold")} == {"system"}
++    assert mac.find_family("No Such Family 4711") == []
++
++
++def test_missing_file_and_junk(mac, tmp_path):
++    with pytest.raises(FileNotFoundError):
++        mac.install_font_for_user(tmp_path / "nope.ttf", "Nope")
++
++
++# ----- BuildController with the real MacInstaller ------------------------------------------------------------
++@pytest.fixture
++def controller(qapp, tmp_path, monkeypatch, font_dir, mac):
++    from fontplayground.catalog.face import read_faces
++    monkeypatch.setattr(model_module, "RESULT_DIR", tmp_path / "results")
++    monkeypatch.setattr(build_module, "STAGE_DIR", tmp_path / "stage")
++
++    def naming_forge(spec, output_path, progress=None):      # a real forged file named like the recipe
++        progress("merge", 0.5)
++        forged(output_path, spec.family_name, spec.style_name, chars="abc")
++        return ForgeReport([], 3, 4, [], str(output_path))
++    monkeypatch.setattr(workers, "forge", naming_forge)
++    (a,) = read_faces(font_dir / "A.ttf")
++    (b,) = read_faces(font_dir / "B.otf")
++    m = ForgeModel()
++    m.set_catalog({a.key: a, b.key: b})
++    m.add(a)
++    m.add(b)
++    c = BuildController(m, mac)
++    yield c
++    if m.worker is not None:
++        m.worker.wait(15000)
++    m.discard_result()
++
++
++def test_controller_blocks_names_macos_already_has(controller):
++    for name in ("Helvetica", "helvetica", "苹方-简", "PingFang SC"):
++        controller.model.set_family(name)
++        assert controller.conflict() == ("block", f"macOS already has a font called “{name}” — choose another name.")
++
++
++def test_controller_install_update_rename_uninstall(qtbot, controller, mac, tmp_path):
++    m = controller.model
++    m.set_family("Mac Flow")
++    assert controller.conflict() == ("none", "")
++    controller.install()
++    qtbot.waitUntil(lambda: controller.state is BuildState.INSTALLED, timeout=10000)
++    assert controller.installed_path == tmp_path / "Fonts" / "Mac Flow-Regular.ttf"
++    assert "Mac Flow" in families()
++
++    m.set_style("Bold")                                    # Update under a new name: the Regular goes
++    controller.install()
++    qtbot.waitUntil(lambda: controller.state is BuildState.INSTALLED and controller.installed_name == "Mac Flow Bold",
++                    timeout=10000)
++    assert sorted(p.name for p in (tmp_path / "Fonts").iterdir()) == ["Mac Flow-Bold.ttf"]
++
++    controller.reset()                                     # a later session: the font is found again and is ours
++    assert controller.conflict() == ("replace", "Replace the “Mac Flow Bold” you installed earlier?")
++    m.set_style("Regular")
++    assert controller.conflict() == ("none", "")          # another style of our family replaces nothing
++
++    controller.model.set_style("Bold")
++    controller.installed_name = "Mac Flow Bold"
++    controller.uninstall()
++    assert controller.notice == "Removed from your fonts." and not list((tmp_path / "Fonts").glob("*.ttf"))
++    assert "Mac Flow" not in families()

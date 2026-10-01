@@ -1,0 +1,584 @@
+{
+  "header": {
+    "generator": "python -m fpengine.shaping write-fixture",
+    "fpengine_version": "1.0.0",
+    "inputs": [
+      "engine/src/fpengine/shaping.py"
+    ]
+  },
+  "complex_groups": [
+    "hebrew",
+    "arabic",
+    "indic",
+    "southeast_asian"
+  ],
+  "scripts": [
+    {
+      "script": "Arab",
+      "name": "Arabic",
+      "group": "arabic",
+      "ot_tags": [
+        "arab"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Hebr",
+      "name": "Hebrew",
+      "group": "hebrew",
+      "ot_tags": [
+        "hebr"
+      ],
+      "marks_only": true,
+      "gpos_ok": true
+    },
+    {
+      "script": "Deva",
+      "name": "Devanagari",
+      "group": "indic",
+      "ot_tags": [
+        "dev2",
+        "deva"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Beng",
+      "name": "Bengali",
+      "group": "indic",
+      "ot_tags": [
+        "bng2",
+        "beng"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Guru",
+      "name": "Gurmukhi",
+      "group": "indic",
+      "ot_tags": [
+        "gur2",
+        "guru"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Gujr",
+      "name": "Gujarati",
+      "group": "indic",
+      "ot_tags": [
+        "gjr2",
+        "gujr"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Orya",
+      "name": "Odia",
+      "group": "indic",
+      "ot_tags": [
+        "ory2",
+        "orya"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Taml",
+      "name": "Tamil",
+      "group": "indic",
+      "ot_tags": [
+        "tml2",
+        "taml"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Telu",
+      "name": "Telugu",
+      "group": "indic",
+      "ot_tags": [
+        "tel2",
+        "telu"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Knda",
+      "name": "Kannada",
+      "group": "indic",
+      "ot_tags": [
+        "knd2",
+        "knda"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Mlym",
+      "name": "Malayalam",
+      "group": "indic",
+      "ot_tags": [
+        "mlm2",
+        "mlym"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Sinh",
+      "name": "Sinhala",
+      "group": "indic",
+      "ot_tags": [
+        "sinh"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Thai",
+      "name": "Thai",
+      "group": "southeast_asian",
+      "ot_tags": [
+        "thai"
+      ],
+      "marks_only": true,
+      "gpos_ok": true
+    },
+    {
+      "script": "Laoo",
+      "name": "Lao",
+      "group": "southeast_asian",
+      "ot_tags": [
+        "lao "
+      ],
+      "marks_only": true,
+      "gpos_ok": true
+    },
+    {
+      "script": "Khmr",
+      "name": "Khmer",
+      "group": "southeast_asian",
+      "ot_tags": [
+        "khmr"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Mymr",
+      "name": "Myanmar",
+      "group": "southeast_asian",
+      "ot_tags": [
+        "mym2",
+        "mymr"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Syrc",
+      "name": "Syriac",
+      "group": "other",
+      "ot_tags": [
+        "syrc"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Thaa",
+      "name": "Thaana",
+      "group": "other",
+      "ot_tags": [
+        "thaa"
+      ],
+      "marks_only": true,
+      "gpos_ok": true
+    },
+    {
+      "script": "Nkoo",
+      "name": "N'Ko",
+      "group": "other",
+      "ot_tags": [
+        "nko "
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Mong",
+      "name": "Mongolian",
+      "group": "other",
+      "ot_tags": [
+        "mong"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Tibt",
+      "name": "Tibetan",
+      "group": "other",
+      "ot_tags": [
+        "tibt"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Adlm",
+      "name": "Adlam",
+      "group": "other",
+      "ot_tags": [
+        "adlm"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    },
+    {
+      "script": "Rohg",
+      "name": "Hanifi Rohingya",
+      "group": "other",
+      "ot_tags": [
+        "rohg"
+      ],
+      "marks_only": false,
+      "gpos_ok": false
+    }
+  ],
+  "alternatives": {
+    "Arab": [
+      {
+        "family": "Damascus",
+        "postscript_name": "Damascus",
+        "where": "system"
+      },
+      {
+        "family": "Noto Nastaliq Urdu",
+        "postscript_name": "NotoNastaliqUrdu",
+        "where": "system"
+      },
+      {
+        "family": "Arial",
+        "postscript_name": "ArialMT",
+        "where": "system"
+      },
+      {
+        "family": "Times New Roman",
+        "postscript_name": "TimesNewRomanPSMT",
+        "where": "system"
+      },
+      {
+        "family": "Tahoma",
+        "postscript_name": "Tahoma",
+        "where": "system"
+      },
+      {
+        "family": "Courier New",
+        "postscript_name": "CourierNewPSMT",
+        "where": "system"
+      },
+      {
+        "family": "Microsoft Sans Serif",
+        "postscript_name": "MicrosoftSansSerif",
+        "where": "system"
+      }
+    ],
+    "Hebr": [
+      {
+        "family": "Arial Hebrew",
+        "postscript_name": "ArialHebrew",
+        "where": "system"
+      },
+      {
+        "family": "Arial Hebrew Scholar",
+        "postscript_name": "ArialHebrewScholar",
+        "where": "system"
+      },
+      {
+        "family": "Arial",
+        "postscript_name": "ArialMT",
+        "where": "system"
+      },
+      {
+        "family": "Times New Roman",
+        "postscript_name": "TimesNewRomanPSMT",
+        "where": "system"
+      },
+      {
+        "family": "Tahoma",
+        "postscript_name": "Tahoma",
+        "where": "system"
+      }
+    ],
+    "Deva": [
+      {
+        "family": "Kohinoor Devanagari",
+        "postscript_name": "KohinoorDevanagari-Regular",
+        "where": "system"
+      },
+      {
+        "family": "ITF Devanagari",
+        "postscript_name": "ITFDevanagari-Book",
+        "where": "system"
+      },
+      {
+        "family": "Devanagari Sangam MN",
+        "postscript_name": "DevanagariSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Shree Devanagari 714",
+        "postscript_name": "ShreeDev0714",
+        "where": "system"
+      }
+    ],
+    "Beng": [
+      {
+        "family": "Kohinoor Bangla",
+        "postscript_name": "KohinoorBangla-Regular",
+        "where": "system"
+      },
+      {
+        "family": "Bangla Sangam MN",
+        "postscript_name": "BanglaSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Bangla MN",
+        "postscript_name": "BanglaMN",
+        "where": "system"
+      },
+      {
+        "family": "Tiro Bangla",
+        "postscript_name": "TiroBangla",
+        "where": "asset"
+      }
+    ],
+    "Guru": [
+      {
+        "family": "Gurmukhi Sangam MN",
+        "postscript_name": "GurmukhiSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Gurmukhi MN",
+        "postscript_name": "GurmukhiMN",
+        "where": "system"
+      }
+    ],
+    "Gujr": [
+      {
+        "family": "Kohinoor Gujarati",
+        "postscript_name": "KohinoorGujarati-Regular",
+        "where": "system"
+      },
+      {
+        "family": "Gujarati Sangam MN",
+        "postscript_name": "GujaratiSangamMN",
+        "where": "system"
+      }
+    ],
+    "Orya": [
+      {
+        "family": "Oriya Sangam MN",
+        "postscript_name": "OriyaSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Oriya MN",
+        "postscript_name": "OriyaMN",
+        "where": "system"
+      },
+      {
+        "family": "Noto Sans Oriya",
+        "postscript_name": "NotoSansOriya",
+        "where": "system"
+      }
+    ],
+    "Taml": [
+      {
+        "family": "Tamil MN",
+        "postscript_name": "TamilMN",
+        "where": "system"
+      },
+      {
+        "family": "InaiMathi",
+        "postscript_name": "InaiMathi",
+        "where": "system"
+      },
+      {
+        "family": "Tamil Sangam MN",
+        "postscript_name": "TamilSangamMN-Medium",
+        "where": "asset"
+      }
+    ],
+    "Telu": [
+      {
+        "family": "Kohinoor Telugu",
+        "postscript_name": "KohinoorTelugu-Regular",
+        "where": "system"
+      },
+      {
+        "family": "Telugu Sangam MN",
+        "postscript_name": "TeluguSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Telugu MN",
+        "postscript_name": "TeluguMN",
+        "where": "system"
+      }
+    ],
+    "Knda": [
+      {
+        "family": "Kannada Sangam MN",
+        "postscript_name": "KannadaSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Kannada MN",
+        "postscript_name": "KannadaMN",
+        "where": "system"
+      },
+      {
+        "family": "Noto Sans Kannada",
+        "postscript_name": "NotoSansKannada-Regular",
+        "where": "system"
+      }
+    ],
+    "Mlym": [
+      {
+        "family": "Sama Malayalam",
+        "postscript_name": "SamaMalayalam-Regular",
+        "where": "asset"
+      },
+      {
+        "family": "Baloo Chettan 2",
+        "postscript_name": "BalooChettan2-Regular",
+        "where": "asset"
+      }
+    ],
+    "Sinh": [
+      {
+        "family": "Sinhala Sangam MN",
+        "postscript_name": "SinhalaSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Sinhala MN",
+        "postscript_name": "SinhalaMN",
+        "where": "system"
+      }
+    ],
+    "Thai": [
+      {
+        "family": "Sukhumvit Set",
+        "postscript_name": "SukhumvitSet-Text",
+        "where": "system"
+      },
+      {
+        "family": "Tahoma",
+        "postscript_name": "Tahoma",
+        "where": "system"
+      },
+      {
+        "family": "Microsoft Sans Serif",
+        "postscript_name": "MicrosoftSansSerif",
+        "where": "system"
+      }
+    ],
+    "Laoo": [
+      {
+        "family": "Lao Sangam MN",
+        "postscript_name": "LaoSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Lao MN",
+        "postscript_name": "LaoMN",
+        "where": "system"
+      }
+    ],
+    "Khmr": [
+      {
+        "family": "Khmer Sangam MN",
+        "postscript_name": "KhmerSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Khmer MN",
+        "postscript_name": "KhmerMN",
+        "where": "system"
+      }
+    ],
+    "Mymr": [
+      {
+        "family": "Myanmar Sangam MN",
+        "postscript_name": "MyanmarSangamMN",
+        "where": "system"
+      },
+      {
+        "family": "Myanmar MN",
+        "postscript_name": "MyanmarMN",
+        "where": "system"
+      },
+      {
+        "family": "Noto Sans Myanmar",
+        "postscript_name": "NotoSansMyanmar-Regular",
+        "where": "system"
+      }
+    ],
+    "Syrc": [
+      {
+        "family": "Noto Sans Syriac",
+        "postscript_name": "NotoSansSyriac-Regular",
+        "where": "system"
+      }
+    ],
+    "Thaa": [
+      {
+        "family": "Noto Sans Thaana",
+        "postscript_name": "NotoSansThaana-Regular",
+        "where": "system"
+      }
+    ],
+    "Nkoo": [
+      {
+        "family": "Noto Sans NKo",
+        "postscript_name": "NotoSansNKo-Regular",
+        "where": "system"
+      }
+    ],
+    "Mong": [
+      {
+        "family": "Noto Sans Mongolian",
+        "postscript_name": "NotoSansMongolian-Regular",
+        "where": "system"
+      }
+    ],
+    "Tibt": [],
+    "Adlm": [
+      {
+        "family": "Noto Sans Adlam",
+        "postscript_name": "NotoSansAdlam-Regular",
+        "where": "system"
+      }
+    ],
+    "Rohg": [
+      {
+        "family": "Noto Sans Hanifi Rohingya",
+        "postscript_name": "NotoSansHanifiRohingya-Regular",
+        "where": "system"
+      }
+    ]
+  }
+}

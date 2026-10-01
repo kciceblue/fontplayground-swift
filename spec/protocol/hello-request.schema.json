@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontplayground.invalid/protocol/1/hello-request.schema.json",
+  "title": "hello request (stdin of `python -m fpengine hello`)",
+  "description": "Normative. An empty JSON object. Unknown keys are ignored. For this command only, empty stdin is accepted as {}.",
+  "type": "object"
+}

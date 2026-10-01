@@ -1,0 +1,32 @@
+{
+  "spec": {
+    "materials": [
+      {
+        "path": "/fonts/FixtureSans-Regular.ttf",
+        "index": 0,
+        "expect": {
+          "postscript_name": null,
+          "size": 9776,
+          "mtime": 1790000000.0
+        }
+      },
+      {
+        "path": "/fonts/FixtureCJK-Regular.otf",
+        "index": 0,
+        "expect": {
+          "postscript_name": null,
+          "size": 81348,
+          "mtime": 1790000000.0
+        }
+      }
+    ],
+    "script_rules": {
+      "han": 1,
+      "kana": 1,
+      "cjk_symbols": 1
+    },
+    "family_name": "Fixture Forged",
+    "style_name": "Regular"
+  },
+  "output_path": "/builds/Forged.ttf"
+}
