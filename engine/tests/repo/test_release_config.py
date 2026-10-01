@@ -462,11 +462,13 @@ def test_release_signs_from_its_imported_keychain() -> None:
 
 def test_scripts_have_no_bare_bracket_checks() -> None:
     """macOS's bash 3.2 doesn't stop for a failed `[[ ]]` under `set -e`, so a check that is a whole statement passes
-    silently. release.sh's Gatekeeper and DMG checks were like that; every check must exit by itself."""
+    silently. release.sh's Gatekeeper and DMG checks were like that, and so were the shell tests' own assertions;
+    every check must exit by itself."""
     bare = re.compile(r"^\s*\[\[ .* \]\]\s*$")
+    scripts = [*(ROOT / "scripts").glob("*.sh"), *(ROOT / "scripts/tests").glob("*.sh")]
     offenders = [
-        f"{path.name}:{number}"
-        for path in sorted((ROOT / "scripts").glob("*.sh"))
+        f"{path.relative_to(ROOT)}:{number}"
+        for path in sorted(scripts)
         for number, line in enumerate(path.read_text().splitlines(), 1)
         if bare.match(line)
     ]
