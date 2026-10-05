@@ -43,6 +43,8 @@ public actor CatalogStore: FontCataloging {
     private var lastFingerprint: String?
     private var changeGeneration = 0
     private(set) var refreshCount = 0
+    /// Paths whose faces or errors are held for the next snapshot; tests check none outlives its file entry.
+    var retainedPaths: Set<String> { Set(working.faces.keys).union(working.errors.keys) }
 
     public init(
         engine: any EngineRunning, registry: any SystemFontRegistry = CoreTextFontRegistry(),
@@ -93,6 +95,8 @@ public actor CatalogStore: FontCataloging {
     private func cancelWaiter(_ id: UUID) {
         activeWaiters.removeValue(forKey: id)?.resume(throwing: CancellationError())
         queuedWaiters.removeValue(forKey: id)?.resume(throwing: CancellationError())
+        // Review L2: a queued refresh nobody waits for any more must not start.
+        if queuedWaiters.isEmpty { queuedMode = nil }
     }
     private func start(_ mode: RefreshMode) {
         active = Task {
@@ -156,11 +160,17 @@ public actor CatalogStore: FontCataloging {
                 if mode == .incremental, let hit = cache?.hit(file) {
                     working.files.append(file); working.faces[file.path] = hit.faces;
                     working.errors[file.path] = hit.error
-                } else if FontDiscovery.isSFNT(file.path) {
-                    working.files.append(file); misses.append(file)
                 } else {
-                    if !working.skipped.contains(where: { $0.path == file.path && $0.reason == .unsupportedFormat }) {
-                        working.skipped.append((file.path, .unsupportedFormat))
+                    switch FontDiscovery.probeFormat(file.path) {
+                    case .sfnt:
+                        working.files.append(file); misses.append(file)
+                    case .other:
+                        if !working.skipped.contains(where: { $0.path == file.path && $0.reason == .unsupportedFormat })
+                        {
+                            working.skipped.append((file.path, .unsupportedFormat))
+                        }
+                    case .unreadable(let code):
+                        working.folderIssues.append(FontDiscovery.discoveryFailure(file.path, status: -1, errno: code))
                     }
                 }
             }
@@ -303,7 +313,12 @@ public actor CatalogStore: FontCataloging {
                     files: [file], errors: [path: .init(code: "helper_failed", message: String(describing: error))])
             }
         }
-        working.files.removeAll { $0.stamp.identity == stamp.identity || $0.path == path }
+        let replaced = Set(working.files.filter { $0.stamp.identity == stamp.identity || $0.path == path }.map(\.path))
+        working.files.removeAll { replaced.contains($0.path) }
+        // Review L4: the same file found earlier under another path must not leave that path's records behind.
+        for old in replaced where old != path {
+            working.faces.removeValue(forKey: old); working.errors.removeValue(forKey: old)
+        }
         working.files.append(file); merge(result)
         working.menuVisible.formUnion((result.faces[path] ?? []).compactMap(\.postscriptName))
         publish(working.snapshot(complete: true, activity: .idle)); saveCache(); return snapshot

@@ -13,7 +13,7 @@ on:
     paths: [".github/workflows/release.yml", "scripts/**", "App/project.yml", "tools/release/**"]
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   UV_PYTHON: "3.12"
@@ -119,16 +119,6 @@ jobs:
           name: FontPlayground-arm64
           path: dist/*
           if-no-files-found: error
-      - name: Draft GitHub release
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # Curated notes for users when they exist; otherwise GitHub's list of merged PRs.
-          notes=(--generate-notes)
-          if [[ -f "docs/release/notes/$GITHUB_REF_NAME.md" ]]; then notes=(--notes-file "docs/release/notes/$GITHUB_REF_NAME.md"); fi
-          gh release create "$GITHUB_REF_NAME" dist/*.dmg dist/*.sha256 --draft --verify-tag \
-            --title "Font Playground ${GITHUB_REF_NAME#v}" "${notes[@]}"
       - name: Remove release credentials
         if: always()
         run: |
@@ -142,3 +132,30 @@ jobs:
           fi
           if [[ -f "$RUNNER_TEMP/release.keychain-db" ]]; then security delete-keychain "$RUNNER_TEMP/release.keychain-db"; fi
           rm -f "$RUNNER_TEMP/notary.p8" "$RUNNER_TEMP/release.p12" "$RUNNER_TEMP/keychains-before.txt"
+
+  # The release job also runs for pull requests that change scripts/**, so it keeps a read-only token. Only this
+  # tag-push job can write to the repository, and it runs no repository scripts.
+  publish:
+    needs: release
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+    runs-on: [self-hosted, macOS, ARM64, kcice-ci, kcice-build]
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: FontPlayground-arm64
+          path: dist
+      - name: Draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Curated notes for users when they exist; otherwise GitHub's list of merged PRs.
+          notes=(--generate-notes)
+          if [[ -f "docs/release/notes/$GITHUB_REF_NAME.md" ]]; then notes=(--notes-file "docs/release/notes/$GITHUB_REF_NAME.md"); fi
+          gh release create "$GITHUB_REF_NAME" dist/*.dmg dist/*.sha256 --draft --verify-tag \
+            --title "Font Playground ${GITHUB_REF_NAME#v}" "${notes[@]}"

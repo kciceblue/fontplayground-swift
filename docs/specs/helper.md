@@ -1270,7 +1270,7 @@ The embedded runtime wins over `FP_ENGINE_PYTHON` (architecture §3: "debug buil
      - remove `TMPDIR/fpengine-<pid>-*`, if `temporaryDirectory` is set;
      - for `forge`, remove `<dir of output_path>/.fpengine-<pid>-*.partial.ttf`.
    - Never remove `output_path` itself.
-9. **Cancellation.** `continuation.onTermination = { if case .cancelled = $0 { run.cancel() } }`. The stream is `.cancelled` both when the consuming `Task` is cancelled and when the iterator or stream is dropped early. `hello()` uses `withTaskCancellationHandler` the same way.
+9. **Cancellation.** `continuation.onTermination = { if case .cancelled = $0 { run.cancel() } }`. The stream is `.cancelled` both when the consuming `Task` is cancelled and when the iterator or stream is dropped early. `hello()` uses `withTaskCancellationHandler` the same way. `run.cancel()` returns only once the child has exited and its leftovers are gone, and Swift runs `onTermination` on the thread that cancels the consuming `Task`. That thread therefore waits too: for a helper that ignores SIGTERM, `terminationGrace` plus SIGKILL and reaping. Main-actor callers cancel from another thread (review 2026-10-05 M1; ui-shell.md WP-505 D2).
 10. **Timeouts.**
     - `hello` and `forge`: one child `Task` sleeps for the whole-run limit.
     - `scan`: the idle deadline is reset on every stdout line.

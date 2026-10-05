@@ -65,9 +65,25 @@ struct FolderWalker: Sendable {
         }
         let excludedIDs = Set(excluded.compactMap { DiscoveredFileStamp($0.path)?.identity })
         var visited: Set<DiscoveredFileStamp.Identity> = []
+        func statFailed(_ path: String, _ code: Int32) {
+            if code == EACCES || code == EPERM {
+                result.issues.append(.noAccess(folder: path))
+            } else if code != ENOENT {
+                result.issues.append(.folderUnreadable(folder: path, message: String(cString: strerror(code))))
+            }
+        }
         func descend(_ directory: URL, depth: Int) {
-            guard depth <= maxDepth, let stamp = DiscoveredFileStamp(directory.path),
-                !excludedIDs.contains(stamp.identity),
+            // Review L3: a subtree cut off by the depth limit or a failed stat is reported, never dropped silently.
+            guard depth <= maxDepth else {
+                result.issues.append(
+                    .folderUnreadable(
+                        folder: directory.path, message: "More than \(maxDepth) folders deep, so it was not searched."))
+                return
+            }
+            guard let stamp = DiscoveredFileStamp(directory.path) else {
+                let code = errno; statFailed(directory.path, code); return
+            }
+            guard !excludedIDs.contains(stamp.identity),
                 !excluded.contains(where: { directory.standardizedFileURL.path == $0.standardizedFileURL.path }),
                 visited.insert(stamp.identity).inserted
             else { return }
@@ -98,16 +114,7 @@ struct FolderWalker: Sendable {
                 let url = directory.appendingPathComponent(name)
                 if name.hasPrefix("._") { result.skipped.append((url, .appleDouble)); continue }
                 var info = stat()
-                guard stat(url.path, &info) == 0 else {
-                    let code = errno
-                    if code == EACCES || code == EPERM {
-                        result.issues.append(.noAccess(folder: url.path))
-                    } else if code != ENOENT {
-                        result.issues.append(
-                            .folderUnreadable(folder: url.path, message: String(cString: strerror(code))))
-                    }
-                    continue
-                }
+                guard stat(url.path, &info) == 0 else { let code = errno; statFailed(url.path, code); continue }
                 let isDirectory = info.st_mode & S_IFMT == S_IFDIR
                 let ext = url.pathExtension.lowercased()
                 if name.hasPrefix(".") {

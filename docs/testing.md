@@ -17,7 +17,7 @@ WP-001 creates these targets. Specs and acceptance criteria refer to them by nam
 | `make conformance` | regenerates `spec/fixtures/**` with `tools/conformance/generate.py`, after verifying the frozen files listed in `spec/fixtures/FROZEN.sha256` |
 | `make conformance-check` | `make conformance`, then fails if `spec/fixtures/` or `Packages/FontPlaygroundKit/Sources/FPCore/Generated/` shows drift or untracked files |
 | `make kit-test` | `swift test --package-path Packages/FontPlaygroundKit` |
-| `make mac-test` | `swift test --package-path Packages/FontPlaygroundMacKit` |
+| `make mac-test` | `swift test --package-path Packages/FontPlaygroundMacKit --skip PerformanceTests`, then the same with `--no-parallel --filter PerformanceTests` (§5) |
 | `make test` | `engine-test` + `conformance-check` + `kit-test` + `mac-test` |
 | `make app` | `xcodegen generate --spec App/project.yml` + `xcodebuild -scheme FontPlayground -configuration Debug build` |
 | `make helper-runtime` | `scripts/build-helper-runtime.sh` → `build/helper/fpengine/` |
@@ -84,6 +84,10 @@ Mac CI and release checks set `SWIFT_TEST_FLAGS=--no-parallel` for MacKit.
 This prevents concurrent AppKit suites from competing with frame-time and
 callback-deadline measurements. Performance thresholds stay unchanged; local
 `make mac-test` keeps its normal defaults unless the variable is supplied.
+Either way, `make mac-test` runs the frame-time suites (`*PerformanceTests`)
+in a second, serial `swift test` pass after the rest. Run in parallel with the
+other suites on an idle M-series Mac, the WP503 scroll p95 used 15.5 of its
+16.7 ms; on its own it uses about 10.5 ms.
 
 CI doesn't set `FP_PERF_FACTOR`. On the Mac mini runner, CPU-bound timings
 (`WP503 rows`, `WP503 open`) match a developer Mac. Its timers are coarse,

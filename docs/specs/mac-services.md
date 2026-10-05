@@ -593,7 +593,7 @@ Rules, applied while descending (use POSIX `opendir`/`readdir` plus `stat`, beca
 3. Directory named `__MACOSX` → pruned.
 4. Package directories (extension in `app, bundle, framework, photoslibrary, plugin, kext, xpc, appex`, or `URLResourceValues.isPackage == true`) are pruned unless the directory is the root itself (CRIT-3: Office `DFonts`).
 5. `<home>/Library/Containers` and `<home>/Library/Group Containers` are never entered (TCC prompt, CRIT-5).
-6. Symlinked directories are followed, but each directory identity `(st_dev, st_ino)` is entered once per walk (cycle protection). Symlinked files are followed too (identity dedupe in §4 removes duplicates). The path keeps the symlink spelling (contracts §2). Maximum depth is 32 below the root. Broken links are ignored. Finder alias files are not resolved: one named `*.ttf` fails the sniff in §4 and is skipped as `.unsupportedFormat`.
+6. Symlinked directories are followed, but each directory identity `(st_dev, st_ino)` is entered once per walk (cycle protection). Symlinked files are followed too (identity dedupe in §4 removes duplicates). The path keeps the symlink spelling (contracts §2). Maximum depth is 32 below the root; a directory beyond it is not entered and is reported once as `.folderUnreadable(folder:message:)` (review 2026-10-05 L3). Broken links are ignored. Finder alias files are not resolved: one named `*.ttf` fails the sniff in §4 and is skipped as `.unsupportedFormat`.
 7. Files by extension (case-insensitive):
    - `fontExtensions` → candidate;
    - `unsupportedFontExtensions` → skipped `.unsupportedFormat`;
@@ -618,7 +618,7 @@ For each candidate:
 - Assign the origin (S3, `FaceOrigin.classify`). A file that is both CoreText-registered and inside an extra folder is `.activated`.
 - Record `DiscoveredFile(path, origin, stamp(size, mtime, dev, ino), registeredPostscriptNames)`, where `mtime` = `st_mtimespec` as `Double(tv_sec) + Double(tv_nsec) / 1e9`.
 
-Sniffing (only for files that are not cache hits, §6): read the first 4 bytes big-endian. A value not in `sfntMagics` (including a file shorter than 4 bytes) → skipped `.unsupportedFormat`, never sent to the helper, never counted as unreadable (`CATALOG-10`: `.dfont` suitcases, extensionless Type 1). Skipped files are not cached, so they are sniffed again on every refresh (4 bytes each).
+Sniffing (only for files that are not cache hits, §6): read the first 4 bytes big-endian. A value not in `sfntMagics` (including a file shorter than 4 bytes) → skipped `.unsupportedFormat`, never sent to the helper, never counted as unreadable (`CATALOG-10`: `.dfont` suitcases, extensionless Type 1). A file that cannot be opened or read gets no format verdict: it becomes a folder issue `.unreadable(path:code:message:)`, `not_found` for `ENOENT` and `io_error` with the `strerror` text otherwise, the same shape as a failed discovery `stat` (review 2026-10-05 M2). Skipped files are not cached, so they are sniffed again on every refresh (4 bytes each).
 
 ```swift
 struct DiscoveredFile: Hashable, Sendable {

@@ -180,5 +180,46 @@ struct CatalogStoreTests {
         #expect(snapshot.annotations.values.first?.origin == .activated)
         #expect(f.registry.calls.isEmpty); #expect(await f.engine.calls.isEmpty)
     }
+    @Test("Review M2: a font that cannot be opened is unreadable, not an unsupported format")
+    func reviewM2UnreadableFontIsNotUnsupported() async throws {
+        let f = try CatalogFixture(); defer { f.cleanup() }
+        let good = try f.stub("A.ttf"), locked = try f.stub("Locked.ttf")
+        let short = try f.stub("Short.ttf", bytes: Data([0, 1]))
+        #expect(chmod(locked.path, 0) == 0); defer { chmod(locked.path, 0o600) }
+        let snapshot = try await f.store().refresh(.incremental)
+        #expect(
+            snapshot.issues.contains(.unreadable(path: locked.path, code: "io_error", message: "Permission denied.")))
+        #expect(!snapshot.issues.contains(.skipped(path: locked.path, reason: .unsupportedFormat)))
+        #expect(snapshot.issues.contains(.skipped(path: short.path, reason: .unsupportedFormat)))
+        #expect(snapshot.counts.unreadableFiles == 1 && snapshot.counts.skippedFiles == 1)
+        #expect(await f.engine.calls == [[good.path]])
+    }
+    @Test("Review L2: a cancelled queued refresh does not run") func reviewL2CancelledQueuedRefreshDoesNotRun()
+        async throws
+    {
+        let f = try CatalogFixture(); defer { f.cleanup() }; _ = try f.stub("A.ttf")
+        await f.engine.blockNextScan(); let store = await f.store()
+        let first = Task { try await store.refresh(.incremental) }
+        try await eventually { await f.engine.calls.count == 1 }
+        let queued = Task { try await store.refresh(.full) }
+        try await Task.sleep(for: .milliseconds(50)); queued.cancel()
+        await #expect(throws: CancellationError.self) { try await queued.value }
+        await f.engine.release(); _ = try await first.value
+        // Queues behind a stray refresh if the cancelled one still runs; otherwise starts at once and hits the cache.
+        _ = try await store.refresh(.incremental)
+        #expect(await store.refreshCount == 2); #expect(await f.engine.calls.count == 1)
+    }
+    @Test("Review L4: an own install found under another path drops the old path's records")
+    func reviewL4NoteInstalledDropsTheReplacedPath() async throws {
+        let f = try CatalogFixture(); defer { f.cleanup() }; let old = try f.stub("A.ttf")
+        let store = await f.store(); _ = try await store.refresh(.incremental)
+        let alias = f.root.appendingPathComponent("outside/A.ttf")
+        try FileManager.default.createDirectory(
+            at: alias.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try FileManager.default.linkItem(at: old, to: alias)  // the same file identity under another path
+        let snapshot = try await store.noteInstalled(alias)
+        #expect(snapshot.faces.map(\.path) == [alias.path])
+        #expect(await store.retainedPaths == [alias.path])
+    }
 
 }

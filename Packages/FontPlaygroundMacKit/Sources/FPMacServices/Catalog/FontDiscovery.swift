@@ -74,10 +74,32 @@ struct FontDiscovery: Sendable {
         if status == 0 { return .unreadable(path: path, code: "io_error", message: "Not a regular file.") }
         return .unreadable(path: path, code: "io_error", message: String(cString: strerror(error)) + ".")
     }
-    static func isSFNT(_ path: String) -> Bool {
-        guard let file = try? FileHandle(forReadingFrom: URL(fileURLWithPath: path)) else { return false }
-        defer { try? file.close() }
-        guard let bytes = try? file.read(upToCount: 4), bytes.count == 4 else { return false }
-        return MacServicesConstants.sfntMagics.contains(bytes.reduce(UInt32(0)) { ($0 << 8) | UInt32($1) })
+    enum FormatProbe: Equatable, Sendable {
+        case sfnt, other
+        case unreadable(errno: Int32)
+    }
+    /// Sniffs the first four bytes. A file that cannot be opened or read gets no format verdict (review M2): calling a
+    /// font the user cannot read "unsupported" would send them looking at the wrong problem.
+    static func probeFormat(_ path: String) -> FormatProbe {
+        let descriptor = open(path, O_RDONLY | O_CLOEXEC)
+        guard descriptor >= 0 else { return .unreadable(errno: errno) }
+        defer { close(descriptor) }
+        var bytes: [UInt8] = [0, 0, 0, 0]
+        var count = 0
+        while count < bytes.count {
+            let got = bytes.withUnsafeMutableBytes { read(descriptor, $0.baseAddress! + count, 4 - count) }
+            if got > 0 {
+                count += got
+            } else if got == 0 {
+                break
+            } else {
+                let code = errno
+                if code != EINTR { return .unreadable(errno: code) }
+            }
+        }
+        // Shorter than any sfnt header: not a font, whatever its extension says.
+        guard count == bytes.count else { return .other }
+        let magic = bytes.reduce(UInt32(0)) { ($0 << 8) | UInt32($1) }
+        return MacServicesConstants.sfntMagics.contains(magic) ? .sfnt : .other
     }
 }
