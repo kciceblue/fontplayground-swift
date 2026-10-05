@@ -217,7 +217,9 @@ import Observation
             let request = recipe.forgeRequest(outputPath: url.path)
             var report: ForgeReport?
             for try await event in services.engine.forge(request) {
-                guard current(id) else { return false }
+                // Keep iterating until the stream ends: a superseded run's cancel arrives from another thread, and
+                // leaving early would drop the stream without stopping its helper.
+                guard current(id) else { continue }
                 switch event {
                 case .progress(let progress):
                     if case .building(_, let previous, _, false) = state {
@@ -254,12 +256,20 @@ import Observation
     private var stopping: Bool { if case .building(_, _, _, let stopping) = state { stopping } else { false } }
     public func cancel() {
         guard case .building(let intent, _, let fraction, false) = state else { return }
-        state = .building(intent: intent, stage: BuildText.stopping, fraction: fraction, stopping: true); task?.cancel()
+        state = .building(intent: intent, stage: BuildText.stopping, fraction: fraction, stopping: true)
+        Self.cancelOffMainThread(task)
+    }
+    /// Swift runs the engine stream's `onTermination` on the thread that cancels its consumer, and that handler returns
+    /// only once the helper has exited (NATIVE-7): up to `terminationGrace` plus SIGKILL and reaping when the helper
+    /// ignores SIGTERM. Cancelling from elsewhere keeps the window responsive and the quit deadline running (review M1).
+    private nonisolated static func cancelOffMainThread(_ task: Task<Void, Never>?) {
+        guard let task else { return }
+        DispatchQueue.global(qos: .userInitiated).async { task.cancel() }
     }
     public func cancelAndWait() async {
         guard let task else { return }
         let id = runID, output = outputURL
-        cancel(); task.cancel()
+        cancel(); Self.cancelOffMainThread(task)
         await withCheckedContinuation { continuation in
             let race = BuildWaitRace(continuation)
             Task {
@@ -310,7 +320,7 @@ import Observation
         }
     }
     public func reset() {
-        task?.cancel(); runID = UUID(); task = nil; pendingOperation = false; endActivity()
+        Self.cancelOffMainThread(task); runID = UUID(); task = nil; pendingOperation = false; endActivity()
         if let outputURL, let app { BuildOutputs.delete(outputURL, builds: app.services.paths.builds) }
         outputURL = nil; discardResultFiles(); installed = nil; pendingRemoval = nil; savedURL = nil
         notice = nil; lastReport = nil; lastErrorDetail = nil; state = .idle

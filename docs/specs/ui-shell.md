@@ -1293,13 +1293,13 @@ Entering `building`, `installing` or `saving` clears `notice` and the previous f
 
 - **Output path.** `paths.builds/forged-<UUID().uuidString.lowercased()>.ttf` (contracts §8). `builds/` is created when needed.
 - **Request.** `app.recipe.forgeRequest(outputPath:)`. It carries each material's `expect`, so a changed file fails with `stale_material` (contracts §4).
-- **Running.** The `services.engine.forge(request)` stream is consumed inside the build `Task` (D1). Cancelling that `Task` is the whole cancel protocol (ADR-0003).
+- **Running.** The `services.engine.forge(request)` stream is consumed inside the build `Task` (D1). Cancelling that `Task` is the whole cancel protocol (ADR-0003). `cancel()`, `cancelAndWait()` and `reset()` cancel it from a global dispatch queue, never on the main actor: the engine stream holds the cancelling thread until the helper has exited (helper.md WP-204 step 9), up to about 3 s for a helper that ignores SIGTERM. A superseded run keeps draining its stream until that cancel lands, rather than dropping the stream with the helper still running (review 2026-10-05 M1).
 - **Lifecycle.** At most one result file exists.
   - The previous result file is deleted when a new result arrives, on `reset()`, and in `discardResultFiles()` (called at quit).
   - A failed or cancelled build deletes its own output file if it exists.
   - A stale result is kept until one of those events, because an undo can make it fresh again.
   - `BuildOutputs.delete(_ url: URL, builds: URL)` deletes only a file directly inside `builds/` whose name matches `^forged-.*\.ttf$`; for any other URL it does nothing and logs.
-- `cancelAndWait()`: cancels the build `Task` if one runs, then awaits `task.value`, but at most 3 s (a racing `Task.sleep`), then deletes the output file. The helper itself exits within about 1 s of SIGTERM (helper.md AC-201-16).
+- `cancelAndWait()`: cancels the build `Task` if one runs (off the main actor, as above), then awaits `task.value`, but at most 2.8 s (a racing `Task.sleep`, leaving headroom inside the 3 s quit deadline), then deletes the output file. The helper itself exits within about 1 s of SIGTERM (helper.md AC-201-16).
 
 **D3. Stage text (port of `model.py:50-63`; stage values from contracts §5).** `StageText.text(for stage: EngineStage, materialIndex: Int?, materials: [Material]) -> String?` maps each stage to a `BuildText` string; `nil` means "keep the previous text":
 

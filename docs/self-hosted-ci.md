@@ -15,6 +15,14 @@ fleet jobs are coarse, though. The WP503 scroll test's 16 ms sleeps stretched ea
 step to about 145 ms, which the earlier dedicated runner did not show. Tests must
 not depend on sleep precision ([testing](testing.md) §3).
 
+Release signing passes two passwords on `security` command lines, where any
+local account can read them with `ps` while the command runs: the throwaway
+keychain password (random per run) and `MACOS_DEVELOPER_ID_P12_PASSWORD`
+(`security import -P`, which has no non-interactive way to read it from stdin
+or a file). That is acceptable while this Mac mini runs only the maintainer's
+jobs, one at a time. Before other people's jobs or accounts share it, move
+release signing to a dedicated runner (review 2026-10-05 L6).
+
 Codex reviews use the maintainer's existing subscription, read-only execution,
 and one advisory PR comment. Automatic cloud reviews remain disabled globally.
 Fork PRs cannot run on the private hosts. GitHub artifact storage and OpenAI

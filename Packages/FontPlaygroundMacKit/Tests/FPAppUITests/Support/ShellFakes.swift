@@ -20,6 +20,13 @@ final class ShellFakeEngine: EngineRunning, @unchecked Sendable {
     private var requests: [ForgeRequest] = []
     private var continuation: AsyncThrowingStream<ForgeEvent, any Error>.Continuation?
     private var didCancel = false
+    private var stopDelay: TimeInterval = 0
+    /// Holds the cancelling thread inside `onTermination`, as `HelperRun.cancel()` does until the helper has exited
+    /// (NATIVE-7): up to `terminationGrace` plus SIGKILL and reaping when the helper ignores SIGTERM.
+    var terminationDelay: TimeInterval {
+        get { lock.withLock { stopDelay } }
+        set { lock.withLock { stopDelay = newValue } }
+    }
     var helloResult: Result<EngineHello, EngineError> {
         get { lock.withLock { result } }
         set { lock.withLock { result = newValue } }
@@ -39,7 +46,9 @@ final class ShellFakeEngine: EngineRunning, @unchecked Sendable {
                 requests.append(request); continuation = c
             }
             c.onTermination = { [weak self] state in
-                if case .cancelled = state { self?.lock.withLock { self?.didCancel = true }; c.finish() }
+                guard case .cancelled = state else { return }
+                if let delay = self?.terminationDelay, delay > 0 { Thread.sleep(forTimeInterval: delay) }
+                self?.lock.withLock { self?.didCancel = true }; c.finish()
             }
         }
     }

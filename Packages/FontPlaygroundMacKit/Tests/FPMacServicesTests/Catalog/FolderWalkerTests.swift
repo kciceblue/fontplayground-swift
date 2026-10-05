@@ -48,5 +48,18 @@ struct FolderWalkerTests {
                 if case .folderUnreadable(loop.path, _) = $0 { return true }; return false
             })
     }
+    @Test("Review L3: a folder below the depth limit is reported, not dropped silently")
+    func reviewL3DepthLimitIsReported() throws {
+        let f = try CatalogFixture(); defer { f.cleanup() }
+        _ = try f.stub("a/A.ttf"); _ = try f.stub("a/b/B.ttf"); _ = try f.stub("a/b/c/C.ttf")
+        let result = FolderWalker(homeDirectory: f.root, maxDepth: 1).walk(f.fonts, reportMissingRoot: true)
+        #expect(result.files.map(\.lastPathComponent) == ["A.ttf"])
+        let deep = f.fonts.appendingPathComponent("a/b").path
+        #expect(result.issues.count == 1)
+        #expect(
+            result.issues.contains {
+                if case .folderUnreadable(deep, _) = $0 { return true }; return false
+            })
+    }
 
 }

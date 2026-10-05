@@ -48,6 +48,16 @@ extension BuildFlowIntegration {
             #expect(r.bar.status == "Cancelled." && r.bar.primaryTitle == "Install")
             #expect(await r.installer.installs.isEmpty)
         }
+        @Test("Review M1: Stop returns while the helper is still stopping")
+        func reviewM1StopDoesNotWaitOnTheMainThread() async throws {
+            let r = try BuildTestRig(); defer { r.cleanup() }; r.engine.terminationDelay = 0.5
+            await r.startInstall()
+            let start = ContinuousClock.now; r.build.cancel()
+            #expect(start.duration(to: .now) < .milliseconds(100))
+            #expect(r.bar.status == "Building your font — stopping…")
+            await shellEventually { r.build.state == .cancelled }
+            #expect(r.engine.cancelled && !r.model.isBuilding)
+        }
         @Test func installIsIgnoredWhileBusyOrInvalid() async throws {
             let r = try BuildTestRig(); defer { r.cleanup() }; await r.startInstall()
             r.build.install(); r.build.saveCopy(); await Task.yield()

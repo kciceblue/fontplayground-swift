@@ -22,5 +22,13 @@ public enum AtomicFile {
         guard rename(temporary.path, destination.path) == 0 else {
             throw POSIXError(POSIXErrorCode(rawValue: errno) ?? .EIO)
         }
+        // Review L5: sync the folder as well, so the rename itself is on disk. The new file is already in place, so a
+        // folder that cannot be synced does not fail the write. No F_FULLFSYNC: drafts and the catalog cache are
+        // rewritten often and can be rebuilt, which does not justify flushing the whole drive cache each time.
+        let folder = open(parent.path, O_RDONLY)
+        if folder >= 0 {
+            _ = fsync(folder)
+            close(folder)
+        }
     }
 }

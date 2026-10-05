@@ -59,8 +59,13 @@ conformance-check: conformance
 kit-test:
 	"$(SWIFT)" test --package-path $(KIT)
 
+# Frame-time suites run on their own and serially, so other suites cannot compete with their measurements
+# (docs/testing.md §5).
+MAC_PERF_TESTS := PerformanceTests
+
 mac-test:
-	"$(SWIFT)" test $(SWIFT_TEST_FLAGS) --package-path $(MACKIT)
+	"$(SWIFT)" test $(SWIFT_TEST_FLAGS) --package-path $(MACKIT) --skip '$(MAC_PERF_TESTS)'
+	"$(SWIFT)" test $(SWIFT_TEST_FLAGS) --no-parallel --package-path $(MACKIT) --filter '$(MAC_PERF_TESTS)'
 
 test: engine-test conformance-check kit-test mac-test
 

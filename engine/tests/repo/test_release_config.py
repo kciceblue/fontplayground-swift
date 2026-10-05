@@ -94,6 +94,21 @@ def test_tooling_1_release_order() -> None:
     )
 
 
+def test_review_l1_only_the_tag_job_can_write() -> None:
+    """Pull-request runs execute PR-modified scripts, so the job they share with tag builds keeps a read-only token."""
+    workflow = (ROOT / ".github/workflows/release.yml").read_text()
+    header, body = workflow.split("\njobs:\n", 1)
+    assert re.search(r"^permissions:\n  contents: read\n", header, re.M)
+    jobs = dict(re.findall(r"^  ([a-z][a-z0-9_-]*):\n((?:(?:    .*|\s*#.*)?\n)*)", body, re.M))
+    assert set(jobs) == {"release", "publish"}
+    assert [name for name, text in jobs.items() if "contents: write" in text] == ["publish"]
+    publish = jobs["publish"]
+    assert "if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}" in publish
+    assert "needs: release" in publish
+    assert "scripts/" not in publish and "make " not in publish
+    assert "gh release create" in publish and "GH_TOKEN" not in jobs["release"]
+
+
 def test_crit_1_release_runs_sdk_check() -> None:
     for path in ["scripts/release.sh", ".github/workflows/ci.yml"]:
         assert "scripts/check-sdk.sh" in (ROOT / path).read_text()
@@ -247,8 +262,10 @@ def test_wp701_finding_e_acknowledgement_headings_name_each_component_once(
 
 def test_tooling_1_adhoc_dispatch_never_creates_a_release() -> None:
     workflow = (ROOT / ".github/workflows/release.yml").read_text()
-    release_step = workflow.split("- name: Draft GitHub release\n", 1)[1].split("- name:", 1)[0]
-    assert "if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')" in release_step
+    publish = workflow.split("\n  publish:\n", 1)[1]
+    tag_only = "if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}"
+    assert publish.index(tag_only) < publish.index("- name: Draft GitHub release")
+    assert workflow.count("gh release create") == 1 and "gh release create" in publish
     assert 'if [[ "$GITHUB_EVENT_NAME" == push && "$GITHUB_REF_TYPE" == tag ]]; then' in workflow
 
 
@@ -414,7 +431,12 @@ def _step_script(workflow: str, name: str) -> str:
     step = workflow.split(f"- name: {name}\n", 1)[1].split("\n      - ", 1)[0]
     lines = step.split("run: |\n", 1)[1].splitlines()
     indent = len(lines[0]) - len(lines[0].lstrip())
-    return "\n".join(line[indent:] for line in lines) + "\n"
+    body = []
+    for line in lines:
+        if line.strip() and len(line) - len(line.lstrip()) < indent:
+            break  # the last step of a job ends where the next job starts
+        body.append(line[indent:])
+    return "\n".join(body).rstrip("\n") + "\n"
 
 
 @pytest.mark.parametrize("before", ["", '    "/Users/ci/Library/Keychains/login.keychain-db"\n'])
